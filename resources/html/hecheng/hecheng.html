@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合成图鉴 - 优化版</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: #e2e8f0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(26, 32, 44, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #2b6cb0 0%, #4299e1 100%);
+            padding: 25px 30px;
+            text-align: center;
+            border-bottom: 2px solid #63b3ed;
+        }
+        
+        .user_font_title {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+        }
+        
+        .progress-info {
+            font-size: 18px;
+            color: #ebf4ff;
+            margin-bottom: 12px;
+        }
+        
+        .progress-bar {
+            width: 300px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #48bb78 0%, #81e6d9 100%);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(72, 187, 120, 0.6);
+        }
+        
+        .progress-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .category-section {
+            margin: 30px 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: rgba(45, 55, 72, 0.6);
+        }
+        
+        .category-header {
+            background: linear-gradient(90deg, #3a1c71, #d76d77);
+            padding: 16px 25px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .category-count {
+            font-size: 16px;
+            opacity: 0.9;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        
+        .synthesis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 25px;
+            background: rgba(30, 36, 48, 0.7);
+        }
+        
+        .synthesis-item {
+            background: linear-gradient(145deg, #2a3a5c, #1e293b);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(101, 119, 155, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .synthesis-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3a1c71, #d76d77);
+        }
+        
+        .synthesis-item:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(101, 119, 155, 0.5);
+        }
+        
+        .item-name {
+            font-size: 20px;
+            color: #FFD700;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .item-name::before {
+            content: '📦';
+            font-size: 18px;
+        }
+        
+        .materials-list {
+            margin-top: 10px;
+        }
+        
+        .material-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            transition: background 0.2s;
+        }
+        
+        .material-row:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+        }
+        
+        .material-name {
+            flex: 2;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+        
+        .material-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(74, 85, 104, 0.5);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        .material-type {
+            flex: 1;
+            color: #aaa;
+            font-size: 14px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        
+        .material-amount {
+            flex: 0.5;
+            text-align: right;
+            color: #68d391;
+            font-weight: bold;
+            font-size: 16px;
+            text-shadow: 0 0 5px rgba(104, 211, 145, 0.3);
+        }
+        
+        .user_bottom2 {
+            height: 30px;
+            background: linear-gradient(90deg, #2b6cb0 0%, #4299e1 100%);
+            margin-top: 40px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 900px) {
+            .synthesis-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .synthesis-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .user_font_title {
+                font-size: 24px;
+            }
+            
+            .progress-bar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部玩家信息 -->
+        <div class="header">
+            <div class="user_font user_font_title">{{nickname}}的合成图鉴</div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 动态分类遍历区域 -->
+        {{each sortedCategories category}}
+          {{if categorizedItems[category].length > 0}}
+          <div class="category-section">
+            <div class="category-header">
+              <span>{{category}}</span>
+              <span class="category-count">{{categorizedItems[category].length}}个项目</span>
+            </div>
+            <div class="synthesis-grid">
+              {{each categorizedItems[category] item}}
+              <div class="synthesis-item">
+                <div class="item-name">{{item.name}}</div>
+                <div class="materials-list">
+                  {{each item.materials mat}}
+                  <div class="material-row">
+                    <span class="material-name">
+                      <span class="material-icon">
+                        {{if mat.class == '道具'}}📘
+                        {{else if mat.class == '材料'}}📦
+                        {{else if mat.class == '武器'}}⚔️
+                        {{else if mat.class == '工具'}}🛠️
+                        {{else}}📦
+                        {{/if}}
+                      </span>
+                      {{mat.name}}
+                    </span>
+                    <span class="material-type">{{mat.class}}</span>
+                    <span class="material-amount">×{{mat.amount}}</span>
+                  </div>
+                  {{/each}}
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+          {{/if}}
+        {{/each}}
+
+        <div class="user_bottom2"></div>
+    </div>
+</body>
+</html>

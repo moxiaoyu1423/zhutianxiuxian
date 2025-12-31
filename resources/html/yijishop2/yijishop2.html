@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天机符楼</title>
+    <link rel="stylesheet" type="text/css" href="{{pluResPath}}/html/yijishop2/yijishop2.css" />
+    <link rel="preload" href="../../font/tttgbnumber.ttf" as="font" />
+    <link rel="shortcut icon" href="#" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: url('{{pluResPath}}/img/tianjifu_bg.jpg') no-repeat center/cover fixed;
+            color: #e2e8f0;
+            padding: 15px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(18, 22, 51, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            border: 1px solid rgba(101, 119, 155, 0.4);
+            backdrop-filter: blur(5px);
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #2c3e50 0%, #4ca1af 100%);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #5dade2;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 10px;
+            background: radial-gradient(ellipse at center, rgba(93, 173, 226, 0.8) 0%, transparent 70%);
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #58d68d;
+            text-shadow: 0 0 10px rgba(88, 214, 141, 0.5);
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #aed6f1;
+        }
+        
+        .warning {
+            background: rgba(231, 76, 60, 0.2);
+            padding: 10px;
+            margin: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+            font-size: 14px;
+        }
+        
+        .commodities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 25px;
+        }
+        
+        .commodity-card {
+            background: linear-gradient(145deg, rgba(44, 62, 80, 0.7), rgba(26, 82, 118, 0.7));
+            border-radius: 12px;
+            padding: 18px;
+            border: 1px solid rgba(93, 173, 226, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .commodity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+        }
+        
+        .commodity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.2);
+        }
+        
+        .commodity-header {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+        }
+        
+        .commodity-type {
+            font-size: 14px;
+            color: #a0aec0;
+            margin-bottom: 5px;
+        }
+        
+        .commodity-name {
+            font-size: 18px;
+            color: #58d68d;
+            font-weight: bold;
+        }
+        
+        .price-info {
+            margin: 12px 0;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .price-label {
+            color: #a0aec0;
+        }
+        
+        .price-value {
+            color: #f4d03f;
+            font-weight: 500;
+        }
+        
+        .commodity-stats {
+            margin: 15px 0;
+        }
+        
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 14px;
+        }
+        
+        .stat-label {
+            color: #a0aec0;
+        }
+        
+        .stat-value {
+            color: #e2e8f0;
+        }
+        
+        .commodity-desc {
+            font-size: 14px;
+            color: #cbd5e0;
+            margin-top: 12px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            line-height: 1.5;
+        }
+        
+        .talisman-effect {
+            background: rgba(46, 204, 113, 0.1);
+            border-left: 3px solid #2ecc71;
+            padding: 8px;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+        
+        /* 限购状态样式 */
+        .sold-out {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .in-stock {
+            color: #2ecc71;
+        }
+        
+        .limit-info {
+            font-size: 12px;
+            margin-top: 10px;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+        }
+        
+        .stock-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+        
+        .stock-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #2ecc71, #f1c40f);
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+        
+        .rarity-5 { border-left: 4px solid #f4d03f; }
+        .rarity-4 { border-left: 4px solid #5dade2; }
+        .rarity-3 { border-left: 4px solid #58d68d; }
+        .rarity-2 { border-left: 4px solid #a569bd; }
+        .rarity-1 { border-left: 4px solid #a0aec0; }
+        
+        .footer {
+            text-align: center;
+            padding: 15px;
+            color: #a0aec0;
+            font-size: 14px;
+            border-top: 1px solid rgba(101, 119, 155, 0.3);
+            background: rgba(26, 32, 68, 0.6);
+        }
+        
+        .required-item {
+            display: inline-block;
+            background: rgba(231, 76, 60, 0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+        
+        @media (max-width: 768px) {
+            .commodities-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .commodity-card {
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .commodities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding: 15px;
+            }
+            
+            .title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">天机符楼</div>
+            <div class="subtitle">兑换指令：#天机符楼兑换+物品名*数量</div>
+        </div>
+        
+        {{if !has_invitation}}
+        <div class="warning">
+            <strong> 禁制警告</strong>
+            <p>未持有【天机符楼邀请函】者不得入内！</p>
+            <p>获取方式：天机阁兑换</p>
+        </div>
+        {{/if}}
+        
+        <div class="commodities-grid">
+            {{each commodities_list item}}
+            <div class="commodity-card rarity-{{item.稀有度 || 3}}">
+                <div class="commodity-header">
+                    <div class="commodity-type">【{{item.type}}】</div>
+                    <div class="commodity-name">{{item.name}}</div>
+                </div>
+                
+                <div class="price-info">
+                    <div class="price-item">
+                        <span class="price-label">所需代币</span>
+                        <span class="price-value">{{item.daibi}} × {{item.出售价}}</span>
+                    </div>
+                    {{if item.每日限购}}
+                    <div class="price-item">
+                        <span class="price-label">全服限购</span>
+                        <span class="price-value">
+                            <span class="{{item.remaining <= 0 ? 'sold-out' : 'in-stock'}}">
+                                {{item.bought_today}}/{{item.每日限购}}
+                            </span>
+                        </span>
+                    </div>
+                    {{/if}}
+                </div>
+                
+                <div class="commodity-desc">
+                    {{item.desc || '蕴含天道法则的秘符'}}
+                </div>
+                
+                <!-- {{if item.type=="历练符"}}
+                <div class="talisman-effect">
+                    <strong>符咒效果：</strong>
+                    <p>• 副本修为+30%</p>
+                    <p>• 首次通关必掉紫装</p>
+                    <p>• 隐藏BOSS出现率+20%</p>
+                </div>
+                {{else if item.type=="替命符"}}
+                <div class="talisman-effect">
+                    <strong>符咒效果：</strong>
+                    <p>• 死亡时消耗符咒复活</p>
+                    <p>• 保留10000点生命值</p>
+                </div>
+                {{/if}} -->
+                
+                {{if item.每日限购}}
+                <div class="limit-info">
+                    <div>今日已兑换：{{item.bought_today}}/{{item.每日限购}}</div>
+                    <div class="stock-bar">
+                        <div class="stock-progress" 
+                             style="width: {{(item.bought_today / item.每日限购) * 100}}%">
+                        </div>
+                    </div>
+                    {{if item.remaining <= 0}}
+                    <div style="color:#e74c3c; margin-top:5px;"> 今日已售罄</div>
+                    {{else}}
+                    <div style="color:#2ecc71; margin-top:5px;">剩余可兑换：{{item.remaining}}</div>
+                    {{/if}}
+                </div>
+                {{/if}}
+                
+                {{if item.required}}
+                <div class="required-item">
+                    <span>需持有：{{item.required}}</span>
+                </div>
+                {{/if}}
+            </div>
+            {{/each}}
+        </div>
+        
+        <div class="footer">
+            <p>天机符楼 - 符箓一道的至高圣地 © 2025</p>
+            {{if has_invitation}}
+            <p>剩余邀请函：{{invitation_count}}张 | 更新时间：{{timestamp}}</p>
+            {{/if}}
+        </div>
+    </div>
+</body>
+</html>

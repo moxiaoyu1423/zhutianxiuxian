@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{pluResPath}}/html/log/log.css"
+    />
+    <link rel="preload" href="../../font/tttgbnumber.ttf" as="font" />
+    <link rel="shortcut icon" href="#" />
+    <title>{{log}}</title>
+    <style>
+      /* 添加类似宗门列表的黑色边框效果 */
+      .log-container {
+        width: 90%;
+        margin: 20px auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        background-color: rgba(19, 21, 22, 0.6);
+      }
+      
+      .log-header {
+        background-color: rgba(19, 21, 22, 0.8);
+        padding: 15px;
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+        color: #ffd700;
+        border-bottom: 2px solid #ffd700;
+      }
+      
+      .log-body {
+        padding: 20px;
+      }
+      
+      .log-message {
+        padding: 15px;
+        font-size: 28px;
+        color: #ffffff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+      
+      .log-message:last-child {
+        border-bottom: none;
+      }
+      
+      .log-message:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateX(5px);
+      }
+      
+      /* 特殊消息效果 */
+      .critical-hit {
+        color: #ff6b6b;
+        font-weight: bold;
+      }
+      
+      .heal-message {
+        color: #6bff6b;
+      }
+      
+      .damage-message {
+        color: #ff9e6b;
+      }
+      
+      /* 高级技能特效 */
+      .deprive-message {
+        color: #ff6b6b;
+        font-weight: bold;
+        text-shadow: 0 0 5px rgba(255, 107, 107, 0.7);
+        animation: pulse 1.5s infinite;
+      }
+      
+      .daoshen-message {
+        color: #00ffff;
+        font-weight: bold;
+      }
+      
+      .huazizai-message {
+        color: #ff00ff;
+        font-weight: bold;
+        animation: glow 2s infinite;
+      }
+      
+      /* 动画效果 */
+      @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4); }
+        70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+      }
+      
+      @keyframes glow {
+        0% { text-shadow: 0 0 5px rgba(255, 0, 255, 0.7); }
+        50% { text-shadow: 0 0 20px rgba(255, 0, 255, 0.9); }
+        100% { text-shadow: 0 0 5px rgba(255, 0, 255, 0.7); }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="log-container">
+      <div class="log-header">副本探索结果</div>
+      <div class="log-body" id="log"></div>
+    </div>
+    
+    <script>
+      var logmsg = document.title;
+      logmsg = logmsg.split(",");
+      
+      var lastmsg = '';
+      for (let i = 0; i < logmsg.length; i++) {
+        let message = logmsg[i];
+        
+        // 添加样式类
+        let messageClass = "log-message";
+        if (message.includes("暴击")) {
+          messageClass += " critical-hit";
+        } else if (message.includes("治疗") || message.includes("恢复")) {
+          messageClass += " heal-message";
+        } else if (message.includes("伤害")) {
+          messageClass += " damage-message";
+        }
+        
+        // 添加特殊技能高亮
+        if (message.includes("剥夺") || message.includes("神魔终焉劫")) {
+          messageClass += " deprive-message";
+        } else if (message.includes("道身") || message.includes("一气化三清")) {
+          messageClass += " daoshen-message";
+        } else if (message.includes("他化自在")) {
+          messageClass += " huazizai-message";
+        }
+        
+        // 清理消息格式
+        message = message.replace(/[$$$$n]/g, "");
+        
+        lastmsg += '<div class="' + messageClass + '">' + message + '</div>';
+      }
+      
+      document.getElementById("log").innerHTML = lastmsg;
+    </script>
+  </body>
+</html>

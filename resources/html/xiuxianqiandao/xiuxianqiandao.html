@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修仙签到 - 仙途留痕</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', 'STKaiti', serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 850px;
+            max-width: 95%;
+            background: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2018-08-17%2F5b7620b3a8f3c.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1717487636&t=6a6b5c5b5a5a5a5a5a5a5a5a5a5a5a5a') no-repeat center center;
+            background-size: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            position: relative;
+            border: 2px solid #8b5a2b;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 32, 44, 0.85);
+            z-index: 1;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 30px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #f8d568;
+            text-shadow: 0 0 10px rgba(248, 213, 104, 0.5);
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .title::before, .title::after {
+            content: '✧';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #f8d568;
+            font-size: 22px;
+        }
+        
+        .title::before {
+            left: -35px;
+        }
+        
+        .title::after {
+            right: -35px;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #c0c0c0;
+            margin-bottom: 20px;
+        }
+        
+        .user-info {
+            display: flex;
+            flex-direction: column;
+            background: rgba(59, 47, 32, 0.6);
+            border: 1px solid #8b5a2b;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .user-details {
+            margin-bottom: 15px;
+        }
+        
+        .user-name {
+            font-size: 24px;
+            color: #f8d568;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .sign-days {
+            font-size: 18px;
+            color: #a3d9ff;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .sign-days span {
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 22px;
+        }
+        
+        .realm-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        
+        .realm-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            background: rgba(45, 36, 25, 0.5);
+            border-radius: 6px;
+        }
+        
+        .realm-icon {
+            width: 28px;
+            height: 28px;
+            background: rgba(139, 90, 43, 0.5);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 8px;
+            color: #f8d568;
+            font-size: 14px;
+        }
+        
+        .realm-text {
+            font-size: 16px;
+        }
+        
+        .calendar-section {
+            background: rgba(59, 47, 32, 0.8);
+            border: 1px solid #a67c52;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .calendar-title {
+            font-size: 22px;
+            color: #f8d568;
+            font-weight: bold;
+        }
+        
+        .calendar-stats {
+            font-size: 16px;
+            color: #a3d9ff;
+            background: rgba(139, 90, 43, 0.3);
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+        }
+        
+        .calendar-day {
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .calendar-day:hover {
+            transform: scale(1.05);
+            z-index: 2;
+        }
+        
+        .day-number {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .day-week {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 2px;
+        }
+        
+        .day-header {
+            background: rgba(139, 90, 43, 0.5);
+            color: #f8d568;
+            height: 30px;
+            font-size: 16px;
+        }
+        
+        .day-empty {
+            background: transparent;
+        }
+        
+        .day-normal {
+            background: rgba(35, 28, 19, 0.7);
+            color: #c0c0c0;
+        }
+        
+        .day-signed {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            box-shadow: 0 0 10px rgba(72, 187, 120, 0.5);
+        }
+        
+        .day-signed:hover {
+            box-shadow: 0 0 15px rgba(72, 187, 120, 0.8);
+        }
+        
+        .day-today {
+            background: linear-gradient(135deg, #4299e1, #3182ce);
+            color: white;
+            box-shadow: 0 0 10px rgba(66, 153, 225, 0.5);
+        }
+        
+        .day-today:hover {
+            box-shadow: 0 0 15px rgba(66, 153, 225, 0.8);
+        }
+        
+        .today-indicator {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            color: #ffd700;
+            font-size: 12px;
+        }
+        
+        .calendar-progress {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .progress-bar {
+            flex: 1;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 0 15px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #48bb78, #38a169);
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-text {
+            font-size: 16px;
+            color: #a3d9ff;
+            min-width: 60px;
+        }
+        
+        .rewards-section {
+            background: rgba(59, 47, 32, 0.6);
+            border: 1px solid #8b5a2b;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #f8d568;
+            margin-bottom: 15px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f8d568, transparent);
+        }
+        
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .reward-item {
+            display: flex;
+            align-items: center;
+            background: rgba(35, 28, 19, 0.7);
+            border-radius: 8px;
+            padding: 12px;
+            border: 1px solid #5d4a2f;
+            transition: transform 0.3s ease;
+        }
+        
+        .reward-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .reward-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(139, 90, 43, 0.5);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 12px;
+            font-size: 20px;
+            color: #f8d568;
+        }
+        
+        .reward-details {
+            flex: 1;
+        }
+        
+        .reward-name {
+            font-size: 16px;
+            color: #c0c0c0;
+            margin-bottom: 3px;
+        }
+        
+        .reward-amount {
+            font-size: 20px;
+            color: #a3d9ff;
+            font-weight: bold;
+        }
+        
+        .daofa-section {
+            background: rgba(89, 61, 29, 0.6);
+            border: 1px solid #f8d568;
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .daofa-title {
+            font-size: 22px;
+            color: #f8d568;
+            margin-bottom: 12px;
+        }
+        
+        .daofa-desc {
+            font-size: 16px;
+            color: #a3d9ff;
+            line-height: 1.5;
+        }
+        
+        .footer {
+            text-align: center;
+            font-size: 16px;
+            color: #c0c0c0;
+            font-style: italic;
+            padding-top: 15px;
+            border-top: 1px solid rgba(139, 90, 43, 0.5);
+        }
+        
+        .dao-mark {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="50" y="50" font-family="STKaiti" font-size="80" fill="rgba(248,213,104,0.15)" text-anchor="middle" dominant-baseline="middle">道</text></svg>');
+            opacity: 0.3;
+        }
+        
+        .mark-top-left {
+            top: 15px;
+            left: 15px;
+        }
+        
+        .mark-top-right {
+            top: 15px;
+            right: 15px;
+            transform: scaleX(-1);
+        }
+        
+        .mark-bottom-left {
+            bottom: 15px;
+            left: 15px;
+            transform: scaleY(-1);
+        }
+        
+        .mark-bottom-right {
+            bottom: 15px;
+            right: 15px;
+            transform: scale(-1);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .title {
+                font-size: 30px;
+            }
+            
+            .title::before, .title::after {
+                font-size: 18px;
+            }
+            
+            .title::before {
+                left: -30px;
+            }
+            
+            .title::after {
+                right: -30px;
+            }
+            
+            .calendar-grid {
+                gap: 4px;
+            }
+            
+            .calendar-day {
+                height: 40px;
+            }
+            
+            .day-number {
+                font-size: 16px;
+            }
+            
+            .day-week {
+                font-size: 10px;
+            }
+            
+            .rewards-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content {
+                padding: 15px;
+            }
+            
+            .title {
+                font-size: 26px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+            
+            .user-name {
+                font-size: 22px;
+            }
+            
+            .sign-days {
+                font-size: 16px;
+            }
+            
+            .realm-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .calendar-grid {
+                gap: 3px;
+            }
+            
+            .calendar-day {
+                height: 35px;
+                padding: 5px;
+            }
+            
+            .day-number {
+                font-size: 14px;
+            }
+            
+            .day-week {
+                display: none;
+            }
+            
+            .rewards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dao-mark mark-top-left"></div>
+        <div class="dao-mark mark-top-right"></div>
+        <div class="dao-mark mark-bottom-left"></div>
+        <div class="dao-mark mark-bottom-right"></div>
+        
+        <div class="content">
+            <div class="header">
+                <div class="title">仙途留痕</div>
+                <div class="subtitle">大道三千，勤修不辍</div>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-details">
+                    <div class="user-name">{{nickname}}</div>
+                    <div class="sign-days">已连续签到 <span>{{signDays}}</span> 天</div>
+                </div>
+                
+                <div class="realm-info">
+                    <div class="realm-item">
+                        <div class="realm-icon"><i class="fas fa-mountain"></i></div>
+                        <div class="realm-text">修仙: {{realm1}}</div>
+                    </div>
+                    <div class="realm-item">
+                        <div class="realm-icon"><i class="fas fa-fist-raised"></i></div>
+                        <div class="realm-text">炼体: {{realm2}}</div>
+                    </div>
+                    <div class="realm-item">
+                        <div class="realm-icon"><i class="fas fa-yin-yang"></i></div>
+                        <div class="realm-text">秘境: {{realm3}}</div>
+                    </div>
+                    <div class="realm-item">
+                        <div class="realm-icon"><i class="fas fa-dragon"></i></div>
+                        <div class="realm-text">仙古: {{realm4}}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 日历区域 -->
+            <div class="calendar-section">
+                <div class="calendar-header">
+                    <div class="calendar-title">{{calendar.year}}年{{calendar.month}}月</div>
+                    <div class="calendar-stats">签到: {{calendar.signedCount}}/{{calendar.totalDays}}天</div>
+                </div>
+                
+                <div class="calendar-grid">
+
+                    
+                    <!-- 空白填充 -->
+                    {{each calendar.emptyDays}}
+                    <div class="calendar-day day-empty"></div>
+                    {{/each}}
+                    
+                    <!-- 日期格子 -->
+                    {{each calendar.days day}}
+                    <div class="calendar-day 
+                        {{if day.isToday}}day-today{{else if day.isSigned}}day-signed{{else}}day-normal{{/if}}">
+                        <div class="day-number">{{day.day}}</div>
+                        <div class="day-week">{{['日','一','二','三','四','五','六'][day.dayOfWeek]}}</div>
+                        {{if day.isToday}}
+                        <div class="today-indicator">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        {{/if}}
+                    </div>
+                    {{/each}}
+                </div>
+                
+                <div class="calendar-progress">
+                    <div>修行进度</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {{calendar.progress}}%"></div>
+                    </div>
+                    <div class="progress-text">{{calendar.progress}}%</div>
+                </div>
+            </div>
+            
+            <div class="rewards-section">
+                <div class="section-title">签到奖励</div>
+                <div class="rewards-grid">
+                    <div class="reward-item">
+                        <div class="reward-icon"><i class="fas fa-fire"></i></div>
+                        <div class="reward-details">
+                            <div class="reward-name">修为</div>
+                            <div class="reward-amount">{{xiuwei}}</div>
+                        </div>
+                    </div>
+                    <div class="reward-item">
+                        <div class="reward-icon"><i class="fas fa-tint"></i></div>
+                        <div class="reward-details">
+                            <div class="reward-name">血气</div>
+                            <div class="reward-amount">{{xueqi}}</div>
+                        </div>
+                    </div>
+                    <div class="reward-item">
+                        <div class="reward-icon"><i class="fas fa-gem"></i></div>
+                        <div class="reward-details">
+                            <div class="reward-name">灵石</div>
+                            <div class="reward-amount">{{lingshi}}</div>
+                        </div>
+                    </div>
+                    <div class="reward-item">
+                        <div class="reward-icon"><i class="fas fa-star"></i></div>
+                        <div class="reward-details">
+                            <div class="reward-name">源石</div>
+                            <div class="reward-amount">{{yuanshi}}</div>
+                        </div>
+                    </div>
+                    <div class="reward-item">
+                        <div class="reward-icon"><i class="fas fa-key"></i></div>
+                        <div class="reward-details">
+                            <div class="reward-name">秘境之匙</div>
+                            <div class="reward-amount">{{tickets}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            {{if isDaofaPlayer}}
+            <div class="daofa-section">
+                <div class="daofa-title">道法仙术·福泽加身</div>
+                <div class="daofa-desc">
+                    尊贵的道法仙术玩家，福缘深厚，所有奖励翻倍！<br>
+                    大道垂青，仙途坦荡，勤修不辍，早日证道！
+                </div>
+            </div>
+            {{/if}}
+            
+            <div class="footer">
+                大道无涯，勤修不辍，仙途漫漫，唯道作舟
+            </div>
+        </div>
+    </div>
+</body>
+</html>

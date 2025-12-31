@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修仙成就图鉴 - 丹方风格优化版</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: #e2e8f0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(26, 32, 44, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #2b6cb0 0%, #4299e1 100%);
+            padding: 25px 30px;
+            text-align: center;
+            border-bottom: 2px solid #63b3ed;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+        }
+        
+        .progress-info {
+            font-size: 18px;
+            color: #ebf4ff;
+            margin-bottom: 12px;
+        }
+        
+        .progress-bar {
+            width: 400px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #48bb78 0%, #81e6d9 100%);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(72, 187, 120, 0.6);
+        }
+        
+        .progress-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background: rgba(30, 41, 59, 0.6);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 400px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border-radius: 25px;
+            border: none;
+            background: rgba(15, 23, 42, 0.8);
+            color: white;
+            font-size: 16px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #cbd5e1;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background: rgba(15, 23, 42, 0.8);
+            color: #cbd5e1;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: linear-gradient(90deg, #7e22ce, #3b82f6);
+            color: white;
+        }
+        
+        .category-section {
+            margin: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: rgba(45, 55, 72, 0.6);
+        }
+        
+        .category-header {
+            background: linear-gradient(90deg, #3a1c71, #d76d77);
+            padding: 16px 25px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .category-count {
+            font-size: 16px;
+            opacity: 0.9;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            padding: 25px;
+            background: rgba(30, 36, 48, 0.7);
+        }
+        
+        .achievement-item {
+            background: linear-gradient(145deg, #2a3a5c, #1e293b);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(101, 119, 155, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .achievement-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3a1c71, #d76d77);
+        }
+        
+        .achievement-item:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(101, 119, 155, 0.5);
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .achievement-name {
+            font-size: 20px;
+            color: #FFD700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .achievement-id {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .achievement-status {
+            font-size: 14px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .status-completed {
+            background: linear-gradient(90deg, #16a34a, #22c55e);
+            color: white;
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+        }
+        
+        .status-locked {
+            background: rgba(100, 116, 139, 0.5);
+            color: #e2e8f0;
+        }
+        
+        .achievement-desc {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #cbd5e0;
+            min-height: 40px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #a0aec0;
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 900px) {
+            .achievements-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 20px;
+                padding: 20px;
+            }
+            
+            .controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-box {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .title {
+                font-size: 24px;
+            }
+            
+            .progress-bar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部信息 -->
+        <div class="header">
+            <div class="title">{{nickname}}的成就图鉴</div>
+            <div class="progress-info">已解锁成就: {{unlockedCount}}/{{totalCount}}</div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: (unlockedCount/totalCount)*100%;"></div>
+                <div class="progress-text">{{((unlockedCount/totalCount)*100).toFixed(1)}}% 已完成</div>
+            </div>
+        </div>
+
+
+        <!-- 动态分类遍历区域 -->
+        {{each sortedCategories category}}
+          {{if categorizedItems[category].length > 0}}
+          <div class="category-section">
+            <div class="category-header">
+              <span>{{category}}</span>
+              <span class="category-count">{{categorizedItems[category].length}}个成就</span>
+            </div>
+            <div class="achievements-grid">
+              {{each categorizedItems[category] item}}
+              <div class="achievement-item">
+                <div class="item-header">
+                  <div class="achievement-name">
+                   
+                    {{item.name}}
+                  </div>
+                  <div class="achievement-status {{item.unlocked ? 'status-completed' : 'status-locked'}}">
+                    {{item.unlocked ? '已达成' : '未达成'}}
+                  </div>
+                </div>
+                <div class="achievement-desc">{{item.desc}}</div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+          {{/if}}
+        {{/each}}
+
+        <div class="footer">
+            提示: 绿色表示已解锁的成就，灰色表示尚未解锁的成就
+        </div>
+    </div>
+
+    <script>
+        // 搜索功能
+        const searchInput = document.getElementById('search-input');
+        searchInput.addEventListener('input', filterAchievements);
+        
+        // 筛选功能
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                filterAchievements();
+            });
+        });
+        
+        function filterAchievements() {
+            const searchText = searchInput.value.toLowerCase();
+            const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+            
+            document.querySelectorAll('.achievement-item').forEach(item => {
+                const name = item.querySelector('.achievement-name').textContent.toLowerCase();
+                const desc = item.querySelector('.achievement-desc').textContent.toLowerCase();
+                const isUnlocked = item.querySelector('.achievement-status').textContent === '已达成';
+                
+                const matchesSearch = name.includes(searchText) || desc.includes(searchText);
+                let matchesFilter = true;
+                
+                if (activeFilter === 'unlocked') matchesFilter = isUnlocked;
+                if (activeFilter === 'locked') matchesFilter = !isUnlocked;
+                
+                if (matchesSearch && matchesFilter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // 隐藏空分类
+            document.querySelectorAll('.category-section').forEach(section => {
+                const visibleItems = section.querySelectorAll('.achievement-item[style="display: block"]');
+                if (visibleItems.length === 0) {
+                    section.style.display = 'none';
+                } else {
+                    section.style.display = 'block';
+                }
+            });
+        }
+        
+        // 分类折叠功能
+        document.querySelectorAll('.category-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const grid = header.nextElementSibling;
+                if (grid.style.display === 'none') {
+                    grid.style.display = 'grid';
+                } else {
+                    grid.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+CD:
+  association: 10080
+  joinassociation: 450
+  associationbattle: 1440
+  rob: 1
+  gambling: 3
+  couple: 60
+  garden: 3
+  level_up: 0
+  secretplace: 7
+  xiajie: 10
+  timeplace: 7
+  forbiddenarea: 7
+  reborn: 360
+  transfer: 240
+  honbao: 1
+  stone_market: 360
+percentage:
+  cost: 0.03
+  Monezsawe#number: 1
+  punishment: 0.5
+  stone_rewards:
+    pure_source: 2
+    special_source: 5
+    god_source: 10
+    ancient_herb: 20
+    sacred_fragment: 50
+    emperor_page: 100
+size:
+  Money: 200
+switch:
+  play: true
+  Moneynumber: true
+  couple: true
+  Xiuianplay_key: true
+  StoneMarket: true
+StoneMarket:
+  stone_levels:
+    - name: 普通源石
+      price: 50000
+      quality: 1
+    - name: 精品源石
+      price: 200000
+      quality: 2
+    - name: 神源石
+      price: 1000000
+      quality: 3
+  win_rate:
+    base: 0.2
+    master_bonus: 0.3
+    grandmaster_bonus: 0.5
+    godstone_bonus: 0.2
+  ban:
+    high_reward_threshold: 3
+    duration: 24
+biguan:
+  size: 10
+  time: 30
+  cycle: 240
+work:
+  size: 15
+  time: 15
+  cycle: 48
+Sign:
+  ticket: 1
+Auction:
+  interval: 2
+  openHour: 20
+  closeHour: 21
+  Auction_task: 0 0/1 * * * ?
+Auction2:
+  interval: 2
+  openHour: 21
+  closeHour: 23
+  Auction_task: 0 0/1 * * * ?
+SecretPlace:
+  one: 0.99
+  two: 0.5
+  three: 0.25
+najie_num:
+  - 50000
+  - 100000
+  - 200000
+  - 500000
+  - 1000000
+  - 2000000
+  - 5000000
+  - 10000000
+najie_price:
+  - 0
+  - 50000
+  - 100000
+  - 500000
+  - 500000
+  - 1000000
+  - 3000000
+  - 6000000
+Group:
+  - 372093406
+Era:
+  enabled: true
+  task: 0 0 */2 * * *
+  pushNotice: true
+  notifyGroups:
+  Master:
+  current:
+    index: 1
+    years: 9000
+    epoch: 4
+  yearlyAdvance: 1000

@@ -1,0 +1,51 @@
+- group: 星海之缘活动 (12.1-12.28)
+  list:
+    - icon: help-icon_35
+      title: '归真之地'
+      desc: '新仙境本，产出大量天药'
+    - icon: help-icon_35
+      title: '往世星海'
+      desc: '新仙境本，可以刷活动道具，门票为星海之缘签到的群星秘钥'
+
+- group: 活动指令      
+  list:
+    - icon: help-icon_35
+      title: '#星海之缘签到'
+      desc: '活动签到'
+    - icon: help-icon_20
+      title: '#召唤爱莉希雅'
+      desc: '运气之子'      
+    - icon: help-icon_20
+      title: '#疯狂召唤爱莉希雅'
+      desc: '运气之子'
+    - icon: help-icon_20
+      title: '#奏响往世乐土之章'
+      desc: '消耗往世乐土之章奏响往世'
+    - icon: help-icon_20
+      title: '#真我觉醒'
+      desc: '爱莉希雅进阶'
+      
+- group: 团本系统      
+  list:
+    - icon: help-icon_20
+      title: '#创建讨伐队伍 [boss名称]'
+      desc: '目前可供讨伐目标：九幽魔君、狠人大帝、尸骸仙帝'
+    - icon: help-icon_20
+      title: '#发起讨伐'
+      desc: '与队友讨伐团本目标'
+    - icon: help-icon_20
+      title: '#结算团本奖励'
+      desc: '结算队伍中所有人的奖励'
+    - icon: help-icon_20
+      title: '#结算魔君奖励*n'
+      desc: '结算全队奖励,n为消耗的魔君讨伐令数量'                     
+    - icon: help-icon_20
+      title: '#加入讨伐队伍 xxx'
+      desc: '加入其他玩家的讨伐队伍'
+    - icon: help-icon_20
+      title: '#离开队伍'
+      desc: '离开队伍'
+    - icon: help-icon_20
+      title: '#解散队伍'
+      desc: '解散队伍'      
+

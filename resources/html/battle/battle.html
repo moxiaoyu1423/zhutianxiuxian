@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{pluResPath}}/html/battle/battle.css" />
+    <link rel="preload" href="../../font/tttgbnumber.ttf" as="font" />
+    <link rel="shortcut icon" href="#" />
+    <style>
+        .user_container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* 添加两个字体大小类 */
+        .large-font {
+            font-size: 30px;
+        }
+        
+        .small-font {
+            font-size: 16px;
+        }
+
+        .user_damage {
+            color: rgb(51, 51, 51);
+        }
+
+        .user_crit {
+            color: rgb(0, 0, 102);
+            font-size: 30px;
+        }
+
+        .user_row {
+            margin-bottom: 1px;
+        }
+        .user_light {
+            color: red;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var items = document.querySelectorAll(".user_font");
+            items.forEach(function(item) {
+                var text = item.textContent;
+                var replacedText = text.replace(/伤害(\d+)/g, '伤害<span class="user_crit">$1</span>');
+                replacedText = replacedText.replace(/血量(\d+)/g, '血量<span class="user_light">$1</span>');
+                item.innerHTML = replacedText;
+            });
+        });
+    </script>
+</head>
+<body>
+{{if temp.length <= 20}}
+<div class="user_container">
+    <div class="user_row">
+        {{each temp item}}
+        <div class="user_font large-font" style="padding-left: 0">{{item}}</div>
+        {{/each}}
+    </div>
+</div>
+{{else}}
+<div class="user_container">
+    <div class="user_row">
+        {{each temp item}}
+        {{if $index < 10}}
+        <div class="user_font small-font" style="padding-left: 0">{{item}}</div>
+        {{/if}}
+        {{if $index >= (temp.length - 10)}}
+        <div class="user_font small-font" style="padding-left: 0">{{item}}</div>
+        {{/if}}
+        {{/each}}
+    </div>
+</div>
+{{/if}}
+</body>
+</html>

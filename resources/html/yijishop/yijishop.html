@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天机阁</title>
+    <link rel="stylesheet" type="text/css" href="{{pluResPath}}/html/yijishop/yijishop.css" />
+    <link rel="preload" href="../../font/tttgbnumber.ttf" as="font" />
+    <link rel="shortcut icon" href="#" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c0e2a 0%, #1a1f4b 100%);
+            color: #e2e8f0;
+            padding: 15px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(18, 22, 51, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            border: 1px solid rgba(101, 119, 155, 0.4);
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #3a1c71 0%, #6b46c1 100%);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #9f7aea;
+            position: relative;
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #d6bcfa;
+        }
+        
+        .commodities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 25px;
+        }
+        
+        .commodity-card {
+            background: linear-gradient(145deg, rgba(33, 41, 85, 0.7), rgba(18, 22, 51, 0.7));
+            border-radius: 12px;
+            padding: 18px;
+            border: 1px solid rgba(101, 119, 155, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .commodity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #553c9a, #b83280);
+        }
+        
+        .commodity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+        }
+        
+        .commodity-header {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .commodity-type {
+            font-size: 14px;
+            color: #a0aec0;
+            margin-bottom: 5px;
+        }
+        
+        .commodity-name {
+            font-size: 18px;
+            color: #FFD700;
+            font-weight: bold;
+        }
+        
+        .price-info {
+            margin: 12px 0;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .price-label {
+            color: #a0aec0;
+        }
+        
+        .price-value {
+            color: #68d391;
+            font-weight: 500;
+        }
+        
+        .commodity-stats {
+            margin: 15px 0;
+        }
+        
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 14px;
+        }
+        
+        .stat-label {
+            color: #a0aec0;
+        }
+        
+        .stat-value {
+            color: #e2e8f0;
+        }
+        
+        .commodity-desc {
+            font-size: 14px;
+            color: #cbd5e0;
+            margin-top: 12px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            line-height: 1.5;
+        }
+        
+        .rarity-5 { border-left: 4px solid #FFD700; }
+        .rarity-4 { border-left: 4px solid #9f7aea; }
+        .rarity-3 { border-left: 4px solid #4299e1; }
+        .rarity-2 { border-left: 4px solid #48bb78; }
+        .rarity-1 { border-left: 4px solid #a0aec0; }
+        
+        .footer {
+            text-align: center;
+            padding: 15px;
+            color: #a0aec0;
+            font-size: 14px;
+            border-top: 1px solid rgba(101, 119, 155, 0.3);
+            background: rgba(26, 32, 68, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .commodities-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .commodity-card {
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .commodities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding: 15px;
+            }
+            
+            .title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">天机阁</div>
+            <div class="subtitle">购买指令：#天机阁兑换+物品名*数量</div>
+        </div>
+        
+        <div class="commodities-grid">
+            {{each commodities_list item}}
+            <div class="commodity-card rarity-{{item.rarity || 3}}">
+                <div class="commodity-header">
+                    <div class="commodity-type">【{{item.type}}】</div>
+                    <div class="commodity-name">{{item.name}}</div>
+                </div>
+                
+                <div class="price-info">
+                    <div class="price-item">
+                        <span class="price-label">所需代币</span>
+                        <span class="price-value">{{item.daibi}} × {{item.出售价}}</span>
+                    </div>
+                    <div class="price-item">
+                        <span class="price-label">通用代币</span>
+                        <span class="price-value">{{item.daibi2}}</span>
+                    </div>
+                </div>
+                
+                {{if item.class=="装备"}}
+                <div class="commodity-stats">
+                    <div class="stat-row">
+                        <span class="stat-label">攻击</span>
+                        <span class="stat-value">{{item.atk}}</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">防御</span>
+                        <span class="stat-value">{{item.def}}</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">生命</span>
+                        <span class="stat-value">{{item.HP}}</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">暴击率</span>
+                        <span class="stat-value">{{(item.bao*100).toFixed(0)}}%</span>
+                    </div>
+                </div>
+                {{else if item.type=="修为"}}
+                <div class="stat-row">
+                    <span class="stat-label">修为</span>
+                    <span class="stat-value">{{item.exp}}</span>
+                </div>
+                {{else if item.type=="血气"}}
+                <div class="stat-row">
+                    <span class="stat-label">血气</span>
+                    <span class="stat-value">{{item.xueqi}}</span>
+                </div>
+                {{else if item.type=="神药"}}
+                <div class="commodity-stats">
+                    <div class="stat-row">
+                        <span class="stat-label">修为</span>
+                        <span class="stat-value">{{item.exp}}</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">血气</span>
+                        <span class="stat-value">{{item.xueqi}}</span>
+                    </div>
+                </div>
+                {{else if item.class=="功法"}}
+                <div class="stat-row">
+                    <span class="stat-label">修炼加成</span>
+                    <span class="stat-value">{{(item.修炼加成*100).toFixed(0)}}%</span>
+                </div>
+                {{else}}
+                <div class="commodity-desc">
+                    {{item.desc || '神秘物品，功效未知'}}
+                </div>
+                {{/if}}
+            </div>
+            {{/each}}
+        </div>
+        
+        <div class="footer">
+            <p>天机阁 - 修仙界至宝汇聚之地 © 2025</p>
+        </div>
+    </div>
+</body>
+</html>

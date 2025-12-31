@@ -1,0 +1,32 @@
+- group: 小世界帮助
+  list:      
+    - icon: help-icon_44
+      title: '#开辟小世界xxx'
+      desc: '成仙后用世界石开辟小世界'
+    - icon: help-icon_44
+      title: '#演化小世界'
+      desc: '消耗资源让小世界进阶'
+    - icon: help-icon_44
+      title: '#我的小世界'
+      desc: '查看自己的小世界信息'       
+    - icon: help-icon_44
+      title: '#将分身化入小世界'
+      desc: '让分身替你收集小世界资源'
+    - icon: help-icon_44
+      title: '#收获小世界资源'
+      desc: '收获分身收集的资源'
+    - icon: help-icon_44
+      title: '#种植指南'
+      desc: '查看种植指南'      
+    - icon: help-icon_44
+      title: '#小世界栽种xxx'
+      desc: '栽种自己的神药种子或悟道古茶树'
+    - icon: help-icon_44
+      title: '#使用(草木精华露|岁月流金沙|掌天灵液)浇灌xxx'
+      desc: '用特殊道具浇灌作物，例如#使用草木精华露浇灌1'
+    - icon: help-icon_44
+      title: '#浇灌小世界作物'
+      desc: '乾坤造化瓶可以直接把所有药田都浇灌催熟'                   
+    - icon: help-icon_44
+      title: '#使用xxx创造环境'
+      desc: '混沌源石、仙泉之眼、龙魂精魄、仙坟土' 

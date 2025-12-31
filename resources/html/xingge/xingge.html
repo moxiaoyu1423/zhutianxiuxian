@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{pluResPath}}/html/xingge/xingge.css"
+    />
+    <!-- <link rel="stylesheet" type="text/css" href="../../html/player/player.css" /> -->
+    <link rel="preload" href="../../font/tttgbnumber.ttf" as="font" />
+    <!-- <link rel="preload" href="../../img/player/xiuxian-01.png" as="image" /> -->
+    <link rel="shortcut icon" href="#" />
+  </head>
+
+  <body>
+    <!--头部-->
+
+    <div class="user_bottom1">
+      <div class="use_data">
+        <div class="use_data_head">
+          <div class="user_font">
+            <div class="user_font"> 星阁拍卖场</div>
+           </div>
+          <div class="user_font">限定物品,限时拍卖</div>
+        </div>
+      </div>
+    </div>
+
+    {{each a item i}}
+   {{if i===0}}
+    <div class="user_bottom1">
+      <div class="use_data">
+        <div class="use_data_head">
+          <div class="user_font">
+            <div class="element">
+           </div>
+            当前拍卖:{{item.name}}</br>
+            当前买家:{{item.竞拍者}}</br>
+            最高价:{{item.出售价}}</br>
+            当前轮次:第{{item.竞拍次数}}轮
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- {{else}}
+    <div class="user_bottom1">
+      <div class="use_data">
+        <div class="use_data_head">
+          <div class="user_font">
+            <div class="element">
+           </div>
+            即将拍卖:{{item.name}}</br>
+            初始价格:{{item.出售价}}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+    {{/each}} -->
+
+    <!--底部-->
+
+    <div class="user_bottom2"></div>
+  </body>
+</html>

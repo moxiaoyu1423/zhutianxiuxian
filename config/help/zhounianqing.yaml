@@ -1,0 +1,43 @@
+- group: 周年庆
+  list:
+    - icon: help-icon_35
+      title: '#周年签到'
+      desc: '周年签到'
+    - icon: help-icon_20
+      title: '#遣龙/虎'
+      desc: '运气之子'
+    - icon: help-icon_20
+      title: '#十遣龙/虎'
+      desc: '运气之子'
+    - icon: help-icon_64
+      title: '#集齐四符,龙腾虎跃！'
+      desc: '龙腾虎跃！'
+- group: 屠龙
+  list:
+    - icon: help-icon_13
+      title: '#若陀龙王团本'
+      desc: '查看所有若陀龙王团本'
+    - icon: help-icon_13
+      title: '#加入讨伐若陀龙王(1,2,3)'
+      desc: '加入到若陀龙王团本1、2、3号'
+    - icon: help-icon_13
+      title: '#退出若陀龙王团本$'
+      desc: '退出若陀龙王团本'
+    - icon: help-icon_13
+      title: '#讨伐若陀龙王'
+      desc: '讨伐若陀龙王'
+    - icon: help-icon_13
+      title: '#若陀龙王状态'
+      desc: '查看若陀龙王状态'
+    - icon: help-icon_13
+      title: '#若陀龙王奖励'
+      desc: '查看团本若陀龙王掉落奖励'
+    - icon: help-icon_13
+      title: '#若陀龙王出价(编号)*(价格)'
+      desc: '团本若陀龙王掉落出价'
+    - icon: help-icon_13
+      title: '#若陀龙王分配(编号)'
+      desc: '团长分配掉编号X的物品'
+    - icon: help-icon_30
+      title: '#龙王榜'
+      desc: '查看若陀龙王伤害排行榜'

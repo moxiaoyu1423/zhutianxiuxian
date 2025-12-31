@@ -1,0 +1,191 @@
+- group: 初来乍到
+  list:
+    - icon: help-icon_2
+      title: '#修仙攻略'
+      desc: '玩家自建攻略'
+    - icon: help-icon_2
+      title: '#踏入仙途 #再入仙途 #轮回'
+      desc: '创建存档，转世重生'
+    - icon: help-icon_2
+      title: '#设置性别|修改性别|改性别|更替性别|变更性别|调整性别'
+      desc: '设置性别'
+    - icon: help-icon_3
+      title: '#改名|更名|设置姓名|改道号 #设置道宣'
+      desc: '修改道号，个性签名'
+    - icon: help-icon_1
+      title: '#我的纳戒'
+      desc: '物品查询'
+    - icon: help-icon_7
+      title: '#我的装备'
+      desc: '查看身上的装备'               
+    - icon: help-icon_13
+      title: '#练气境界'
+      desc: '查看所有境界'
+    - icon: help-icon_13
+      title: '#炼体境界'
+      desc: '查看所有境界'
+    - icon: help-icon_13
+      title: '#领取游玩礼包'
+      desc: '游玩365天可获得限定玄影:云端麒麟'
+    - icon: help-icon_13
+      title: '#获取每日任务'
+      desc: '接取任务'
+    - icon: help-icon_13
+      title: '#我的任务'
+      desc: '正在进行的任务'
+    - icon: help-icon_13
+      title: '#提交每日任务'
+      desc: '完成任务'
+    - icon: help-icon_13
+      title: '#领取每日奖励'
+      desc: '领取奖励'
+      
+
+- group: 修行之路
+  list:
+    - icon: help-icon_13
+      title: '#修仙状态'
+      desc: '查看自己的时间动作'
+    - icon: help-icon_13
+      title: '#闭关N分钟 #出关'
+      desc: '进行N分钟的闭关,获取修为'
+    - icon: help-icon_13
+      title: '#降妖N分钟 #降妖归来'
+      desc: '进行N分钟,获取灵石'
+    - icon: help-icon_13
+      title: '#哪里有xxx'
+      desc: '查询物品获得渠道'
+    - icon: help-icon_13
+      title: '#锁定八素'
+      desc: '支持所有物品'
+    - icon: help-icon_10
+      title: '#一键锁定/一键锁定+物品类型'
+      desc: '#一键锁定物品'
+    - icon: help-icon_10
+      title: '#一键解锁/一键解锁+物品类型'
+      desc: '#一键解锁物品'
+    - icon: help-icon_13
+      title: '#解锁轮回钟*优'
+      desc: '支持所有物品'
+    - icon: help-icon_13
+      title: '#打磨轮回钟*绝'
+      desc: '提高装备品质'
+    - icon: help-icon_13
+      title: '#兑换码兑换+兑换码'
+      desc: '兑换奖励'
+
+- group: 逆天改命
+  list:
+    - icon: help-icon_15
+      title: '#我的练气'
+      desc: '练气信息'
+    - icon: help-icon_17
+      title: '#我的炼体'
+      desc: '炼体信息'
+    - icon: help-icon_38
+      title: '#突破 #幸运突破'
+      desc: '打破浩劫-幸运草增加成功率'
+    - icon: help-icon_38
+      title: '#破体 #幸运破体'
+      desc: '提高体境-幸运草增加成功率'
+    - icon: help-icon_38
+      title: '#一键突破/破体'
+      desc: '完成后需要重新装备更新一下属性'      
+    - icon: help-icon_44
+      title: '#渡劫'
+      desc: '渡劫期经历的劫难，雷劫越多加成越高'
+    - icon: help-icon_44
+      title: '#打散雷劫'
+      desc: '肉身玄圣或秘境体系道宫五重天可快速结束，且雷劫奖励翻倍'      
+    - icon: help-icon_44
+      title: '#登仙'
+      desc: '渡劫后前往仙界'
+
+         
+- group: 世界副本
+  list:
+    - icon: help-icon_16
+      title: '#妖王'
+      desc: '仙界BOSS'
+    - icon: help-icon_31
+      title: '#讨伐妖王'
+      desc: '干就完了'
+    - icon: help-icon_60
+      title: '#妖王'
+      desc: '伤害排行榜'
+
+- group: 天地战场
+  list:
+    - icon: help-icon_54
+      title: '#报名比赛'
+      desc: '参加纷争'
+    - icon: help-icon_44
+      title: '#更新属性'
+      desc: '刷新自身属性'
+    - icon: help-icon_55
+      title: '#天地榜'
+      desc: '排行榜'
+    - icon: help-icon_42
+      title: '#比试'
+      desc: '一日三次机会'
+    - icon: help-icon_53
+      title: '#天地堂'
+      desc: '兑换成果'
+    - icon: help-icon_50
+      title: '#积分兑换+物品'
+      desc: '#积分兑换洗根水'
+    - icon: help-icon_58
+      title: '#清空积分'
+      desc: '清除自身积分'
+
+- group: 交易往来
+  list:
+    - icon: help-icon_5
+      title: '#柠檬堂'
+      desc: '商店'
+    - icon: help-icon_5
+      title: '#冲水堂+类型'
+      desc: '交易系统'
+    - icon: help-icon_5
+      title: '#聚宝堂+类型'
+      desc: '交易系统'
+    - icon: help-icon_52
+      title: '#星阁拍卖行'
+      desc: '看看现在在拍卖什么'
+    - icon: help-icon_52
+      title: '#星阁出价+价格'
+      desc: '#星阁出价50'
+    - icon: help-icon_52
+      title: '#开启星阁体系'
+      desc: '开启星阁推送(每天一次自动刷新)'
+    - icon: help-icon_52
+      title: '#取消星阁体系'
+      desc: '取消星阁在该群推送'
+    - icon: help-icon_52
+      title: '#关闭星阁体系'
+      desc: '关闭所有群的星阁推送(每天一次自动刷新)'
+
+
+- group: 礼尚往来
+  list:
+    - icon: help-icon_10
+      title: '@群友#赠送+灵石/物品名/装备代号*数量(可不加)'
+      desc: '@xxx #赠送烂铁匕首*品质(可不加)*22'
+    - icon: help-icon_10
+      title: '@群友#一键赠送/一键赠送+物品类型'
+      desc: '@xxx #一键赠送装备'
+    - icon: help-icon_10
+      title: '#发红包10000*5'
+      desc: '灵石需要万的倍数'
+    - icon: help-icon_10
+      title: '#抢红包@对方'
+      desc: '艾特发红包的仔'
+    - icon: help-icon_10
+      title: '#一键卖钞票/矿石'
+      desc: '顾名思义'  
+
+
+
+    
+
+

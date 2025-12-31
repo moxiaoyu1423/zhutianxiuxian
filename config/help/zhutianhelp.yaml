@@ -1,0 +1,179 @@
+- group: 人体秘境体系
+  list:
+    - icon: help-icon_2
+      title: '#证道'
+      desc: '在额外修炼体系上迈入下一个境界，一境一重天' 
+    - icon: help-icon_2
+      title: '#渡（斩道|圣人|圣人王|大圣|准帝）雷劫'
+      desc: '当秘境体系达到一定程度后就要历经雷劫才能突破'       
+    - icon: help-icon_2
+      title: '#为其护道'
+      desc: '在成就斩道王者后，可以为人护道，在被护道者下本死亡时会出现庇护'       
+    - icon: help-icon_2
+      title: '@qq#庇护应劫'
+      desc: '圣体并非无敌，在末法时代进阶四极时有必死之劫，需有另一位大能消耗极大代价为你庇护应劫接续断路'
+    - icon: help-icon_2
+      title: '#证道成帝'
+      desc: '当修炼到准帝九重天后，就能逆斩万道，融合天心印记，打败历代古之大帝虚影，证道大帝！' 
+    - icon: help-icon_2
+      title: '#自封帝号'
+      desc: '成就天帝后，为自己自封帝号受到天地众生敬仰！' 
+    - icon: help-icon_2
+      title: '#逆活九世'
+      desc: '若要迈入仙道领域唯有逆活九世，红尘为仙！'
+    - icon: help-icon_2
+      title: '#破王成帝'
+      desc: '破开王境，踏入准仙帝境界！'       
+    - icon: help-icon_2
+      title: '#祭道'
+      desc: '若要在路尽级仙帝道果上更进一步极尽升华，必先焚烧大道，祭掉自身一切！' 
+    - icon: help-icon_2
+      title: '#凝聚精血'
+      desc: '圣体，神体，先天道胎，混沌体，妖体等等可以凝聚本命精血'       
+
+- group: 仙古今世法体系
+  list:
+    - icon: help-icon_2
+      title: '#冲关/冲关极境'
+      desc: '在仙古今世法上迈入下一个境界，并且可以打磨极境' 
+
+- group: 世家势力
+  list:
+    - icon: help-icon_2
+      title: '#加入瑶池'
+      desc: '瑶池只收女弟子' 
+    - icon: help-icon_2
+      title: '#加入摇光'
+      desc: '摇光不收废材弟子'
+    - icon: help-icon_2
+      title: '#造访剑云海'
+      desc: '需要下本奇遇获得的剑云海令牌'      
+    - icon: help-icon_2
+      title: '#瑶池仙楼|摇光宝库|剑云海剑阁(兑换xxx)'
+      desc: '势力商店查看与兑换'
+    - icon: help-icon_2
+      title: '#瑶池|摇光|剑云海(兑换xxx)'
+      desc: '势力商店兑换'            
+    - icon: help-icon_2
+      title: '#领取瑶池俸禄|领取摇光俸禄|开启剑云海秘库'
+      desc: '每日领取势力俸禄'                  
+    - icon: help-icon_2
+      title: '#职位晋升'
+      desc: '捐献源石提升职位获得奖励'       
+
+- group: 神城源石坊
+  list:
+    - icon: help-icon_2
+      title: '#源石坊'
+      desc: '赌石赚取源石' 
+    - icon: help-icon_2
+      title: '#神城兑换源石 xxx 数量'
+      desc: '用各种品质的源石兑换源石' 
+
+- group: 天机秘辛
+  list:
+    - icon: help-icon_2
+      title: '#打听天机'
+      desc: '花五百万斤源石打听天机' 
+    - icon: help-icon_2
+      title: '#探索狠人道场'
+      desc: ' 探索狠人大帝的道场，需要打听到对应情报和各大体质的精血，具备唯一性'
+    - icon: help-icon_2
+      title: '#探索乱古遗址'
+      desc: '探索乱古大帝的坐化之地，需要打听到对应情报，具备唯一性'
+    - icon: help-icon_2
+      title: '#探索妖帝坟冢'
+      desc: '探索青帝留下的坟冢，需要打听到对应情报和妖体，具备唯一性'        
+
+- group: 路尽级仙帝
+  list:      
+    - icon: help-icon_2
+      title: '#赐予练气/炼体升xx级@qq'
+      desc: ' 一念开天，万道俯首！仙帝言出法随，可点化凡尘登临仙台'
+    - icon: help-icon_2
+      title: '#造化万物 xxx'
+      desc: '掌中宇宙生灭，弹指间星河衍化，诸天万界皆在指间流转'
+    - icon: help-icon_2
+      title: '#映照/#映照@xxx'
+      desc: '纵使魂归永寂，身化劫灰，亦能从岁月长河中唤回真灵'
+    - icon: help-icon_2
+      title: '#镇压@xxx'
+      desc: '一念断万古，弹指葬纪元，使对方魂归永寂！/慎用'  
+    - icon: help-icon_2
+      title: '#重塑灵根@xxx'
+      desc: '逆改先天根骨，重铸混沌道胎，纵是凡体亦可蜕变为无上仙躯' 
+    - icon: help-icon_2
+      title: '@xxx#为其逆天改根'
+      desc: '仙帝具备一念间为他人逆天改命重塑天资的伟力'                        
+    - icon: help-icon_2
+      title: '#天意一刀斩众生万灵'
+      desc: '仙帝的一缕心绪波动，就能显化在无穷诸天外，让诸天寂灭！/慎用，会斩掉所有低阶修士的修行道基' 
+    - icon: help-icon_2
+      title: '#重塑古今未来'
+      desc: '翻动万古长空画卷，改写古今未来，岁月长河亦要改道而行'       
+
+- group: 无上帝兵
+  list:
+    - icon: help-icon_2
+      title: '#以[仙金]炼制帝兵[名称]'
+      desc: '以九大仙金材料炼制本命帝兵，名称必须包含形态（剑/鼎/枪/钟/塔/镜/印/刀/斧/戟/鞭/琴/扇）'
+      example: '#以仙泪绿金炼制帝兵混沌剑'
+      
+    - icon: help-icon_2
+      title: '#以[仙金]融合帝兵'
+      desc: '融合其他仙金提升帝兵潜力上限（每种仙金只能融合一次）'
+      example: '#以凰血赤金融合帝兵'
+      
+    - icon: help-icon_2
+      title: '#雷劫洗礼帝兵'
+      desc: '使帝兵进阶：雏形→通灵→铭刻道与理→斩道王兵→圣兵→准帝兵→极道帝兵→仙器→仙王器→准仙帝器→仙帝器→祭道器'
+      
+    - icon: help-icon_2
+      title: '#为帝兵更名[新名称]'
+      desc: '为帝兵更改名称（仍需包含形态）'
+      example: '#为帝兵更名天帝剑'
+      
+    - icon: help-icon_2
+      title: '#蕴养帝兵'
+      desc: '消耗修为、血气和生命本源温养帝兵，提升属性（需帝兵达到铭刻道与理品阶）'
+      
+    - icon: help-icon_2
+      title: '#刻写帝兵'
+      desc: '将自身之道刻写入帝兵（需帝兵达到圣兵品阶，玩家达到圣人王境界）'
+      
+    - icon: help-icon_2
+      title: '#创造自身之道 [类型] [名称]'
+      desc: '开创专属大道（类型：攻伐/护体/涅槃），为刻写帝兵做准备'
+      example: '#创造自身之道 攻伐 杀伐剑道'
+      
+    - icon: help-icon_2
+      title: '九大仙金材料'
+      desc: '仙泪绿金、凰血赤金、龙纹黑金、永恒蓝金、神痕紫金、道劫黄金、羽化青金、混沌石精、大罗银精'  
+
+- group: 世界BOSS
+  list:
+    - icon: help-icon_20
+      title: "#平定黑暗动乱"
+      desc: "每天晚上8点，恐怖的禁区至尊出世，将收割万灵生命，须有强者与之抗衡保卫诸天万界生灵"
+    - icon: help-icon_20
+      title: "#禁区至尊状态"
+      desc: "查看禁区至尊当前的姿态"
+    - icon: help-icon_20
+      title: "#黑暗动乱帝战贡献榜"
+      desc: "在此次平定黑暗动乱中的输出和排名"
+    - icon: help-icon_20
+      title: "#清除现世污染/bug待修复"
+      desc: "将这个修行界的大道污染清除，同样这也会招致强大存在的降临灭世，若没有足够实力别作此举动"
+
+- group: 天机阁
+  list:
+    - icon: help-icon_53
+      title: "#天机阁兑换xx"
+      desc: "用代币兑换奖励"
+    - icon: help-icon_53
+      title: "#天机阁"
+      desc: "天机阁商店"
+
+
+
+

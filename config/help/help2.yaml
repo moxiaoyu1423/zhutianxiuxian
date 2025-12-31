@@ -1,0 +1,58 @@
+- group: 一键功能
+  list:
+    - icon: help-icon_2
+      title: '#一键服用修为丹/血气丹/神药/天药/食材'
+      desc: '顾名思义，无需多言' 
+    - icon: help-icon_2
+      title: '#一键卖矿石/卖钞票/回血/学习/装备/解锁/锁定'
+      desc: '剩余的无需赘述' 
+
+- group: 位面穿梭
+  list:
+    - icon: help-icon_2
+      title: '#穿梭凡间/仙界/下界八域/遮天位面/九天十地/仙域/时间长河/永恒未知之地'
+      desc: '消耗修为血气以及寿元开辟通道前往其他位面' 
+    - icon: help-icon_2
+      title: '#消耗位面传送阵'
+      desc: '消耗后获得位面传送次数，免除代价秒传位面'
+    - icon: help-icon_2
+      title: '#激活五色祭坛'
+      desc: '消耗修为血气激活五色祭坛，[圣人以下前往遮天位面的手段]'               
+
+- group: 生命之轮
+  list:
+    - icon: help-icon_2
+      title: '#修复道伤'
+      desc: '用无上疗伤功法以一定代价修复自身道伤' 
+    - icon: help-icon_2
+      title: '#服用xxx/一键服用神药'
+      desc: '用神药的药性修复道伤，但消耗的药力极其庞大' 
+    - icon: help-icon_2
+      title: '#修复生命本源'
+      desc: '用一定代价修复缺失的生命本源' 
+
+- group: 道家黄庭内景地
+  list:
+    - icon: help-icon_2
+      title: '#凝练元神'
+      desc: '以一定元神值凝炼元神等级，与秘境体系/仙古今世法等级挂钩'   
+    - icon: help-icon_2
+      title: '#开启内景地'
+      desc: '消耗五百万元神值开启内景地，成功率与元神等级挂钩' 
+    - icon: help-icon_2
+      title: '#进入内景地'
+      desc: '进入内景地修复道伤，获得大量修血，量值与自身等级挂钩' 
+    - icon: help-icon_2
+      title: '#开辟内景地空间'
+      desc: '消耗五百万元神值开辟内景地空间，相当于仓库'
+    - icon: help-icon_2
+      title: '#升级内景地空间'
+      desc: '消耗一定源石升级内景地空间存储上限'
+    - icon: help-icon_2
+      title: '#存xx*数量||#取xx*数量||一键存入内景地||一键取出内景地||查看内景地'
+      desc: '顾名思义,无需多言'                
+
+
+
+
+

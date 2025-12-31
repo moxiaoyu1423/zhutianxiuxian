@@ -1,0 +1,382 @@
+[
+  {
+    "name": "起死回生丹",
+    "type": "血量",
+    "materials": [
+      {
+        "name": "万年凝血草",
+        "amount": 1
+      },
+      {
+        "name": "万年甜甜花",
+        "amount": 1
+      },{
+        "name": "万年清心草",
+        "amount": 1
+      },
+      {
+        "name": "万年血精草",
+        "amount": 1
+      }
+    ],
+    "rate": 1,
+    "level_limit": 0,
+    "exp": [20, 20]
+  },
+  {
+    "name": "辟谷丹",
+    "type": "闭关",
+    "materials": [
+      {
+        "name": "万年凝血草",
+        "amount": 1
+      },
+      {
+        "name": "万年血精草",
+        "amount": 1
+      }
+    ],
+    "rate": 1,
+    "level_limit": 0,
+    "exp": [100, 300]
+  },
+  {
+    "name": "凝仙丹",
+    "type": "凝仙",
+    "materials": [
+      {
+        "name": "太玄仙草",
+        "amount": 1
+      },
+      {
+        "name": "万年甜甜花",
+        "amount": 1
+      },
+      {
+        "name": "万年清心草",
+        "amount": 1
+      }
+    ],
+    "rate": 1,
+    "level_limit": 0,
+    "exp": [250, 500]
+  },
+  {
+    "name": "炼神丹",
+    "type": "炼神",
+    "materials": [
+      {
+        "name": "炼骨花",
+        "amount": 1
+      },
+      {
+        "name": "万年凝血草",
+        "amount": 1
+      },
+      {
+        "name": "万年血精草",
+        "amount": 1
+      }
+    ],
+    "rate": 1,
+    "level_limit": 0,
+    "exp": [250, 500]
+  },
+  {
+    "name": "仙缘丹",
+    "type": "仙缘",
+    "materials": [
+      {
+        "name": "仙缘草",
+        "amount": 1
+      },
+      {
+        "name": "万年太玄果",
+        "amount": 1
+      },
+      {
+        "name": "万年何首乌",
+        "amount": 1
+      }
+    ],
+    "rate": 1,
+    "level_limit": 0,
+    "exp": [250, 500]
+  },
+  {
+    "name": "转生丹",
+    "type": "魔道值",
+    "materials": [
+      {
+        "name": "仙蕴花",
+        "amount": 1
+      },
+      {
+        "name": "万年清灵草",
+        "amount": 1
+      },
+      {
+        "name": "万年何首乌",
+        "amount": 1
+      }
+    ],
+    "rate": 1,
+    "level_limit": 0,
+    "exp": [250, 500]
+  },
+  {
+    "name": "神心丹",
+    "type": "灵根",
+    "materials": [
+      {
+        "name": "天仙子",
+        "amount": 1
+      },
+      {
+        "name": "万年天魂菊",
+        "amount": 1
+      },
+      {
+        "name": "万年清灵草",
+        "amount": 1
+      }
+    ],
+    "rate": 1,
+    "level_limit": 0,
+    "exp": [250, 500]
+  },
+  {
+    "name": "神赐丹",
+    "type": "神赐",
+    "materials": [
+      {
+        "name": "古神藤",
+        "amount": 1
+      },
+      {
+        "name": "万年太玄果",
+        "amount": 1
+      },
+      {
+        "name": "万年何首乌",
+        "amount": 1
+      }
+    ],
+    "rate": 1,
+    "level_limit": 0,
+    "exp": [250, 500]
+  },
+  {
+    "name": "疯魔丹",
+     "type": "入魔",
+    "materials": [
+      {
+        "name": "魔蕴花",
+        "amount": 1
+      },
+      {
+        "name": "万年天魂菊",
+        "amount": 1
+      },
+      {
+        "name": "万年何首乌",
+        "amount": 1
+      }
+    ],
+    "rate": 1,
+    "level_limit": 0,
+    "exp": [250, 500]
+  },
+  {
+    "name": "真器丹",
+     "type": "锻造上限",
+    "materials": [
+      {
+        "name": "万年太玄果",
+        "amount": 1
+      },
+      {
+        "name": "绝天白灵芝",
+        "amount": 1
+      },
+      {
+        "name": "万年何首乌",
+        "amount": 1
+      }
+    ],
+    "rate": 0.5,
+    "level_limit": 24,
+    "exp": [2500, 5000]
+  },
+  {
+    "name": "器灵丹",
+     "type": "器灵",
+    "materials": [
+      {
+        "name": "七彩墨树",
+        "amount": 1
+      },
+      {
+        "name": "万年天魂菊",
+        "amount": 1
+      },
+      {
+        "name": "万年何首乌",
+        "amount": 1
+      }
+    ],
+    "rate": 1,
+    "level_limit": 0,
+    "exp": [250, 500]
+  },
+  {
+    "name": "九阶淬体丹",
+    "type": "血气",
+    "exp2": 9000000,
+    "materials": [
+      {
+        "name": "万年凝血草",
+        "amount": 20
+      },
+      {
+        "name": "万年何首乌",
+        "amount": 20
+      },
+      {
+        "name": "万年血精草",
+        "amount": 20
+      }
+    ],
+    "rate": 1,
+    "level_limit": 10,
+    "exp": [55555, 55555]
+  },
+  {
+    "name": "九阶玄元丹",
+    "type": "修为",
+    "exp2": 9000000,
+    "materials": [
+      {
+        "name": "万年甜甜花",
+        "amount": 20
+      },
+      {
+        "name": "万年何首乌",
+        "amount": 20
+      },
+      {
+        "name": "万年清心草",
+        "amount": 20
+      }
+    ],
+    "rate": 1,
+    "level_limit": 10,
+    "exp": [55555, 55555]
+  },
+   {
+    "name": "神魔炼体丹",
+    "type": "血气",
+    "exp2": 80000000,
+    "materials": [
+      {
+        "name": "万年凝血草",
+        "amount": 120
+      },
+      {
+        "name": "万年何首乌",
+        "amount": 120
+      },
+      {
+        "name": "万年血精草",
+        "amount": 120
+      }
+    ],
+    "rate": 1,
+    "level_limit": 15,
+    "exp": [55555, 55555]
+  },
+  {
+    "name": "七星玄元丹",
+    "type": "修为",
+    "exp2": 80000000,
+    "materials": [
+      {
+        "name": "万年甜甜花",
+        "amount": 120
+      },
+      {
+        "name": "万年何首乌",
+        "amount": 120
+      },
+      {
+        "name": "万年清心草",
+        "amount": 120
+      }
+    ],
+    "rate": 1,
+    "level_limit": 15,
+    "exp": [55555, 55555]
+  },
+  {
+    "name": "天命轮回丹",
+    "type": "天资洗炼",
+    "exp2": 9000000,
+    "materials": [
+
+      {
+        "name": "神体精血",
+        "amount": 1
+      },
+       {
+        "name": "妖体精血",
+        "amount": 1
+      },
+      {
+        "name": "圣体道胎精血",
+        "amount": 1
+      },
+      {
+        "name": "混沌体精血",
+        "amount": 1
+      }
+    ],
+    "rate": 1,
+    "level_limit": 20,
+    "exp": [55555, 55555]
+  },
+  {
+    "name": "无上九转仙丹",
+    "type": "神药",
+    "exp2": 9000000,
+    "materials": [
+
+      {
+        "name": "神体精血",
+        "amount": 10
+      },
+       {
+        "name": "妖体精血",
+        "amount": 10
+      },
+      {
+        "name": "圣体道胎精血",
+        "amount": 10
+      },
+      {
+        "name": "混沌体精血",
+        "amount": 10
+      },
+      {
+        "name": "至尊体精血",
+        "amount": 10
+      },
+      {
+        "name": "无上九转仙丹药引",
+        "amount": 1
+      }
+    ],
+    "rate": 1,
+    "level_limit": 20,
+    "exp": [55555, 55555]
+  }
+]

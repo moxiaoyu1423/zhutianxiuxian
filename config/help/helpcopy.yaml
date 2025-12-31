@@ -1,0 +1,171 @@
+
+- group: 仙宠
+  list:
+    - icon: help-icon_43
+      title: '#出战仙宠+仙宠名字/代号'
+      desc: '注意有的仙宠存档灵魂绑定,出战后无法更换'
+    - icon: help-icon_43
+      title: '#进阶仙宠'
+      desc: '仙宠进化'
+    - icon: help-icon_43
+      title: '#喂给仙宠+食物名称'
+      desc: '升级仙宠'
+- grop: -塔-
+  list:
+    - icon: help-icon_19
+      title: '#挑战镇妖塔'
+      desc: '试炼自己提高攻击力，获取灵石'
+    - icon: help-icon_17
+      title: '#炼神魄'
+      desc: '试炼自己提高防御与血量，获取血气'
+    - icon: help-icon_19
+      title: '#一键挑战镇妖塔'
+      desc: '试炼自己提高攻击力，获取灵石'
+    - icon: help-icon_17
+      title: '#一键炼神魄'
+      desc: '试炼自己提高防御与血量，获取血气'
+- group: 礼尚往来(?)
+  list:
+    - icon: help-icon_18
+      title: '@群友 以武会友'
+      desc: '相互切磋武艺,没有限制,没有奖励'
+    - icon: help-icon_18
+      title: '@群友 比武'
+      desc: '比武,满血才可以进行，获得气血和一点点奖励'
+    - icon: help-icon_18
+      title: '@群友 打劫'
+      desc: '与其搏斗,胜方获得败方部分灵石'
+    - icon: help-icon_18
+      title: '@群友 残云封天剑'
+      desc: '将其禁言'
+    - icon: help-icon_18
+      title: '除你禁言'
+      desc: '解除禁言禁言'
+- group: 一键功能
+  list:
+    - icon: help-icon_37
+      title: '#一键学习'
+      desc: '一键学习全部功法'
+    - icon: help-icon_22
+      title: '#一键服用修为丹'
+      desc: '疯狂吃药'
+    - icon: help-icon_6
+      title: '#一键服用血气丹'
+      desc: '疯狂吃药'
+    - icon: help-icon_2
+      title: '#一键服用神药/天药/食材'
+      desc: '顾名思义，无需多言' 
+    - icon: help-icon_2
+      title: '#一键卖矿石/卖钞票/回血'
+      desc: '顾名思义，无需多言'     
+    - icon: help-icon_6
+      title: '#一键装备'
+      desc: '智能搭配最佳装备'
+    - icon: help-icon_53
+      title: '#一键出售+类型名'
+      desc: '装备/丹药/道具/功法/草药/材料/仙宠/仙宠口粮'
+    - icon: help-icon_53
+      title: '#一键回收+类型名'
+      desc: '装备/丹药/道具/功法/草药/材料/仙宠/仙宠口粮'
+
+- group:
+  list:
+    - icon: help-icon_26
+      title: '#消耗残卷'
+      desc: '消耗十个残卷自选一个八品功法'
+    - icon: help-icon_13
+      title: '#学习+功法名'
+      desc: '学习功法'
+    - icon: help-icon_16
+      title: '#消耗+道具名'
+      desc: '消耗道具'
+    - icon: help-icon_6
+      title: '#服用+丹药名'
+      desc: '服用'
+    - icon: help-icon_51
+      title: '#装备+装备名/装备代号'
+      desc: '加*品级,可指定品级'
+
+- group: 君子爱财
+  list:
+    - icon: help-icon_10
+      title: '#洗劫+地点名'
+      desc: '支持柠檬堂、金银坊、万宝楼、星阁、万仙盟'
+    - icon: help-icon_10
+      title: '#探查+地点名'
+      desc: '侦察物品'
+    - icon: help-icon_10
+      title: '#查看当前拍卖'
+      desc: '瞅瞅现在他人在拍卖的珍宝'
+    - icon: help-icon_10
+      title: '#竞拍+编号'
+      desc: '竞拍他人上架的物品'
+    - icon: help-icon_10
+      title: '#拍卖'
+      desc: '#拍卖+物品*价格*数量 例#拍卖咸鱼宝剑*1000*10'
+    - icon: help-icon_10
+      title: '#星阁拍卖'
+      desc: '查看当前星阁在拍卖的珍宝'
+    - icon: help-icon_10
+      title: '#星阁出价'
+      desc: '与他人竞价'
+    
+
+- group: 修身养性
+  list:
+    - icon: help-icon_19
+      title: '@群友 双修'
+      desc: '年轻人要注意节制'
+    - icon: help-icon_12
+      title: '#怡红院'
+      desc: '未成年人请不要进入'
+    - icon: help-icon_12
+      title: '#允许双修'
+      desc: '不允许被双修'
+    - icon: help-icon_12
+      title: '#拒绝双修'
+      desc: '主动拒绝双修'
+    - icon: help-icon_12
+      title: '@xx 结为道侣'
+      desc: '成为道侣'
+    - icon: help-icon_12
+      title: '@xx 断绝姻缘'
+      desc: '分手'
+    - icon: help-icon_12
+      title: '@xx 赠予百合花篮'
+      desc: '增加亲密度'
+    - icon: help-icon_12
+      title: '#查询亲密度'
+      desc: '查询自己与其他人的亲密度'
+
+- group: 唯我独尊
+  list:
+    - icon: help-icon_8
+      title: '#灵榜'
+      desc: '最富有的十位肥羊'
+    - icon: help-icon_17
+      title: '#天榜'
+      desc: '修为最高的十位大能'
+    - icon: help-icon_17
+      title: '#至尊榜'
+      desc: '凡人战力榜'
+    - icon: help-icon_17
+      title: '#封神榜'
+      desc: '仙人战力榜'
+    - icon: help-icon_17
+      title: '#神魄榜，#强化榜，#镇妖塔榜'
+      desc: '查看榜'
+    - icon: help-icon_17
+      title: '#魔道榜'
+      desc: '谁是大魔头'
+    - icon: help-icon_17
+      title: '#神兵榜'
+      desc: '玩家顶级装备排行'
+    - icon: help-icon_17
+      title: '#修仙世界'
+      desc: '查看玩家数量'
+- group: 频道指令
+  list:
+    - icon: help-icon_8
+      title: '#转换存档'
+      desc: '位面转移'

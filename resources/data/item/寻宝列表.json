@@ -1,0 +1,1225 @@
+{
+  "treasureMaps": {
+    "天臂池": {
+      "id": 257,
+      "name": "天臂池",
+      "grade": "寻宝经验本",
+      "bestRewards": ["经验瓶", "经验球", "血气瓶"],
+      "price": 1000,
+      "requirements": {
+        "map": [
+          {
+            "name": "天臂池",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "tools": [
+          {
+            "name": "钓鱼竿",
+            "class": "道具",
+            "amount": 1
+          }
+        ]
+      },
+      "rewards": {
+        "base": [
+          {
+            "name": "鱼肉",
+            "class": "食材",
+            "amount": 100
+          }
+        ],
+        "random": [
+          {
+            "chance": 0.7,
+            "items": [
+              {
+                "name": "经验瓶",
+                "class": "丹药",
+                "amount": 1
+              }
+            ]
+          },
+          {
+            "chance": 0.2,
+            "items": [
+              {
+                "name": "经验球",
+                "class": "丹药",
+                "amount": 1
+              }
+            ]
+          },
+          {
+            "chance": 0.09,
+            "items": [
+              {
+                "name": "血气瓶",
+                "class": "丹药",
+                "amount": 1
+              }
+            ]
+          },
+          {
+            "chance": 0.01,
+            "items": [
+              {
+                "name": "经验瓶",
+                "class": "丹药",
+                "amount": 10
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "星落湖": {
+      "id": 257,
+      "name": "星落湖",
+      "grade": "寻宝经验本",
+      "bestRewards": ["钓鱼掉上来的奇怪盒子"],
+      "price": "1000,仙人",
+      "requirements": {
+        "map": [
+          {
+            "name": "星落湖",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "tools": [
+          {
+            "name": "钓鱼竿",
+            "class": "道具",
+            "amount": 1
+          }
+        ]
+      },
+      "rewards": {
+        "base": [
+          {
+            "name": "鱼肉",
+            "class": "食材",
+            "amount": 100
+          }
+        ],
+        "random": [
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "钓鱼掉上来的奇怪盒子",
+                "class": "盒子",
+                "amount": 2
+              }
+            ]
+          },
+          {
+            "chance": 0.9,
+            "items": [
+              {
+                "name": "钓鱼掉上来的奇怪盒子",
+                "class": "盒子",
+                "amount": 1
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "沉沦之海": {
+      "id": 257,
+      "name": "沉沦之海",
+      "grade": "寻宝经验本",
+      "bestRewards": ["利维坦之心", "海神之血"],
+      "price": "5000,仙人",
+      "requirements": {
+        "map": [
+          {
+            "name": "沉沦之海",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "tools": [
+          {
+            "name": "钓鱼竿",
+            "class": "道具",
+            "amount": 1
+          }
+        ]
+      },
+      "rewards": {
+        "base": [
+          {
+            "name": "鱼肉",
+            "class": "食材",
+            "amount": 500
+          }
+        ],
+        "random": [
+          {
+            "chance": 0.3,
+            "items": [
+              {
+                "name": "利维坦之心",
+                "class": "丹药",
+                "amount": 10
+              }
+            ]
+          },
+          {
+            "chance": 0.4,
+            "items": [
+              {
+                "name": "利维坦之心",
+                "class": "丹药",
+                "amount": 1
+              }
+            ]
+          },
+          {
+            "chance": 0.2,
+            "items": [
+              {
+                "name": "海神之血",
+                "class": "丹药",
+                "amount": 1
+              }
+            ]
+          },
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "海神之血",
+                "class": "丹药",
+                "amount": 10
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "低语森林": {
+      "id": 257,
+      "name": "低语森林",
+      "grade": "寻宝砍树本",
+      "bestRewards": ["水天丛林地图", "苹果"],
+      "price": 500,
+      "requirements": {
+        "map": [
+          {
+            "name": "低语森林",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "tools": [
+          {
+            "name": "木斧",
+            "class": "道具",
+            "amount": 1
+          },
+          {
+            "name": "石斧",
+            "class": "道具",
+            "amount": 1
+          }
+        ]
+      },
+      "rewards": {
+        "base": [
+          {
+            "name": "原木",
+            "class": "材料",
+            "amount": 12
+          }
+        ],
+        "random": [
+          {
+            "chance": 0.3,
+            "items": [
+              {
+                "name": "水天丛林",
+                "class": "道具",
+                "amount": 1
+              }
+            ]
+          },
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "苹果",
+                "class": "食材",
+                "amount": 32
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "水天丛林": {
+      "id": 257,
+      "name": "水天丛林",
+      "grade": "寻宝砍树本",
+      "bestRewards": ["深渊地图", "西瓜"],
+      "price": 1000,
+      "requirements": {
+        "map": [
+          {
+            "name": "水天丛林",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "tools": [
+          {
+            "name": "木斧",
+            "class": "道具",
+            "amount": 1
+          },
+          {
+            "name": "石斧",
+            "class": "道具",
+            "amount": 1
+          },
+          {
+            "name": "铁斧",
+            "class": "道具",
+            "amount": 1
+          }
+        ]
+      },
+      "rewards": {
+        "base": [
+          {
+            "name": "原木",
+            "class": "材料",
+            "amount": 64
+          }
+        ],
+        "random": [
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "西瓜",
+                "class": "食材",
+                "amount": 128
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "恒那兰那": {
+      "id": 257,
+      "name": "恒那兰那",
+      "grade": "寻宝食物本",
+      "bestRewards": ["铁矿", "煤炭", "轻策庄", "书架"],
+      "price": 100,
+      "requirements": {
+        "map": [
+          {
+            "name": "恒那兰那",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "tools": [
+          {
+            "name": "木铲",
+            "class": "道具",
+            "amount": 1
+          },
+          {
+            "name": "石铲",
+            "class": "道具",
+            "amount": 1
+          }
+        ]
+      },
+      "rewards": {
+        "base": [
+          {
+            "name": "土豆",
+            "class": "食材",
+            "amount": 450
+          },
+          {
+            "name": "胡萝卜",
+            "class": "食材",
+            "amount": 450
+          }
+        ],
+        "random": [
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "轻策庄",
+                "class": "道具",
+                "amount": 1
+              }
+            ]
+          },
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "铁矿",
+                "class": "材料",
+                "amount": 2
+              }
+            ]
+          },
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "煤炭",
+                "class": "材料",
+                "amount": 5
+              }
+            ]
+          },
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "甘蔗",
+                "class": "食材",
+                "amount": 5
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "轻策庄": {
+      "id": 257,
+      "name": "轻策庄",
+      "grade": "寻宝食物本",
+      "bestRewards": ["书架", "书本", "黑曜石", "深渊", "甘蔗"],
+      "price": 100,
+      "requirements": {
+        "map": [
+          {
+            "name": "轻策庄",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "tools": [
+          {
+            "name": "铁铲",
+            "class": "道具",
+            "amount": 1
+          },
+          {
+            "name": "金铲",
+            "class": "道具",
+            "amount": 1
+          },
+          {
+            "name": "钻石铲",
+            "class": "道具",
+            "amount": 1
+          }
+        ]
+      },
+      "rewards": {
+        "base": [
+          {
+            "name": "小麦",
+            "class": "食材",
+            "amount": 4000
+          }
+        ],
+        "random": [
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "铁矿",
+                "class": "材料",
+                "amount": 3
+              }
+            ]
+          },
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "甘蔗",
+                "class": "食材",
+                "amount": 10
+              }
+            ]
+          },
+          {
+            "chance": 0.05,
+            "items": [
+              {
+                "name": "黑曜石",
+                "class": "材料",
+                "amount": 5
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "天衡山": {
+      "id": 257,
+      "name": "天衡山",
+      "grade": "寻宝挖矿本",
+      "bestRewards": ["煤炭", "铁矿", "魔山地图"],
+      "price": 1000,
+      "requirements": {
+        "map": [
+          {
+            "name": "天衡山",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "tools": [
+          {
+            "name": "木镐",
+            "class": "道具",
+            "amount": 1
+          },
+          {
+            "name": "石镐",
+            "class": "道具",
+            "amount": 1
+          }
+        ]
+      },
+      "rewards": {
+        "base": [
+          {
+            "name": "圆石",
+            "class": "材料",
+            "amount": 12
+          },
+          {
+            "name": "灵石",
+            "amount": 150000
+          }
+        ],
+        "random": [
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "降诸魔山",
+                "class": "道具",
+                "amount": 1
+              }
+            ]
+          },
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "煤炭",
+                "class": "材料",
+                "amount": 5
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "降诸魔山": {
+      "id": 257,
+      "name": "降诸魔山",
+      "grade": "寻宝挖矿本",
+      "bestRewards": ["星荧洞窟地图", "腐肉", "骨头"],
+      "price": 2000,
+      "requirements": {
+        "map": [
+          {
+            "name": "降诸魔山",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "tools": [
+          {
+            "name": "铁镐",
+            "class": "道具",
+            "amount": 1
+          },
+          {
+            "name": "石镐",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "consumables": [
+          {
+            "name": "火把",
+            "class": "道具",
+            "amount": 30
+          }
+        ]
+      },
+      "rewards": {
+        "base": [
+          {
+            "name": "圆石",
+            "class": "材料",
+            "amount": 27
+          },
+          {
+            "name": "煤炭",
+            "class": "材料",
+            "amount": 27
+          },
+          {
+            "name": "铁矿",
+            "class": "材料",
+            "amount": 12
+          },
+          {
+            "name": "灵石",
+            "amount": 150000
+          }
+        ],
+        "random": [
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "星荧洞窟",
+                "class": "道具",
+                "amount": 1
+              }
+            ]
+          },
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "腐肉",
+                "class": "食材",
+                "amount": 32
+              }
+            ]
+          },
+          {
+            "chance": 0.05,
+            "items": [
+              {
+                "name": "骨头",
+                "class": "材料",
+                "amount": 5
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "星荧洞窟": {
+      "id": 257,
+      "name": "星荧洞窟",
+      "grade": "寻宝挖矿本",
+      "bestRewards": ["层岩洞窟地图", "腐肉", "骨头", "红石"],
+      "price": "3000,仙人",
+      "requirements": {
+        "map": [
+          {
+            "name": "星荧洞窟",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "tools": [
+          {
+            "name": "铁镐",
+            "class": "道具",
+            "amount": 1
+          },
+          {
+            "name": "石镐",
+            "class": "道具",
+            "amount": 1
+          }
+        ]
+      },
+      "rewards": {
+        "base": [
+          {
+            "name": "圆石",
+            "class": "材料",
+            "amount": 27
+          },
+          {
+            "name": "煤炭",
+            "class": "材料",
+            "amount": 27
+          },
+          {
+            "name": "铁矿",
+            "class": "材料",
+            "amount": 12
+          },
+          {
+            "name": "黄金矿",
+            "class": "材料",
+            "amount": 9
+          }
+        ],
+        "random": [
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "层岩洞窟",
+                "class": "道具",
+                "amount": 1
+              }
+            ]
+          },
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "红石",
+                "class": "材料",
+                "amount": 128
+              }
+            ]
+          },
+          {
+            "chance": 0.05,
+            "items": [
+              {
+                "name": "腐肉",
+                "class": "食材",
+                "amount": 64
+              }
+            ]
+          },
+          {
+            "chance": 0.05,
+            "items": [
+              {
+                "name": "骨头",
+                "class": "材料",
+                "amount": 10
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "层岩洞窟": {
+      "id": 257,
+      "name": "层岩洞窟",
+      "grade": "寻宝挖矿本",
+      "bestRewards": ["深渊地图", "腐肉", "骨头", "红石"],
+      "price": "5000,仙人",
+      "requirements": {
+        "map": [
+          {
+            "name": "层岩洞窟",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "tools": [
+          {
+            "name": "铁镐",
+            "class": "道具",
+            "amount": 1
+          },
+          {
+            "name": "金镐",
+            "class": "道具",
+            "amount": 1
+          },
+          {
+            "name": "钻石镐",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "consumables": [
+          {
+            "name": "火把",
+            "class": "道具",
+            "amount": 60
+          }
+        ]
+      },
+      "rewards": {
+        "base": [
+          {
+            "name": "圆石",
+            "class": "材料",
+            "amount": 54
+          },
+          {
+            "name": "青金石",
+            "class": "材料",
+            "amount": 36
+          },
+          {
+            "name": "钻石",
+            "class": "材料",
+            "amount": 15
+          },
+          {
+            "name": "黑曜石",
+            "class": "材料",
+            "amount": 12
+          },
+          {
+            "name": "灵石",
+            "amount": 200000
+          }
+        ],
+        "random": [
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "红石",
+                "class": "材料",
+                "amount": 256
+              }
+            ]
+          },
+          {
+            "chance": 0.05,
+            "items": [
+              {
+                "name": "腐肉",
+                "class": "食材",
+                "amount": 128
+              }
+            ]
+          },
+          {
+            "chance": 0.05,
+            "items": [
+              {
+                "name": "骨头",
+                "class": "材料",
+                "amount": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "深渊": {
+      "id": 257,
+      "name": "深渊",
+      "grade": "寻宝中的旧神界",
+      "bestRewards": ["七星海棠丹", "岩浆"],
+      "price": "10000,仙人",
+      "experience": 15000000,
+      "requirements": {
+        "map": [
+          {
+            "name": "深渊",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "tools": [
+          {
+            "name": "铁镐",
+            "class": "道具",
+            "amount": 1
+          },
+          {
+            "name": "金镐",
+            "class": "道具",
+            "amount": 1
+          },
+          {
+            "name": "钻石镐",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "consumables": [
+          {
+            "name": "火把",
+            "class": "道具",
+            "amount": 120
+          },
+          {
+            "name": "深渊传送门",
+            "class": "道具",
+            "amount": 1
+          }
+        ]
+      },
+      "rewards": {
+        "base": [
+          {
+            "name": "下界合金矿",
+            "class": "材料",
+            "amount": 9
+          },
+          {
+            "name": "深渊石",
+            "class": "材料",
+            "amount": 36
+          }
+        ],
+        "random": [
+          {
+            "chance": 0.05,
+            "items": [
+              {
+                "name": "七星海棠丹",
+                "class": "丹药",
+                "amount": 1
+              }
+            ]
+          },
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "血气瓶",
+                "class": "丹药",
+                "amount": 30
+              }
+            ]
+          },
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "经验瓶",
+                "class": "丹药",
+                "amount": 40
+              }
+            ]
+          },
+          {
+            "chance": 0.05,
+            "items": [
+              {
+                "name": "深渊石",
+                "class": "材料",
+                "amount": 100
+              }
+            ]
+          },
+          {
+            "chance": 0.05,
+            "items": [
+              {
+                "name": "经验球",
+                "class": "丹药",
+                "amount": 100
+              }
+            ]
+          },
+          {
+            "chance": 0.05,
+            "items": [
+              {
+                "name": "岩浆",
+                "class": "材料",
+                "amount": 15
+              }
+            ]
+          },
+          {
+            "chance": 0.05,
+            "items": [
+              {
+                "name": "甘蔗",
+                "class": "食材",
+                "amount": 99
+              }
+            ]
+          },
+          {
+            "chance": 0.05,
+            "items": [
+              {
+                "name": "末影之眼",
+                "class": "材料",
+                "amount": 12
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "末地": {
+      "id": 257,
+      "name": "末地",
+      "grade": "寻宝中的神界",
+      "bestRewards": ["七星海棠丹"],
+      "price": "20000,仙人",
+      "experience": 25000000,
+      "requirements": {
+        "map": [
+          {
+            "name": "末地",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "tools": [
+          {
+            "name": "金镐",
+            "class": "道具",
+            "amount": 1
+          },
+          {
+            "name": "钻石镐",
+            "class": "道具",
+            "amount": 1
+          },
+          {
+            "name": "下界合金镐",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "consumables": [
+          {
+            "name": "火把",
+            "class": "道具",
+            "amount": 120
+          },
+          {
+            "name": "末地传送门",
+            "class": "道具",
+            "amount": 1
+          }
+        ]
+      },
+      "rewards": {
+        "base": [
+          {
+            "name": "末路水晶",
+            "class": "材料",
+            "amount": 9
+          },
+          {
+            "name": "末地石",
+            "class": "材料",
+            "amount": 36
+          }
+        ],
+        "random": [
+          {
+            "chance": 0.05,
+            "items": [
+              {
+                "name": "七星海棠丹",
+                "class": "丹药",
+                "amount": 5
+              }
+            ]
+          },
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "紫颂果",
+                "class": "食材",
+                "amount": 99
+              }
+            ]
+          },
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "经验瓶",
+                "class": "丹药",
+                "amount": 80
+              }
+            ]
+          },
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "血气瓶",
+                "class": "丹药",
+                "amount": 80
+              }
+            ]
+          },
+          {
+            "chance": 0.01,
+            "items": [
+              {
+                "name": "龙蛋",
+                "class": "道具",
+                "amount": 1
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "泰拉肉前丛林": {
+      "id": 257,
+      "name": "泰拉肉前丛林",
+      "grade": "异世界",
+      "bestRewards": ["大自然的恩赐"],
+      "price": "15000,仙人",
+      "experience": 15000000,
+      "requirements": {
+        "map": [
+          {
+            "name": "异界水晶球",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "tools": [
+          {
+            "name": "铁镐",
+            "class": "道具",
+            "amount": 1
+          },
+          {
+            "name": "金镐",
+            "class": "道具",
+            "amount": 1
+          }
+        ],
+        "consumables": [
+          {
+            "name": "火把",
+            "class": "道具",
+            "amount": 120
+          }
+        ]
+      },
+      "rewards": {
+        "base": [
+          {
+            "name": "丛林孢子",
+            "class": "材料",
+            "amount": 5
+          },
+          {
+            "name": "毒刺",
+            "class": "材料",
+            "amount": 3
+          }
+        ],
+        "random": [
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "铁锭",
+                "class": "材料",
+                "amount": 9
+              }
+            ]
+          },
+          {
+            "chance": 0.1,
+            "items": [
+              {
+                "name": "金锭",
+                "class": "材料",
+                "amount": 6
+              }
+            ]
+          },
+          {
+            "chance": 0.05,
+            "items": [
+              {
+                "name": "铂金锭",
+                "class": "材料",
+                "amount": 3
+              }
+            ]
+          },
+          {
+            "chance": 0.05,
+            "items": [
+              {
+                "name": "大自然的恩赐",
+                "class": "丹药",
+                "amount": 10
+              }
+            ]
+          },
+          {
+            "chance": 0.05,
+            "items": [
+              {
+                "name": "生命水晶",
+                "class": "道具",
+                "amount": 30
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "mapCategories": {
+    "fishing": ["天臂池", "星落湖", "沉沦之海"],
+    "logging": ["低语森林", "水天丛林"],
+    "farming": ["恒那兰那", "轻策庄"],
+    "mining": ["天衡山", "降诸魔山", "星荧洞窟", "层岩洞窟", "深渊", "末地"],
+    "special": ["泰拉肉前丛林"]
+  },
+  "toolTypes": {
+    "fishing": ["钓鱼竿"],
+    "logging": ["木斧", "石斧", "铁斧"],
+    "farming": ["木铲", "石铲", "铁铲", "金铲", "钻石铲"],
+    "mining": ["木镐", "石镐", "铁镐", "金镐", "钻石镐", "下界合金镐"]
+  },
+  "foodRequirements": {
+    "天臂池": 1000,
+    "星落湖": 1000,
+    "沉沦之海": 5000,
+    "低语森林": 500,
+    "水天丛林": 1000,
+    "恒那兰那": 100,
+    "轻策庄": 100,
+    "天衡山": 1000,
+    "降诸魔山": 2000,
+    "星荧洞窟": 3000,
+    "层岩洞窟": 5000,
+    "深渊": 10000,
+    "末地": 20000,
+    "泰拉肉前丛林": 15000
+  },
+  "levelRequirements": {
+    "天臂池": 0,
+    "星落湖": 41,
+    "沉沦之海": 41,
+    "低语森林": 0,
+    "水天丛林": 0,
+    "恒那兰那": 0,
+    "轻策庄": 0,
+    "天衡山": 0,
+    "降诸魔山": 0,
+    "星荧洞窟": 41,
+    "层岩洞窟": 41,
+    "深渊": 41,
+    "末地": 41,
+    "泰拉肉前丛林": 41
+  }
+}

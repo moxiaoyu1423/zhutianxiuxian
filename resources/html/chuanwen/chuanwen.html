@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{pluResPath}}/html/chuanwen/chuanwen.css"
+    />
+    <!-- <link rel="stylesheet" type="text/css" href="../../html/player/player.css" /> -->
+    <link rel="preload" href="../../font/tttgbnumber.ttf" as="font" />
+    <!-- <link rel="preload" href="../../img/player/xiuxian-01.png" as="image" /> -->
+    <link rel="shortcut icon" href="#" />
+  </head>
+
+  <body>
+    <!--头部-->
+
+    <div class="user_bottom1">
+      <div class="use_data">
+        <div class="use_data_head">
+          <div class="user_font">
+            <div class="user_font"> 江湖传闻</div>
+           </div>
+          <div class="user_font">古妖降生,神物出世</div>
+        </div>
+      </div>
+    </div>
+
+    {{each a item}}
+    <div class="user_bottom1">
+    
+      <div class="use_data">
+        <div class="use_data_head">
+          <div class="user_font">
+            <div class="element">
+            {{item.TIME}}前</br></div>
+          
+            {{item.名号}}</br>获得了:{{item.物品}}*{{item.数量}}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+
+    <!--底部-->
+
+    <div class="user_bottom2"></div>
+  </body>
+</html>

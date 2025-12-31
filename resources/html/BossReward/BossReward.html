@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{pluResPath}}/html/BossReward/BossReward.css"
+    />
+    <link rel="preload" href="../../font/tttgbnumber.ttf" as="font" />
+    <link rel="shortcut icon" href="#" />
+  </head>
+
+  <body>
+    <div class="user_bottom1">
+      <div class="user_font" style="color: #45b97c;padding-left: 0"> <span >{{temp}}</span></div>
+      <div class="use_data">
+        {{each bossThing thing}}
+        <div class="user_font" style="padding-left: 0">
+          <span style="color: #c9ff00;white-space: nowrap;">{{thing.thing.class}}:{{thing.thing.name}}:</span>
+          <span style="white-space: nowrap;justify-content: center;" >{{thing.amount}}个 灵:{{thing.last_price}}</span>
+          <span style="color: #369961;justify-content: end;"> 名:{{thing.last_player_name}} 出价次数:{{thing.over_time}} NO:{{thing.list_num}}</span>
+        </div>
+        <div style="margin: 0 0 -10px">
+          -------------------------------------------------------------------------------------------------------------------------------
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    <style></style>
+
+  </body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修仙洗根排行榜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: #e2e8f0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(26, 32, 44, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #2b6cb0 0%, #4299e1 100%);
+            padding: 25px 30px;
+            text-align: center;
+            border-bottom: 2px solid #63b3ed;
+        }
+        
+        .user_font_title {
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+        }
+        
+        .user-rank-info {
+            font-size: 18px;
+            color: #ebf4ff;
+            padding: 10px 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            margin: 0 auto 15px;
+            max-width: 500px;
+        }
+        
+        /* 排行榜主体样式 */
+        .leaderboard {
+            padding: 20px;
+        }
+        
+        .ranking-header {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr 1fr 1fr 1fr;
+            gap: 15px;
+            padding: 15px 20px;
+            background: rgba(74, 85, 104, 0.7);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .ranking-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr 1fr 1fr 1fr;
+            gap: 15px;
+            padding: 18px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            background: rgba(45, 55, 72, 0.6);
+            transition: all 0.3s ease;
+            text-align: center;
+            align-items: center;
+            border: 1px solid rgba(101, 119, 155, 0.3);
+        }
+        
+        .ranking-row:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            background: rgba(56, 68, 88, 0.7);
+            border-color: rgba(101, 119, 155, 0.5);
+        }
+        
+        .rank-number {
+            font-size: 24px;
+            font-weight: bold;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 50%;
+            margin: 0 auto;
+            background: rgba(74, 85, 104, 0.5);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .rank-1 .rank-number {
+            background: linear-gradient(135deg, #FFD700 0%, #DAA520 100%);
+            color: #000;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+        }
+        
+        .rank-2 .rank-number {
+            background: linear-gradient(135deg, #C0C0C0 0%, #A9A9A9 100%);
+            color: #000;
+            box-shadow: 0 0 12px rgba(192, 192, 192, 0.7);
+        }
+        
+        .rank-3 .rank-number {
+            background: linear-gradient(135deg, #CD7F32 0%, #A0522D 100%);
+            color: #fff;
+            box-shadow: 0 0 10px rgba(205, 127, 50, 0.7);
+        }
+        
+        .player-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .player-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #63b3ed;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+        }
+        
+        .player-qq {
+            font-size: 14px;
+            color: #a0aec0;
+        }
+        
+        .linggen-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .linggen-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #FFD700;
+        }
+        
+        .linggen-type {
+            font-size: 20px;
+            padding: 3px 12px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .fire-type {
+            background: rgba(255, 107, 107, 0.2);
+            color: #ff6b6b;
+        }
+        
+        .water-type {
+            background: rgba(107, 197, 255, 0.2);
+            color: #6bc5ff;
+        }
+        
+        .wood-type {
+            background: rgba(123, 237, 159, 0.2);
+            color: #7bed9f;
+        }
+        
+        .metal-type {
+            background: rgba(255, 209, 102, 0.2);
+            color: #ffd166;
+        }
+        
+        .earth-type {
+            background: rgba(205, 180, 219, 0.2);
+            color: #cdb4db;
+        }
+        
+        .wash-count {
+            font-size: 22px;
+            font-weight: bold;
+            color: #68d391;
+            text-shadow: 0 0 8px rgba(104, 211, 145, 0.5);
+        }
+        
+        .bonus-rate {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ff9f1c;
+            text-shadow: 0 0 8px rgba(255, 159, 28, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .bonus-value {
+            font-size: 20px;
+            color: #ff6b6b;
+            margin-top: 5px;
+        }
+        
+        .user_bottom {
+            height: 30px;
+            background: linear-gradient(90deg, #2b6cb0 0%, #4299e1 100%);
+            margin-top: 30px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 1100px) {
+            .ranking-header, .ranking-row {
+                grid-template-columns: 70px 1fr 1fr 1fr 1fr;
+            }
+            
+
+            
+            .user_font_title {
+                font-size: 32px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .ranking-header, .ranking-row {
+                grid-template-columns: 60px 1fr 1fr 1fr;
+            }
+            
+
+            
+            .user_font_title {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 700px) {
+            .ranking-header, .ranking-row {
+                grid-template-columns: 50px 1fr 1fr;
+            }
+            
+            .player-qq, .wash-count {
+                display: none;
+            }
+            
+            .user_font_title {
+                font-size: 24px;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .ranking-header, .ranking-row {
+                grid-template-columns: 40px 1fr;
+            }
+            
+            .linggen-info {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="user_font user_font_title">修仙洗根排行榜</div>
+            <div class="user-rank-info">
+                {{if currentPlayer.washCount > 0}}
+                    您的排名：{{if currentPlayer.rank <= 20}}第{{currentPlayer.rank}}名{{else}}未上榜（当前第{{currentPlayer.rank}}名，共{{totalPlayers}}名有洗根记录的修士）{{/if}}
+                {{else}}
+                    您尚未进行洗根，暂无排名
+                {{/if}}
+            </div>
+        </div>
+        
+        <div class="leaderboard">
+            <div class="ranking-header">
+                <div>排名</div>
+                <div>修士信息</div>
+                <div>灵根属性</div>
+                <div>洗根次数</div>
+            </div>
+            
+            {{each topPlayers player}}
+            <div class="ranking-row {{player.rank <= 3 ? 'rank-' + player.rank : ''}}">
+                <div class="rank-number">{{player.rank}}</div>
+                <div class="player-info">
+                    <div class="player-name">{{player.name || '无名修士'}}</div>
+                    <div class="player-qq">QQ: {{player.qq}}</div>
+                </div>
+                <div class="linggen-info">
+                    <div class="linggen-name">{{player.linggen.name || '未觉醒'}}</div>
+                    <div class="linggen-type {{player.linggen.type}}-type">
+                        {{player.linggen.type || '未知'}}
+                    <div class="bonus-rate">
+                    <div class="bonus-value"> 增伤 {{(player.linggen.法球倍率 * 100 || 0).toFixed(1)}}%</div>
+                </div>
+                    </div>
+                </div>
+                <div class="wash-count">{{player.washCount || 0}}次</div>
+            </div>
+            {{/each}}
+            
+            {{if topPlayers.length === 0}}
+            <div class="no-players" style="text-align: center; padding: 40px; color: #a0aec0; font-size: 18px;">
+                暂无修士进行洗根，快去成为第一个洗根的修士吧！
+            </div>
+            {{/if}}
+        </div>
+        
+        <div class="user_bottom"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{pluResPath}}/html/state/state.css" />
+    <link rel="preload" href="../../font/tttgbnumber.ttf" as="font" />
+    <link rel="shortcut icon" href="#" />
+    <style>
+      /* 容器样式 */
+      .container {
+        width: 90%;
+        max-width: 800px;
+        margin: 20px auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(135deg, rgba(19, 21, 22, 0.8), rgba(30, 35, 40, 0.9));
+        font-family: 'tttgbnumber', sans-serif;
+        color: #e0e0e0;
+      }
+      
+/* 封神榜头部样式 */
+.header[data-title="封神榜"] {
+  background: linear-gradient(to right, #8a2387, #e94057, #f27121);
+}
+
+/* 至尊榜头部样式 */
+.header[data-title="至尊榜"] {
+  background: linear-gradient(to right, #1e3c72, #2a5298, #1e3c72);
+}
+      
+      .header::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+        transform: rotate(30deg);
+      }
+      
+      .title {
+        font-size: 36px;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 2;
+      }
+      
+      .subtitle {
+        font-size: 24px;
+        color: #ffd700;
+        position: relative;
+        z-index: 2;
+      }
+      
+      /* 玩家列表样式 */
+      .player-list {
+        padding: 20px;
+      }
+      
+      .player-card {
+        background: rgba(30, 35, 40, 0.6);
+        border-radius: 15px;
+        margin-bottom: 15px;
+        padding: 15px;
+        border-left: 4px solid #8a2387;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .player-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        border-left-color: #f27121;
+      }
+      
+      .player-rank {
+        font-size: 28px;
+        font-weight: bold;
+        color: #ffd700;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+      
+      .rank-badge {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #f27121, #e94057);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        margin-right: 10px;
+        font-size: 24px;
+        color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+      
+      .player-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      
+      .info-item {
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
+      
+      .info-label {
+        color: #8a2387;
+        font-weight: bold;
+        display: inline-block;
+        width: 80px;
+      }
+      
+      .info-value {
+        color: #ffd700;
+      }
+      
+      /* QQ号特殊样式 */
+      .qq-value {
+        color: #ffd700;
+        font-weight: bold;
+        font-family: 'tttgbnumber', monospace;
+        background: rgba(138, 35, 135, 0.2);
+        padding: 5px 10px;
+        border-radius: 5px;
+        display: inline-block;
+      }
+      
+      /* 当前用户信息样式 */
+      .user-info {
+        background: rgba(138, 35, 135, 0.2);
+        border-radius: 15px;
+        padding: 15px;
+        margin-top: 20px;
+        border: 2px solid #8a2387;
+      }
+      
+      .user-title {
+        font-size: 28px;
+        color: #ffd700;
+        text-align: center;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+      
+      /* 页脚样式 */
+      .footer {
+        text-align: center;
+        padding: 15px;
+        font-size: 20px;
+        color: #8a2387;
+        background: rgba(30, 35, 40, 0.8);
+        border-top: 1px solid rgba(138, 35, 135, 0.5);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- 标题区域 -->
+<div class="header">
+  <div class="title">{{title}}</div>
+  <div class="subtitle">{{subtitle}}</div>
+</div>
+      
+      <!-- 玩家列表 -->
+      <div class="player-list">
+        {{each rankings item}}
+        <div class="player-card">
+          <div class="player-rank">
+            <span class="rank-badge">{{item.rank}}</span>
+            第{{item.rank}}名 · {{item.name}}
+          </div>
+          <div class="player-info">
+            <div class="info-item">
+              <span class="info-label">战力:</span>
+              <span class="info-value">{{item.power}}</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">境界:</span>
+              <span class="info-value">{{item.level}}</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">QQ:</span>
+              <span class="qq-value">{{item.qq}}</span>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+      
+      <!-- 当前用户信息 -->
+      <div class="user-info">
+        <div class="user-title">您的排名</div>
+        <div class="player-info">
+          <div class="info-item">
+            <span class="info-label">名次:</span>
+            <span class="info-value">{{user_rank}}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">战力:</span>
+            <span class="info-value">{{user_power}}</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 页脚 -->
+      <div class="footer">
+      </div>
+    </div>
+  </body>
+</html>

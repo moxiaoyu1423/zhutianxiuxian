@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>诸天万界 - 修仙指南</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', 'STKaiti', serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            background: rgba(26, 32, 44, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            position: relative;
+            border: 2px solid #8b5a2b;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2018-08-17%2F5b7620b3a8f3c.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1717487636&t=6a6b5c5b5a5a5a5a5a5a5a5a5a5a5a5a') no-repeat center center;
+            background-size: cover;
+            opacity: 0.15;
+            z-index: 1;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 30px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #f8d568, transparent);
+        }
+        
+        .title {
+            font-size: 42px;
+            font-weight: bold;
+            color: #f8d568;
+            text-shadow: 0 0 10px rgba(248, 213, 104, 0.5);
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            color: #a3d9ff;
+        }
+        
+        .cont-box {
+            background: rgba(59, 47, 32, 0.6);
+            border: 1px solid #8b5a2b;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .cont-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border-color: #f8d568;
+        }
+        
+        .help-group {
+            font-size: 24px;
+            color: #f8d568;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(139, 90, 43, 0.5);
+            display: flex;
+            align-items: center;
+        }
+        
+        .help-group i {
+            margin-right: 10px;
+            font-size: 22px;
+        }
+        
+        .help-table {
+            width: 100%;
+        }
+        
+        .tr {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -10px;
+        }
+        
+        .td {
+            flex: 1 0 calc(50% - 20px);
+            min-width: 300px;
+            padding: 15px;
+            margin: 10px;
+            background: rgba(45, 36, 25, 0.5);
+            border-radius: 10px;
+            display: flex;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+        
+        .td:hover {
+            background: rgba(59, 47, 32, 0.8);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .help-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(139, 90, 43, 0.5);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            color: #f8d568;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .help-content {
+            flex: 1;
+        }
+        
+        .help-title {
+            font-size: 18px;
+            color: #f8d568;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .help-desc {
+            font-size: 15px;
+            color: #c0c0c0;
+            line-height: 1.5;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            font-size: 16px;
+            color: #c0c0c0;
+            border-top: 1px solid rgba(139, 90, 43, 0.5);
+        }
+        
+        .version {
+            color: #a3d9ff;
+            margin-left: 5px;
+        }
+        
+        .dao-mark {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="50" y="50" font-family="STKaiti" font-size="80" fill="rgba(248,213,104,0.15)" text-anchor="middle" dominant-baseline="middle">道</text></svg>');
+            opacity: 0.3;
+        }
+        
+        .mark-top-left {
+            top: 20px;
+            left: 20px;
+        }
+        
+        .mark-top-right {
+            top: 20px;
+            right: 20px;
+        }
+        
+        .mark-bottom-left {
+            bottom: 20px;
+            left: 20px;
+        }
+        
+        .mark-bottom-right {
+            bottom: 20px;
+            right: 20px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                border-radius: 15px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .title {
+                font-size: 32px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+            
+            .td {
+                flex: 1 0 100%;
+                min-width: auto;
+            }
+            
+            .help-group {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content {
+                padding: 15px;
+            }
+            
+            .title {
+                font-size: 28px;
+            }
+            
+            .help-title {
+                font-size: 16px;
+            }
+            
+            .help-desc {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dao-mark mark-top-left"></div>
+        <div class="dao-mark mark-top-right"></div>
+        <div class="dao-mark mark-bottom-left"></div>
+        <div class="dao-mark mark-bottom-right"></div>
+        
+        <div class="content">
+            <div class="header">
+                <h1 class="title">诸天万界</h1>
+                <p class="subtitle">修仙指南 · 大道三千，勤修不辍</p>
+            </div>
+            
+            {{each helpData val}}
+            <div class="cont-box">
+                <div class="help-group">
+                    <i class="fas fa-star"></i>
+                    {{val.group}}
+                </div>
+                <div class="help-table">
+                    <div class="tr">
+                        {{each val.list item}}
+                        <div class="td">
+                            <span class="help-icon {{item.icon}}">
+                                <i class="fas fa-{{item.icon}}"></i>
+                            </span>
+                            <div class="help-content">
+                                <strong class="help-title">{{item.title}}</strong>
+                                <span class="help-desc">{{item.desc}}</span>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            
+            <div class="copyright">
+                Xiuxian-Plugin<span class="version">诸天万界 v1.0.0</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

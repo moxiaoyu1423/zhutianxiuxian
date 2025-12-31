@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>制作配方列表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1e2b 0%, #2a3246 100%);
+            color: #e0e6f0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(30, 35, 48, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #3a5a78 0%, #4b7b9d 100%);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #5d8db3;
+        }
+        
+        .title {
+            font-size: 26px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            color: #c9e2ff;
+            margin-top: 8px;
+        }
+        
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .recipe-card {
+            background: linear-gradient(145deg, #2a3548, #1e2635);
+            border-radius: 12px;
+            padding: 18px;
+            border: 1px solid rgba(80, 100, 140, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .recipe-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4a7ca8, #6ba3d1);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .recipe-name {
+            font-size: 20px;
+            color: #FFD700;
+            font-weight: bold;
+        }
+        
+        .recipe-type {
+            font-size: 14px;
+            background: rgba(70, 90, 130, 0.3);
+            padding: 4px 10px;
+            border-radius: 20px;
+            color: #a3c4e8;
+        }
+        
+        .craft-count {
+            background: linear-gradient(90deg, #48bb78, #38a169);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(72, 187, 120, 0.3);
+        }
+        
+        .recipe-stats {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .stat {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .success-rate { color: #68d391; }
+        .level-limit { color: #f687b3; }
+        
+        .materials-title {
+            font-size: 16px;
+            color: #8ab4f8;
+            margin: 15px 0 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .materials-list {
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            padding: 12px;
+        }
+        
+        .material-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 8px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+        
+        .material-item:last-child {
+            border-bottom: none;
+        }
+        
+        .material-name {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .material-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(60, 70, 90, 0.5);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        .material-amount {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .required { color: #e2e8f0; font-weight: bold; }
+        .enough { color: #68d391; }
+        .not-enough { color: #fc8181; }
+        
+        .footer {
+            text-align: center;
+            padding: 15px;
+            color: #a0aec0;
+            font-size: 13px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .recipe-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .recipe-stats {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">制作配方列表</div>
+            <div class="subtitle">制作指令：#制作 [配方名称]</div>
+        </div>
+        
+        <div class="recipe-grid">
+            {{each zhizuo_list item}}
+            <div class="recipe-card">
+                <div class="card-header">
+                    <div class="recipe-name">{{item.name}}</div>
+                    <div class="recipe-type">{{item.type}}类</div>
+                    {{if item.max_craftable > 0}}
+                    <div class="craft-count">可制作 {{item.max_craftable}} 次</div>
+                    {{/if}}
+                </div>
+                
+                <div class="recipe-stats">
+                    <div class="stat success-rate">
+                        成功率: {{item.rate * 100}}%
+                    </div>
+                    <div class="stat level-limit">
+                        等级要求: {{item.level_limit}}
+                    </div>
+                </div>
+                
+                <div class="materials-title">
+                    <span>📜 所需材料</span>
+                </div>
+                
+                <div class="materials-list">
+                    {{each item.materials mat}}
+                    <div class="material-item">
+                        <div class="material-name">
+                            <span class="material-icon">{{mat.class === '草药' ? '🌿' : '🛠️'}}</span>
+                            <span>{{mat.name}}</span>
+                        </div>
+                        <div class="material-amount">
+                            <span class="required">×{{mat.amount}}</span>
+                            <span class="{{mat.enough ? 'enough' : 'not-enough'}}">
+                                ({{mat.have}})
+                            </span>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        
+        <div class="footer">
+            提示：绿色数字表示材料充足，红色表示不足 | 更新时间：{{timestamp}}
+        </div>
+    </div>
+</body>
+</html>

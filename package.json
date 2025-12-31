@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "prettier": "2.8.7"
+  },
+  "dependencies": {
+    "axios": "^1.13.2",
+    "icqq": "^0.6.10",
+    "node-schedule": "^2.1.1"
+  }
+}

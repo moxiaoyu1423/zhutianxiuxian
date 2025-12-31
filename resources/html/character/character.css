@@ -1,0 +1,340 @@
+/* character.css - 剧情人物图鉴样式 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Microsoft YaHei', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0c0e1a 0%, #1a1f3a 100%);
+    color: #e2e8f0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: rgba(15, 20, 35, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    padding: 25px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #a0aec0;
+    margin-bottom: 5px;
+}
+
+.progress-container {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 20px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #3a1c71, #d76d77);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* 人物分类样式 */
+.character-category {
+    margin-bottom: 40px;
+    background: rgba(26, 32, 44, 0.6);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.category-header {
+    font-size: 22px;
+    color: #FFA500;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 165, 0, 0.3);
+    display: flex;
+    align-items: center;
+}
+
+.category-header::before {
+    content: "✦";
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 20px;
+}
+
+/* 人物卡片样式 */
+.character-card {
+    background: linear-gradient(145deg, #1e293b, #2d3748);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(101, 119, 155, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.character-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3a1c71, #d76d77);
+}
+
+.character-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border-color: rgba(101, 119, 155, 0.5);
+}
+
+.character-name {
+    font-size: 22px;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.character-name::before {
+    content: "▣";
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.unlocked-badge {
+    background: linear-gradient(90deg, #48BB78, #38A169);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.locked-badge {
+    background: linear-gradient(90deg, #718096, #4A5568);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.character-info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #a0aec0;
+}
+
+.info-value {
+    color: #e2e8f0;
+}
+
+.realm-value {
+    color: #68D391;
+    font-weight: bold;
+}
+
+.identity-value {
+    color: #F6AD55;
+}
+
+.level-value {
+    color: #9F7AEA;
+    font-weight: bold;
+}
+
+/* 关系信息样式 */
+.relationship-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 15px 0;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border-left: 3px solid #4299e1;
+}
+
+.relationship-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.relationship-label {
+    font-size: 14px;
+    color: #a0aec0;
+    margin-bottom: 4px;
+}
+
+.relationship-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+.relationship-bar {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin-top: 4px;
+    overflow: hidden;
+}
+
+.relationship-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #3a1c71, #d76d77);
+    border-radius: 3px;
+}
+
+.appearance-section {
+    margin: 15px 0;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border-left: 3px solid #4299e1;
+}
+
+.appearance-title {
+    font-size: 16px;
+    color: #a0aec0;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.appearance-title::before {
+    content: "⭐";
+    margin-right: 6px;
+}
+
+.appearance-content {
+    font-style: italic;
+    color: #cbd5e0;
+    line-height: 1.5;
+}
+
+.description-section {
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    border-left: 3px solid #48BB78;
+}
+
+.description-title {
+    font-size: 16px;
+    color: #a0aec0;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.description-title::before {
+    content: "📜";
+    margin-right: 6px;
+}
+
+.description-content {
+    color: #cbd5e0;
+    line-height: 1.5;
+}
+
+.locked-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.locked-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    transform: rotate(-15deg);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #A0AEC0;
+    font-size: 16px;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .characters-grid {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .characters-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    .title {
+        font-size: 28px;
+    }
+}

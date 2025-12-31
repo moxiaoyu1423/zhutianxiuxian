@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活动兑换中心</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1f4b 0%, #0c0e2a 100%);
+            color: #e2e8f0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(18, 22, 51, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            border: 1px solid rgba(101, 119, 155, 0.4);
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #3a1c71 0%, #6b46c1 100%);
+            padding: 25px 30px;
+            text-align: center;
+            border-bottom: 2px solid #9f7aea;
+            position: relative;
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #d6bcfa;
+            margin-bottom: 10px;
+        }
+        
+        .instruction {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            margin: 15px auto;
+            max-width: 80%;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .user-info {
+            display: flex;
+            justify-content: center;
+            padding: 15px 30px;
+            background: rgba(26, 32, 68, 0.6);
+            border-bottom: 1px solid rgba(101, 119, 155, 0.3);
+        }
+        
+        .user-name {
+            font-size: 18px;
+            padding: 8px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+        }
+        
+        .giftpacks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 30px;
+        }
+        
+        .giftpack-card {
+            background: linear-gradient(145deg, rgba(33, 41, 85, 0.7), rgba(18, 22, 51, 0.7));
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(101, 119, 155, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .giftpack-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #553c9a, #b83280);
+        }
+        
+        .giftpack-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+        }
+        
+        .giftpack-header {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            text-align: center;
+        }
+        
+        .giftpack-name {
+            font-size: 22px;
+            color: #FFD700;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .special-note {
+            font-size: 14px;
+            color: #f56565;
+            margin-top: 10px;
+            padding: 5px;
+            background: rgba(245, 101, 101, 0.1);
+            border-radius: 5px;
+        }
+        
+        .items-list {
+            margin: 20px 0;
+        }
+        
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+        
+        .item-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .item-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .item-name {
+            font-size: 16px;
+        }
+        
+        .item-class {
+            font-size: 12px;
+            color: #a0aec0;
+            margin-left: 5px;
+        }
+        
+        .item-quantity {
+            font-size: 16px;
+            color: #68d391;
+            font-weight: bold;
+        }
+        
+        .exchange-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .exchange-code {
+            display: block;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 18px;
+            color: #FFD700;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .exchange-instruction {
+            font-size: 14px;
+            color: #a0aec0;
+            margin-top: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #a0aec0;
+            font-size: 14px;
+            border-top: 1px solid rgba(101, 119, 155, 0.3);
+            background: rgba(26, 32, 68, 0.6);
+        }
+        
+        .warning-note {
+            color: #f56565;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 900px) {
+            .giftpacks-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                padding: 20px;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .giftpacks-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">活动兑换中心</div>
+            <div class="subtitle">使用兑换码获取稀有奖励</div>
+            <div class="instruction">每个兑换码只能使用一次，请谨慎选择</div>
+        </div>
+        
+        <div class="user-info">
+            <div class="user-name">道友：{{nickname}}</div>
+        </div>
+        
+        <div class="giftpacks-grid">
+            {{each giftPacks pack}}
+            <div class="giftpack-card">
+                <div class="giftpack-header">
+                    <div class="giftpack-name">{{pack.name}}</div>
+                    {{if pack.稀有度 > 0}}
+                    <div class="rarity-tag">稀有度：{{pack.稀有度}}★</div>
+                    {{/if}}
+                    
+                    {{if pack.name === "圆神"}}
+                    <div class="special-note">⚠️ 此兑换码必须在私聊中使用</div>
+                    {{/if}}
+                    
+                    {{if pack.name === "一眼一纪，一梦星灭"}}
+                    <div class="special-note">⚠️ 需要达到人道领域绝巅</div>
+                    {{/if}}
+                </div>
+                
+                <div class="items-list">
+                    {{each pack.thing item}}
+                    <div class="item-row">
+                        <div class="item-info">
+                            <div class="item-icon">
+                                {{if item.class=="道具"}}📦
+                                {{else if item.class=="丹药"}}💊
+                                {{else if item.class=="盒子"}}🎁
+                                {{else}}✨
+                                {{/if}}
+                            </div>
+                            <div>
+                                <span class="item-name">{{item.name}}</span>
+                                <span class="item-class">({{item.class}})</span>
+                            </div>
+                        </div>
+                        <div class="item-quantity">×{{item.数量}}</div>
+                    </div>
+                    {{/each}}
+                </div>
+                
+                <div class="exchange-section">
+                    <div class="exchange-code">#活动兑换 {{pack.name}}</div>
+                    <div class="exchange-instruction">发送以上指令进行兑换</div>
+                    
+                    {{if pack.name === "圆神"}}
+                    <div class="warning-note">仅限特定玩家在私聊中使用</div>
+                    {{/if}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        
+        <div class="footer">
+            <p>注意事项：</p>
+            <p>1. 每个兑换码只能使用一次，无法重复兑换</p>
+            <p>2. 部分兑换码有使用条件限制，请仔细阅读说明</p>
+            <p>3. "圆神"兑换码必须在私聊中使用，且仅限特定玩家</p>
+        </div>
+    </div>
+</body>
+</html>

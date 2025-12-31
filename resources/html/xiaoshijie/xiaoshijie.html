@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{world_name}} - 修仙小世界</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', 'STKaiti', serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c1b2d 0%, #1a2b3c 100%);
+            color: #e2e8f0;
+            padding: 20px;
+            min-height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-blend-mode: multiply;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(15, 23, 42, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            border: 1px solid rgba(101, 163, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        .header {
+            background: linear-gradient(90deg, rgba(43, 108, 176, 0.8) 0%, rgba(66, 153, 225, 0.8) 100%);
+            padding: 25px 30px;
+            text-align: center;
+            border-bottom: 2px solid rgba(99, 179, 237, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .world-name {
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+        
+        .world-level {
+            font-size: 22px;
+            color: #ffd700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            margin-bottom: 15px;
+        }
+        
+        .creator-info {
+            font-size: 18px;
+            color: #ebf4ff;
+        }
+        
+        .creation-time {
+            font-size: 16px;
+            color: #cbd5e0;
+            margin-top: 10px;
+        }
+        
+        .progress-container {
+            width: 400px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 15px auto 0;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #48bb78, #81e6d9);
+            border-radius: 10px;
+        }
+        
+        .progress-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .world-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: rgba(26, 32, 44, 0.6);
+        }
+        
+        .stat-card {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(101, 163, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border-color: rgba(101, 163, 255, 0.5);
+        }
+        
+        .stat-icon {
+            font-size: 36px;
+            color: #63b3ed;
+            margin-bottom: 15px;
+        }
+        
+        .stat-title {
+            font-size: 18px;
+            color: #a0aec0;
+            margin-bottom: 10px;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .stat-desc {
+            font-size: 14px;
+            color: #cbd5e0;
+            margin-top: 8px;
+        }
+        
+        .section {
+            padding: 30px;
+            background: rgba(26, 32, 44, 0.7);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #ffd700;
+            text-align: center;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        
+        .resource-item {
+            background: rgba(45, 55, 72, 0.6);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .resource-icon {
+            font-size: 28px;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        
+        .resource-name {
+            font-size: 16px;
+            color: white;
+        }
+        
+        .field-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .field-item {
+            background: linear-gradient(145deg, rgba(42, 58, 92, 0.8), rgba(30, 41, 59, 0.8));
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(72, 187, 120, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .field-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3a1c71, #d76d77);
+        }
+        
+        .plant-name {
+            font-size: 20px;
+            color: #48bb78;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .plant-icon {
+            color: #48bb78;
+        }
+        
+        .plant-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .plant-stat {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #a0aec0;
+        }
+        
+        .stat-value {
+            font-size: 16px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .progress-container {
+            margin-top: 15px;
+        }
+        
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #cbd5e0;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #48bb78, #81e6d9);
+            border-radius: 5px;
+        }
+        
+        .avatar-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .events-list {
+            margin-top: 20px;
+        }
+        
+        .event-item {
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 3px solid #4299e1;
+        }
+        
+        .event-time {
+            font-size: 14px;
+            color: #a0aec0;
+            margin-bottom: 5px;
+        }
+        
+        .event-desc {
+            font-size: 16px;
+            color: white;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #a0aec0;
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, 0.9);
+        }
+        
+        .dao-inscription {
+            font-family: 'STKaiti', serif;
+            font-size: 18px;
+            color: #ffd700;
+            margin-top: 10px;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .world-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .resources-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+            
+            .field-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .plant-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .progress-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部信息 -->
+        <div class="header">
+            <div class="world-name">{{world_name}}</div>
+            <div class="world-level">{{level_name}} (等级 {{level}})</div>
+            <div class="creator-info">开辟者：{{nickname}}</div>
+            <div class="creation-time">开辟时间：{{creation_time}}</div>
+            
+            <!-- 添加进度条 -->
+            <div class="progress-container">
+                <div class="progress-fill" style="width: {{progressPercent}}%"></div>
+                <div class="progress-text">
+                    药田解锁进度: {{unlockedCount}}/{{totalCount}} ({{progressPercent}}%)
+                </div>
+            </div>
+        </div>
+        
+        <!-- 世界属性统计 -->
+        <div class="world-stats">
+            <!-- 灵气浓度卡片 -->
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-wind"></i></div>
+                <div class="stat-title">灵气浓度</div>
+                <div class="stat-value">{{attributes.灵气浓度}}</div>
+                <div class="stat-desc">{{spirit_desc}}</div>
+            </div>
+            
+            <!-- 世界面积卡片 -->
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-mountain"></i></div>
+                <div class="stat-title">世界面积</div>
+                <div class="stat-value">{{attributes.面积}}</div>
+                <div class="stat-desc">{{area_desc}}</div>
+            </div>
+            
+            <!-- 时间流速卡片 -->
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-hourglass-half"></i></div>
+                <div class="stat-title">时间流速</div>
+                <div class="stat-value">{{attributes.时间流速}}</div>
+                <div class="stat-desc">加速{{timeRatio}}倍</div>
+            </div>
+            
+            <!-- 药田容量卡片 -->
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-seedling"></i></div>
+                <div class="stat-title">药田容量</div>
+                <div class="stat-value">{{unlockedCount}}/{{totalCount}}</div>
+                <div class="stat-desc">{{capacity_desc}}</div>
+            </div>
+        </div>
+        
+<!-- 特殊资源 -->
+<div class="section">
+    <div class="section-title">特殊资源</div>
+    <div class="resources-grid">
+        {{@ special_resources_html}}
+    </div>
+</div>
+
+<!-- 药田信息 -->
+<div class="section">
+    <div class="section-title">神药药田</div>
+    <div class="field-grid">
+        {{@ medicine_field_html}}
+    </div>
+</div>
+
+<!-- 分身信息 -->
+{{@ avatar_html}}
+
+<!-- 事件记录 -->
+<div class="section">
+    <div class="section-title">近期事件</div>
+    <div class="events-list">
+        {{@ events_html}}
+    </div>
+</div>
+        
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>小世界状态：稳定运行中 | 最后更新：{{now}}</p>
+            <div class="dao-inscription">{{description}}</div>
+        </div>
+    </div>
+</body>
+</html>

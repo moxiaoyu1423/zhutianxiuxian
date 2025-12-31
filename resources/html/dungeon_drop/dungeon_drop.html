@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>修仙掉落</title>
+    <link rel="stylesheet" type="text/css" href="{{pluResPath}}/html/template/template.css" />
+    <link rel="preload" href="../../font/tttgbnumber.ttf" as="font" />
+    <link rel="shortcut icon" href="#" />
+    <style>
+        /* 全局样式 */
+        body {
+            background: #0f1a26;
+            color: #e8dfc8;
+            font-family: 'Microsoft YaHei', 'STKaiti', serif;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid #5d4a2a;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(188, 158, 90, 0.3);
+            overflow: hidden;
+        }
+        
+        /* 头部样式 */
+        .header {
+            background: linear-gradient(to right, #8e6d3b, #5d4a2a);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #f5d796;
+            text-shadow: 0 0 10px #d4af37;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #c9b17a;
+            margin-top: 10px;
+        }
+        
+        /* 卡片样式 */
+        .card_box {
+            margin: 20px;
+            background: rgba(35, 29, 18, 0.6);
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid #7a6a47;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-title {
+            font-size: 20px;
+            color: #d4af37;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #5d4a2a;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        /* 物品网格 */
+        .wupin {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        
+        .item {
+            background: linear-gradient(to bottom, #3d3221, #2a2115);
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid #7a6a47;
+            transition: all 0.3s;
+        }
+        
+        .item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+            border-color: #d4af37;
+        }
+        
+        .item_title {
+            font-size: 18px;
+            color: #f5d796;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #7a6a47;
+        }
+        
+        .item_int {
+            font-size: 14px;
+            color: #e8dfc8;
+            margin: 5px 0;
+            padding-left: 10px;
+            position: relative;
+        }
+        
+        .item_int:before {
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+        }
+        
+        .highlight {
+            color: #d4af37;
+            font-weight: bold;
+        }
+        
+        /* 等级标识 */
+        .level-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        
+        .level-one {
+            background: linear-gradient(to right, #5d8aa8, #4a708b);
+        }
+        
+        .level-two {
+            background: linear-gradient(to right, #b8860b, #8b7500);
+        }
+        
+        .level-three {
+            background: linear-gradient(to right, #cd7f32, #a56c2a);
+        }
+        
+        .level-four {
+            background: linear-gradient(to right, #d4af37, #b8860b);
+        }
+        
+        /* 底部样式 */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #7a6a47;
+            font-size: 14px;
+            border-top: 1px solid #5d4a2a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <div class="title">{{title}}掉落</div>
+            <div class="subtitle">大道三千，各有其缘</div>
+        </div>
+        
+        <!-- 一级掉落 -->
+        {{if placeData.one.length > 0}}
+        <div class="card_box">
+            <div class="section-title">低级奖励 <span class="level-badge level-one">一级</span></div>
+            <div class="wupin">
+                {{each placeData.one item}}
+                <div class="item">
+                    <div class="item_title">{{item.name}}</div>
+                    <div class="item_int">类型：{{item.class}}</div>
+                    <div class="item_int">分类：{{item.type}}</div>
+                    
+                    {{if item.class == "丹药"}}
+                        {{if item.yuanshen > 0}}<div class="item_int">增加元神值：<span class="highlight">{{item.yuanshen}}</span></div>{{/if}}
+                        {{if item.shouyuan > 0}}<div class="item_int">增加寿元：<span class="highlight">{{item.shouyuan}}</span></div>{{/if}}
+                        {{if item.HP > 0}}<div class="item_int">恢复生命：<span class="highlight">{{item.HP}}</span></div>{{/if}}
+                        {{if item.HPp > 0}}<div class="item_int">恢复百分比：<span class="highlight">{{item.HPp*100}}%</span></div>{{/if}}
+                        {{if item.exp > 0 && item.xueqi > 0}}<div class="item_int">效果：修为+<span class="highlight">{{item.exp}}</span>，气血+<span class="highlight">{{item.xueqi}}</span></div>{{/if}}
+                          <!-- 只有修为时 -->
+    {{if item.exp > 0 && !item.xueqi}}
+        <div class="item_int">增加修为：<span class="highlight">{{item.exp}}</span></div>
+    {{/if}}
+    
+    <!-- 只有气血时 -->
+    {{if !item.exp && item.xueqi > 0}}
+        <div class="item_int">增加气血：<span class="highlight">{{item.xueqi}}</span></div>
+    {{/if}}
+                        {{if item.maxAtK > 0}}<div class="item_int">增加攻击：<span class="highlight">{{item.maxAtK}}</span></div>{{/if}}
+                        {{if item.maxHP > 0}}<div class="item_int">生命上限：<span class="highlight">{{item.maxHP}}</span></div>{{/if}}
+                        {{if item.maxDef > 0}}<div class="item_int">防御上限：<span class="highlight">{{item.maxDef}}</span></div>{{/if}}
+                    {{/if}}
+                    
+                    {{if item.class == "装备"}}
+                        {{if item.atk > 0}}<div class="item_int">攻击：<span class="highlight">{{item.atk}}</span></div>{{/if}}
+                        {{if item.def > 0}}<div class="item_int">防御：<span class="highlight">{{item.def}}</span></div>{{/if}}
+                        {{if item.HP > 0}}<div class="item_int">血量：<span class="highlight">{{item.HP}}</span></div>{{/if}}
+                        {{if item.bao > 0}}<div class="item_int">暴击：<span class="highlight">{{item.bao}}</span></div>{{/if}}
+                        {{if item.全属性 > 0}}<div class="item_int">全属性：<span class="highlight">+{{item.全属性}}</span></div>{{/if}}
+                    {{/if}}
+                    
+                    {{if item.class == "功法"}}
+                        {{if item.修炼加成 > 0}}<div class="item_int">修炼加成：<span class="highlight">{{item.修炼加成}}</span></div>{{/if}}
+                        {{if item.法球加成 > 0}}<div class="item_int">法球加成：<span class="highlight">{{item.法球加成}}</span></div>{{/if}}
+                    {{/if}}
+                    
+                    {{if item.class == "道具" && item.desc != ""}}
+                        <div class="item_int">说明：{{item.desc}}</div>
+                    {{/if}}
+                    
+                    {{if item.出售价 > 0}}
+                        <div class="item_int">售价：<span class="highlight">{{item.出售价}}灵石</span></div>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+        
+        <!-- 二级掉落 -->
+        {{if placeData.two.length > 0}}
+        <div class="card_box">
+            <div class="section-title">中级奖励 <span class="level-badge level-two">二级</span></div>
+            <div class="wupin">
+                {{each placeData.two item}}
+                <div class="item">
+                    <div class="item_title">{{item.name}}</div>
+                    <div class="item_int">类型：{{item.class}}</div>
+                    <div class="item_int">分类：{{item.type}}</div>
+                    
+                    {{if item.class == "丹药"}}
+                     {{if item.yuanshen > 0}}<div class="item_int">增加元神值：<span class="highlight">{{item.yuanshen}}</span></div>{{/if}}
+                        {{if item.shouyuan > 0}}<div class="item_int">增加寿元：<span class="highlight">{{item.shouyuan}}</span></div>{{/if}}
+                        {{if item.HP > 0}}<div class="item_int">恢复生命：<span class="highlight">{{item.HP}}</span></div>{{/if}}
+                        {{if item.HPp > 0}}<div class="item_int">恢复百分比：<span class="highlight">{{item.HPp*100}}%</span></div>{{/if}}
+                        {{if item.exp > 0 && item.xueqi > 0}}<div class="item_int">效果：修为+<span class="highlight">{{item.exp}}</span>，气血+<span class="highlight">{{item.xueqi}}</span></div>{{/if}}
+                          <!-- 只有修为时 -->
+    {{if item.exp > 0 && !item.xueqi}}
+        <div class="item_int">增加修为：<span class="highlight">{{item.exp}}</span></div>
+    {{/if}}
+    
+    <!-- 只有气血时 -->
+    {{if !item.exp && item.xueqi > 0}}
+        <div class="item_int">增加气血：<span class="highlight">{{item.xueqi}}</span></div>
+    {{/if}}
+                        {{if item.maxAtK > 0}}<div class="item_int">增加攻击：<span class="highlight">{{item.maxAtK}}</span></div>{{/if}}
+                        {{if item.maxHP > 0}}<div class="item_int">生命上限：<span class="highlight">{{item.maxHP}}</span></div>{{/if}}
+                        {{if item.maxDef > 0}}<div class="item_int">防御上限：<span class="highlight">{{item.maxDef}}</span></div>{{/if}}
+                    {{/if}}
+                    
+                    {{if item.class == "装备"}}
+                        {{if item.atk > 0}}<div class="item_int">攻击：<span class="highlight">{{item.atk}}</span></div>{{/if}}
+                        {{if item.def > 0}}<div class="item_int">防御：<span class="highlight">{{item.def}}</span></div>{{/if}}
+                        {{if item.HP > 0}}<div class="item_int">血量：<span class="highlight">{{item.HP}}</span></div>{{/if}}
+                        {{if item.bao > 0}}<div class="item_int">暴击：<span class="highlight">{{item.bao}}</span></div>{{/if}}
+                        {{if item.全属性 > 0}}<div class="item_int">全属性：<span class="highlight">+{{item.全属性}}</span></div>{{/if}}
+                    {{/if}}
+                    
+                    {{if item.class == "功法"}}
+                        {{if item.修炼加成 > 0}}<div class="item_int">修炼加成：<span class="highlight">{{item.修炼加成}}</span></div>{{/if}}
+                        {{if item.法球加成 > 0}}<div class="item_int">法球加成：<span class="highlight">{{item.法球加成}}</span></div>{{/if}}
+                    {{/if}}
+                    
+                    {{if item.class == "道具" && item.desc != ""}}
+                        <div class="item_int">说明：{{item.desc}}</div>
+                    {{/if}}
+                    
+                    {{if item.出售价 > 0}}
+                        <div class="item_int">售价：<span class="highlight">{{item.出售价}}灵石</span></div>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+        
+        <!-- 三级掉落 -->
+        {{if placeData.three.length > 0}}
+        <div class="card_box">
+            <div class="section-title">高级奖励 <span class="level-badge level-three">三级</span></div>
+            <div class="wupin">
+                {{each placeData.three item}}
+                <div class="item">
+                    <div class="item_title">{{item.name}}</div>
+                    <div class="item_int">类型：{{item.class}}</div>
+                    <div class="item_int">分类：{{item.type}}</div>
+                    
+                    {{if item.class == "丹药"}}
+                     {{if item.yuanshen > 0}}<div class="item_int">增加元神值：<span class="highlight">{{item.yuanshen}}</span></div>{{/if}}
+                        {{if item.shouyuan > 0}}<div class="item_int">增加寿元：<span class="highlight">{{item.shouyuan}}</span></div>{{/if}}
+                        {{if item.HP > 0}}<div class="item_int">恢复生命：<span class="highlight">{{item.HP}}</span></div>{{/if}}
+                        {{if item.HPp > 0}}<div class="item_int">恢复百分比：<span class="highlight">{{item.HPp*100}}%</span></div>{{/if}}
+                         {{if item.exp > 0 && item.xueqi > 0}}<div class="item_int">效果：修为+<span class="highlight">{{item.exp}}</span>，气血+<span class="highlight">{{item.xueqi}}</span></div>{{/if}}
+                         <!-- 只有修为时 -->
+    {{if item.exp > 0 && !item.xueqi}}
+        <div class="item_int">增加修为：<span class="highlight">{{item.exp}}</span></div>
+    {{/if}}
+    
+    <!-- 只有气血时 -->
+    {{if !item.exp && item.xueqi > 0}}
+        <div class="item_int">增加气血：<span class="highlight">{{item.xueqi}}</span></div>
+    {{/if}}
+                        {{if item.maxAtK > 0}}<div class="item_int">增加攻击：<span class="highlight">{{item.maxAtK}}</span></div>{{/if}}
+                        {{if item.maxHP > 0}}<div class="item_int">生命上限：<span class="highlight">{{item.maxHP}}</span></div>{{/if}}
+                        {{if item.maxDef > 0}}<div class="item_int">防御上限：<span class="highlight">{{item.maxDef}}</span></div>{{/if}}
+                    {{/if}}
+                    
+                    {{if item.class == "装备"}}
+                        {{if item.atk > 0}}<div class="item_int">攻击：<span class="highlight">{{item.atk}}</span></div>{{/if}}
+                        {{if item.def > 0}}<div class="item_int">防御：<span class="highlight">{{item.def}}</span></div>{{/if}}
+                        {{if item.HP > 0}}<div class="item_int">血量：<span class="highlight">{{item.HP}}</span></div>{{/if}}
+                        {{if item.bao > 0}}<div class="item_int">暴击：<span class="highlight">{{item.bao}}</span></div>{{/if}}
+                        {{if item.全属性 > 0}}<div class="item_int">全属性：<span class="highlight">+{{item.全属性}}</span></div>{{/if}}
+                    {{/if}}
+                    
+                    {{if item.class == "功法"}}
+                        {{if item.修炼加成 > 0}}<div class="item_int">修炼加成：<span class="highlight">{{item.修炼加成}}</span></div>{{/if}}
+                        {{if item.法球加成 > 0}}<div class="item_int">法球加成：<span class="highlight">{{item.法球加成}}</span></div>{{/if}}
+                    {{/if}}
+                    
+                    {{if item.class == "道具" && item.desc != ""}}
+                        <div class="item_int">说明：{{item.desc}}</div>
+                    {{/if}}
+                    
+                    {{if item.出售价 > 0}}
+                        <div class="item_int">售价：<span class="highlight">{{item.出售价}}灵石</span></div>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+        
+        <!-- 四级掉落 -->
+        {{if placeData.four.length > 0}}
+        <div class="card_box">
+            <div class="section-title">隐藏奖励 <span class="level-badge level-four">四级</span></div>
+            <div class="wupin">
+                {{each placeData.four item}}
+                <div class="item">
+                    <div class="item_title">{{item.name}}</div>
+                    <div class="item_int">类型：{{item.class}}</div>
+                    <div class="item_int">分类：{{item.type}}</div>
+                    
+                    {{if item.class == "丹药"}}
+                        {{if item.HP > 0}}<div class="item_int">恢复生命：<span class="highlight">{{item.HP}}</span></div>{{/if}}
+                        {{if item.HPp > 0}}<div class="item_int">恢复百分比：<span class="highlight">{{item.HPp*100}}%</span></div>{{/if}}
+                        {{if item.exp > 0 && item.xueqi > 0}}<div class="item_int">效果：修为+<span class="highlight">{{item.exp}}</span>，气血+<span class="highlight">{{item.xueqi}}</span></div>{{/if}}
+                          <!-- 只有修为时 -->
+    {{if item.exp > 0 && !item.xueqi}}
+        <div class="item_int">增加修为：<span class="highlight">{{item.exp}}</span></div>
+    {{/if}}
+    
+    <!-- 只有气血时 -->
+    {{if !item.exp && item.xueqi > 0}}
+        <div class="item_int">增加气血：<span class="highlight">{{item.xueqi}}</span></div>
+    {{/if}}
+                        {{if item.maxAtK > 0}}<div class="item_int">增加攻击：<span class="highlight">{{item.maxAtK}}</span></div>{{/if}}
+                        {{if item.maxHP > 0}}<div class="item_int">生命上限：<span class="highlight">{{item.maxHP}}</span></div>{{/if}}
+                        {{if item.maxDef > 0}}<div class="item_int">防御上限：<span class="highlight">{{item.maxDef}}</span></div>{{/if}}
+                    {{/if}}
+                    
+                    {{if item.class == "装备"}}
+                        {{if item.atk > 0}}<div class="item_int">攻击：<span class="highlight">{{item.atk}}</span></div>{{/if}}
+                        {{if item.def > 0}}<div class="item_int">防御：<span class="highlight">{{item.def}}</span></div>{{/if}}
+                        {{if item.HP > 0}}<div class="item_int">血量：<span class="highlight">{{item.HP}}</span></div>{{/if}}
+                        {{if item.bao > 0}}<div class="item_int">暴击：<span class="highlight">{{item.bao}}</span></div>{{/if}}
+                        {{if item.全属性 > 0}}<div class="item_int">全属性：<span class="highlight">+{{item.全属性}}</span></div>{{/if}}
+                    {{/if}}
+                    
+                    {{if item.class == "功法"}}
+                        {{if item.修炼加成 > 0}}<div class="item_int">修炼加成：<span class="highlight">{{item.修炼加成}}</span></div>{{/if}}
+                        {{if item.法球加成 > 0}}<div class="item_int">法球加成：<span class="highlight">{{item.法球加成}}</span></div>{{/if}}
+                    {{/if}}
+                    
+                    {{if item.class == "道具" && item.desc != ""}}
+                        <div class="item_int">说明：{{item.desc}}</div>
+                    {{/if}}
+                    
+                    {{if item.出售价 > 0}}
+                        <div class="item_int">售价：<span class="highlight">{{item.出售价}}灵石</span></div>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+        
+        <!-- 底部提示 -->
+        <div class="card_box">
+            <div class="section-title">更多探索</div>
+            <div class="item_int" style="text-align: center; padding: 10px;">
+                使用指令 <span class="highlight">#副本掉落xxx</span> 查看更多信息
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <div class="footer">
+            大道无形，生育天地 - 修仙掉落系统
+        </div>
+    </div>
+</body>
+</html>

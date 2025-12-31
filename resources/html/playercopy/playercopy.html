@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{pluResPath}}/html/playercopy/player.css"
+    />
+    <link rel="preload" href="../../font/tttgbnumber.ttf" as="font" />
+    <link rel="shortcut icon" href="#" />
+    <style>
+      .gongfa-section {
+        margin-top: 15px;
+      }
+      
+      .gongfa-title {
+        font-size: 30px;
+        font-weight: bold;
+        color: #ffd700;
+        margin-bottom: 5px;
+       
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <!--上-->
+      <div class="user_top">
+        <div class="user_top_left">
+          <div class="user_top_img_bottom">
+            <img
+              class="user_top_img"
+              src="https://q1.qlogo.cn/g?b=qq&s=0&nk={{user_id}}"
+              onerror="whenError(this)"
+            />
+          </div>
+          <div class="user_top_left_qq">QQ:{{user_id}}</div>
+        </div>
+        <div class="user_top_right">
+          <div class="user_font user_font" style="padding-left: 15px">
+            道号：{{nickname}}
+          </div>
+          <div class="user_font" style="padding-left: 15px">
+            血量：{{player_nowHP}} / {{player_maxHP}}
+          </div>
+          <div class="user_font" style="padding-left: 15px">
+            体境：{{levelMax}}
+          </div>
+          <div class="user_font" style="padding-left: 15px">
+            气血：{{xueqi}} / {{need_xueqi}}
+          </div>
+          <div class="user_font" style="padding-left: 15px">
+            灵石：{{lingshi}}
+          </div>
+        </div>
+      </div>
+
+      <div class="user_bottom0"></div>
+
+      <!--下-->
+      <div class="user_bottom1">
+        <div class="use_data">
+          <div class="use_data_head">
+            <div
+              class="user_font"
+              style="text-align: center; padding-left: 0px"
+            >
+              【我的宗门】
+            </div>
+            <div class="user_font">宗门名称：{{association.宗门名称}}</div>
+            <div class="user_font">职位：{{association.职位}}</div>
+          </div>
+        </div>
+      </div>
+
+      <!--下-->
+      <div class="user_bottom1">
+        <div class="use_data">
+          <div class="use_data_head">
+            <div
+              class="user_font"
+              style="text-align: center; padding-left: 0px"
+            >
+              【已学功法】
+            </div>
+            
+            <!-- 神慧者功法 -->
+            {{if categorized_gongfa.神慧者 && categorized_gongfa.神慧者.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【圣法】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.神慧者 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+            
+            <!-- 仙帝法 -->
+            {{if categorized_gongfa.仙帝法 && categorized_gongfa.仙帝法.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【仙帝法】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.仙帝法 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+            
+            <!-- 仙王法 -->
+            {{if categorized_gongfa.仙王法 && categorized_gongfa.仙王法.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【仙王法】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.仙王法 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+            
+            <!-- 十凶宝术 -->
+            {{if categorized_gongfa.十凶宝术 && categorized_gongfa.十凶宝术.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【十凶宝术】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.十凶宝术 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+            
+             <!-- 帝经 -->
+            {{if categorized_gongfa.天帝经 && categorized_gongfa.天帝经.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【天帝经】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.天帝经 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+            <!-- 帝经 -->
+            {{if categorized_gongfa.帝经 && categorized_gongfa.帝经.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【帝经】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.帝经 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+            
+                        <!-- 盖世杀术 -->
+            {{if categorized_gongfa.九秘 && categorized_gongfa.九秘.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【九秘】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.九秘 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+
+            <!-- 盖世杀术 -->
+            {{if categorized_gongfa.盖世杀术 && categorized_gongfa.盖世杀术.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【盖世杀术】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.盖世杀术 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+            
+            <!-- 道与法 -->
+            {{if categorized_gongfa.道与法 && categorized_gongfa.道与法.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【道与法】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.道与法 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+            
+        <!-- 宝术 -->
+            {{if categorized_gongfa.宝术 && categorized_gongfa.宝术.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【宝术】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.宝术 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+
+            <!-- 天赋 -->
+            {{if categorized_gongfa.天赋 && categorized_gongfa.天赋.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【天赋】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.天赋 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+            
+             <!-- 天赋 -->
+            {{if categorized_gongfa.炼器 && categorized_gongfa.炼器.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【炼器】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.炼器 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+      <!-- 天赋 -->
+            {{if categorized_gongfa.天魔法 && categorized_gongfa.天魔法.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【天魔法】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.天魔法 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+            
+             <!-- 命运法 -->
+            {{if categorized_gongfa.命运法 && categorized_gongfa.命运法.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【命运法】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.命运法 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+            <!-- 修炼功法 -->
+            {{if categorized_gongfa.修炼功法 && categorized_gongfa.修炼功法.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【修炼功法】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.修炼功法 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+                <!-- 修炼功法 -->
+            {{if categorized_gongfa.限定功法 && categorized_gongfa.限定功法.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【限定功法】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.限定功法 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+            <!-- 武学 -->
+            {{if categorized_gongfa.武学 && categorized_gongfa.武学.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【武学】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.武学 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+            
+            <!-- 未知 -->
+            {{if categorized_gongfa.未知 && categorized_gongfa.未知.length > 0}}
+            <div class="gongfa-section">
+              <div class="gongfa-title user_font">【未知】</div>
+              <div class="user_font gonfa">
+                {{each categorized_gongfa.未知 item}}
+                <div class="gonfa2">《{{item}}》</div>
+                {{/each}}
+              </div>
+            </div>
+            {{/if}}
+            
+          </div>
+        </div>
+      </div>
+
+      <!--下-->
+      <div class="user_bottom2"></div>
+    </div>
+    <style></style>
+  </body>
+</html>

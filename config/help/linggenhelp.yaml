@@ -1,0 +1,233 @@
+- group: 洗根帮助
+  list:
+    - icon: help-icon_2
+      title: '#使用锁灵仙符'
+      desc: '可以使下一次洗根（允许批量）保留最佳结果'
+    - icon: help-icon_2
+      title: '#使用引灵仙符 [灵根类型]'
+      desc: '可以使下一次洗根（允许批量）保留自己想要的灵根'      
+
+
+- group: 苍天霸体[与圣体齐名的无敌体质，攻伐无双，大成后拥有九大神形，盖世睥睨]
+  list:
+    - icon: help-icon_2
+      title: '#霸体觉醒'
+      desc: '霸体进阶小成或大成境界'
+
+- group: 圣体[大成后战力震古烁今然末法时代修炼及其艰难，拥有强大的特殊战斗异象]
+  list:
+    - icon: help-icon_2
+      title: '#消耗荒古源血晶'
+      desc: '主动变成圣体后，获得圣体秘术，不再入轮回！'
+    - icon: help-icon_2
+      title: '#圣体觉醒'
+      desc: '打破荒古圣体的诅咒与枷锁，进阶小成或大成' 
+    - icon: help-icon_2
+      title: '#修炼圣体秘术 轮海/道宫/四极/化龙'
+      desc: '修炼圣体一脉的单一秘境法，将四大秘境打磨到极致' 
+    - icon: help-icon_2
+      title: '#终极圣体秘术'
+      desc: '当四大秘境修炼圆满后，可再更进一步修炼仙台秘境！'      
+
+- group: 先天圣体道胎[大成荒古圣体和先天道胎双修有概率使双方成就该体质]
+  list:
+    - icon: help-icon_2
+      desc: '[不仅拥有圣体无可匹敌的肉身与战斗异象，更是先天被大道青睐，修炼远超其他体质，并且岁月也难以在这种体质身上留下痕迹]'    
+    - icon: help-icon_2
+      title: '#修炼圣体秘术 轮海/道宫/四极/化龙'
+      desc: '修炼圣体一脉的单一秘境法，将四大秘境打磨到极致'
+    - icon: help-icon_2
+      title: '#终极圣体秘术'
+      desc: '当四大秘境修炼圆满后，可再更进一步修炼仙台秘境！'      
+- group: 太阳之体[至阳体质，拥有太阳真火之力]
+#   list:
+#     - icon: help-icon_2
+#       title: '#激活太阳本源'
+#       desc: '消耗太阳精石激活太阳之体，获得太阳真火'
+#     - icon: help-icon_2
+#       title: '#太阳神体觉醒'
+#       desc: '进阶为太阳神体，掌握更强大的太阳真火'
+#     - icon: help-icon_2
+#       title: '#太阳圣皇体成就'
+#       desc: '最终成就太阳圣皇体，可比肩古之圣皇'
+#     - icon: help-icon_2
+#       title: '#太阳真经'
+#       desc: '修炼太阳圣皇传承的无上经文'
+
+- group: 太阴之体[至阴体质，拥有太阴真水之力]
+#   list:
+#     - icon: help-icon_2
+#       title: '#激活太阴本源'
+#       desc: '消耗太阴玄石激活太阴之体，获得太阴真水'
+#     - icon: help-icon_2
+#       title: '#太阴神体觉醒'
+#       desc: '进阶为太阴神体，掌握更强大的太阴真水'
+#     - icon: help-icon_2
+#       title: '#太阴圣皇体成就'
+#       desc: '最终成就太阴圣皇体，可比肩古之圣皇'
+#     - icon: help-icon_2
+#       title: '#太阴真经'
+#       desc: '修炼太阴圣皇传承的无上经文'
+
+- group: 神王体[拥有神王血脉，战力惊人]
+#   list:
+#     - icon: help-icon_2
+#       title: '#激活神王血脉'
+#       desc: '消耗神王血晶激活神王体，获得神王传承'
+#     - icon: help-icon_2
+#       title: '#小成神王体'
+#       desc: '神王血脉初步觉醒，战力大幅提升'
+#     - icon: help-icon_2
+#       title: '#大成神王体'
+#       desc: '神王血脉完全觉醒，可获得神王完整传承'
+#     - icon: help-icon_2
+#       title: '#神王秘术'
+#       desc: '修炼神王一脉的专属秘术'
+
+- group: 天妖体[妖族至尊体质，拥有妖皇血脉]
+  list:
+    - icon: help-icon_2
+      title: '#妖体觉醒'
+      desc: '妖体血脉进阶'
+  # list:
+  #   - icon: help-icon_2
+  #     title: '#激活妖皇血脉'
+  #     desc: '消耗妖皇精血激活天妖体，获得妖族传承'
+  #   - icon: help-icon_2
+  #     title: '#天妖王体觉醒'
+  #     desc: '进阶为天妖王体，妖皇血脉初步觉醒'
+  #   - icon: help-icon_2
+  #     title: '#天妖皇体成就'
+  #     desc: '最终成就天妖皇体，可获得妖皇完整传承'
+  #   - icon: help-icon_2
+  #     title: '#天妖秘术'
+  #     desc: '修炼妖皇一脉的专属秘术'
+
+- group: 混沌体[太阳之体和太阴之体双修有概率使双方成就该体质]
+  list:
+    - icon: help-icon_2
+      desc: '[拥有极其可怕的战斗异象，能与宇宙本源相融合，修炼速度仅次于先天圣体道胎，并且岁月也难以在这种体质身上留下痕迹]' 
+
+- group: 先天混沌圣体道胎[先天圣体道胎和混沌体双修有概率使双方成就该体质]
+  list:
+    - icon: help-icon_2
+      desc: '[必成仙帝之姿，熔炼混沌，衍化鸿蒙！此体质兼具荒古圣体之无敌肉身、先天道胎之大道亲和、混沌体之本源交融，举手投足间可演化开天辟地之景]' 
+    - icon: help-icon_2
+      title: '#终极圣体秘术'
+      desc: '当四大秘境修炼圆满后，可再更进一步修炼仙台秘境！'        
+
+- group: 九转轮回体/命运神道体[高额减伤，特殊神通且有大量修炼速度加成，超脱后战力可怕]
+  list:
+    - icon: help-icon_2
+      title: "#轮回"
+      desc: "在成仙后可消耗轮回点轮回，轮回九转超脱生死，然凡事总有代价"
+    - icon: help-icon_2
+      title: '#供奉奇怪的石头'
+      desc: '增加轮回点数'
+    - icon: help-icon_2
+      title: "#消耗轮回道果"
+      desc: "在九转轮回上更进一步，超脱为命运神道体"
+    - icon: help-icon_2
+      title: "#供奉神石"
+      desc: "提高战斗属性"
+    - icon: help-icon_2
+      title: "#踏入神界"
+      desc: "消耗灵石"
+    - icon: help-icon_2
+      title: "#参悟神石"
+      desc: "获取随机丹药"
+    - icon: help-icon_2
+      title: "#敲开闪闪发光的石头"
+      desc: "神石或魔石"
+    - icon: help-icon_2
+      title: "#消耗光阴火/光阴石/光阴水"
+      desc: "在成为命运神道体后额外增加自身的攻防生上限"  
+
+- group: 九重魔功/极道天魔[高额增伤，特殊神通且化身极道后更加可怕]
+  list:
+    - icon: help-icon_2
+      title: "#供奉魔石"
+      desc: "强化魔功"
+    - icon: help-icon_2
+      title: "#消耗堕魔骨"
+      desc: "化作魔头" 
+    - icon: help-icon_2
+      title: "#修炼魔功"
+      desc: "行魔头之事"             
+    - icon: help-icon_2
+      title: "#堕入魔界"
+      desc: "消耗修为和魔道值"
+    - icon: help-icon_2
+      title: "#献祭魔石"
+      desc: "获取随机物品"
+    - icon: help-icon_2
+      title: "#消耗邪神道果"
+      desc: "在九重魔功上更近一步，化身极道天魔"
+    - icon: help-icon_2
+      title: "#敲开闪闪发光的石头"
+      desc: "神石或魔石"  
+    - icon: help-icon_2
+      title: "#消耗光阴火/光阴石/光阴水"
+      desc: "在成为极道天魔后额外增加自身的攻防生上限" 
+
+- group: 终焉神魔体[命运神道体和极道天魔双修有概率使双方成就该体质]
+  list:
+    - icon: help-icon_2
+      desc: "目前全游戏能得到的最可怕的体质之一，战斗机制极其超模，神魔同体，永恒终焉"
+
+- group: 位面主角灵根[自带特殊能力]
+  list:       
+    - icon: help-icon_2
+      title: "#消耗诸天镜"
+      desc: "消耗1000w修为与血气将神魂投影诸天获得位面主角灵根"
+    - icon: help-icon_2
+      title: "木之本樱"
+      desc: "魔卡少女·成长型灵根 | 下本双倍概率+40% | 战斗机制：库洛牌魔法"
+    - icon: help-icon_2
+      title: "星之杖·木之本樱"
+      desc: "觉醒形态 | 全属性提升150% | 解锁星之杖技能：星光封印术"
+    - icon: help-icon_2
+      title: "梦之杖·木之本樱"
+      desc: "完全形态 | 全属性提升500% | 终极技能：梦境重构·创世魔卡"
+    - icon: help-icon_2
+      title: "门矢士/帝骑"
+      desc: "假面骑士·骑士系灵根 | 下本奖励多样性+30% | 战斗机制：形态切换·卡片驾驭"
+    - icon: help-icon_2
+      title: "帝骑·神主形态"
+      desc: "终极形态 | 全属性200%提升 | 解锁最终攻击驾驭"
+    - icon: help-icon_2
+      title: "帝骑·终极神主"
+      desc: "超终极形态 | 全属性400%提升 | 终极技能：全骑士最终形态驾驭"
+    - icon: help-icon_2
+      title: "伊蕾娜"
+      desc: "魔女·旅行系灵根 | 寻宝奖励翻倍 "
+    - icon: help-icon_2
+      title: "少女流萤"
+      desc: "星铁·机甲系灵根 |  战斗机制：星核能量·机甲变身"
+    - icon: help-icon_2
+      title: "流萤萨姆机甲"
+      desc: "机甲形态 | 全属性300%提升 | 解锁：炽热流星·机甲爆发"
+    - icon: help-icon_2
+      title: "天命青儿"
+      desc: "一剑独尊·修仙系灵根 | 战斗机制：天命剑气·一剑独尊"
+
+- group: 魔法少女系统[以《魔法少女小圆》为主题的进阶系统，拥有希望之力与救赎能力]
+  list:
+    - icon: help-icon_2
+      title: "#穿越魔法少女世界"
+      desc: "消耗诸天镜进行时间线穿梭，获得希望碎片与随机事件奖励"
+    - icon: help-icon_2
+      title: "#救赎"
+      desc: "施展希望之力救赎自己或他人，可解放天牢、禁闭、黑暗牢笼，修复道伤与生命本源，甚至拯救永寂"
+    - icon: help-icon_2
+      title: "#魔法少女进阶|#魔法少女觉醒|#魔法觉醒"
+      desc: "魔法少女一脉进阶系统，从魔法少女→愿望化身→希望化身→圆环之理"
+    - icon: help-icon_2
+      desc: "【魔法少女】基础形态 | 救赎能力：解放天牢、禁闭 | 下本出金率提高 | 进阶消耗：100希望碎片+10拯救人数+10助人次数"
+    - icon: help-icon_2
+      desc: "【愿望化身】许愿者·圆 | 救赎能力：解放黑暗牢笼、修复生命本源 | 下本额外获得3个低级奖励 |进阶消耗：500希望碎片+1000净化绝望值+10因果律领悟"
+    - icon: help-icon_2
+      desc: "【希望化身】希望之光·圆 | 救赎能力：修复道伤 | 下本额外获得6个低中级奖励 | 进阶消耗：1000希望碎片+5时间线干涉+50因果律领悟"
+    - icon: help-icon_2
+      desc: "【圆环之理】圆神 | 救赎能力：拯救永寂 | 下本额外获得9个低中高级奖励 |终极形态，掌握宇宙法则的终极权限"
+            

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link rel="stylesheet" type="text/css" href="{{pluResPath}}/html/linggen/linggen.css" />
+  <link rel="preload" href="../../font/tttgbnumber.ttf" as="font" />
+  <style>
+    /* 基础样式重置 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #0c0e1a 0%, #1a1f3a 100%);
+      color: #e2e8f0;
+      font-family: 'Microsoft YaHei', sans-serif;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: rgba(15, 20, 35, 0.85);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      padding: 25px;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .header h1 {
+      font-size: 32px;
+      font-weight: bold;
+      color: #FFD700;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      margin-bottom: 15px;
+    }
+    
+    .current-linggen {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 35px;
+      background: linear-gradient(90deg, rgba(74, 85, 104, 0.3), rgba(101, 119, 155, 0.3));
+      padding: 15px;
+      border-radius: 12px;
+      border-left: 4px solid #4299e1;
+    }
+    
+    .current {
+      color: #68D391;
+      font-weight: bold;
+      font-size: 20px;
+      text-shadow: 0 0 5px rgba(104, 211, 145, 0.5);
+    }
+    
+    /* 灵根分组样式 */
+    .linggen-group {
+      margin-bottom: 40px;
+      background: rgba(26, 32, 44, 0.6);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .group-title {
+      font-size: 22px;
+      color: #FFA500;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 165, 0, 0.3);
+      display: flex;
+      align-items: center;
+    }
+    
+    .group-title::before {
+      content: "✦";
+      margin-right: 10px;
+      font-size: 24px;
+    }
+    
+    .linggen-container {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 15px;
+    }
+    
+    /* 灵根卡片样式 */
+    .linggen-item {
+      background: linear-gradient(145deg, #1e293b, #2d3748);
+      border-radius: 12px;
+      padding: 15px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(101, 119, 155, 0.3);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+      min-height: 280px;
+    }
+    
+    .linggen-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #3a1c71, #d76d77);
+    }
+    
+    .linggen-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      border-color: rgba(101, 119, 155, 0.5);
+    }
+    
+    /* 灵根名称基础样式 */
+    .linggen-name {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      /* 确保基础颜色不是白色 */
+      color: #e2e8f0 !important;
+    }
+    
+    .linggen-name::before {
+      content: "▣";
+      margin-right: 6px;
+      font-size: 14px;
+    }
+    
+    /* 灵根品质颜色 - 确保这些选择器优先级足够高 */
+    .linggen-name.quality-rainbow {
+      background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent !important;
+      animation: rainbow 3s infinite linear;
+      background-size: 200% 200%;
+    }
+    
+    .linggen-name.quality-red {
+      color: #ff3333 !important;
+      text-shadow: 0 0 8px rgba(255, 51, 51, 0.7);
+    }
+    
+    .linggen-name.quality-orange {
+      color: #ff7f00 !important;
+      text-shadow: 0 0 8px rgba(255, 127, 0, 0.7);
+    }
+    
+    .linggen-name.quality-gold {
+      color: #ffd700 !important;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+    }
+    
+    .linggen-name.quality-purple {
+      color: #9370db !important;
+      text-shadow: 0 0 8px rgba(147, 112, 219, 0.7);
+    }
+    
+    .linggen-name.quality-blue {
+      color: #3399ff !important;
+      text-shadow: 0 0 8px rgba(51, 153, 255, 0.7);
+    }
+    
+    .linggen-name.quality-green {
+      color: #33cc33 !important;
+      text-shadow: 0 0 8px rgba(51, 204, 51, 0.7);
+    }
+    
+    .linggen-name.quality-white {
+      color: #ffffff !important;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+    }
+    
+    .linggen-name.current {
+      position: relative;
+      padding: 0 8px;
+      border-radius: 4px;
+    }
+    
+    .linggen-name.current::after {
+      content: " (当前)";
+      font-size: 12px;
+      color: #4299e1;
+      margin-left: 6px;
+    }
+    
+    /* 彩虹动画 */
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* 属性样式 */
+    .attributes {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .attribute {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 8px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+      font-size: 12px;
+      transition: background 0.2s;
+    }
+    
+    .attribute:hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
+    
+    .attribute:nth-child(1) {
+      color: #F56565; /* 修炼加成 */
+    }
+    
+    .attribute:nth-child(2) {
+      color: #4299E1; /* 额外增伤 */
+    }
+    
+    .attribute:nth-child(3) {
+      color: #48BB78; /* 攻击加成 */
+    }
+    
+    .attribute:nth-child(4) {
+      color: #ED8936; /* 防御加成 */
+    }
+    
+    .attribute:nth-child(5) {
+      color: #9F7AEA; /* 血量加成 */
+    }
+    
+    .attribute:nth-child(6) {
+      color: #F6E05E; /* 生命本源 */
+    }
+    
+    /* 页脚样式 */
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #A0AEC0;
+      font-size: 16px;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 1200px) {
+      .linggen-container {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+      
+      .container {
+        max-width: 1100px;
+      }
+    }
+    
+    @media (max-width: 900px) {
+      .linggen-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      
+      .container {
+        max-width: 800px;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .container {
+        padding: 15px;
+        max-width: 100%;
+      }
+      
+      .header h1 {
+        font-size: 28px;
+      }
+      
+      .linggen-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .current-linggen {
+        font-size: 16px;
+      }
+      
+      .current {
+        font-size: 18px;
+      }
+      
+      .linggen-item {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>{{title}}</h1>
+    </div>
+    
+    <div class="current-linggen">
+      当前灵根: <span class="current">{{current}}</span>
+    </div>
+    
+    <!-- 按归类分组显示 -->
+    {{each groups group}}
+    <div class="linggen-group">
+      <div class="group-title">{{group.groupName}}</div>
+      <div class="linggen-container">
+        {{each group.linggens linggen}}
+        <div class="linggen-item">
+          <!-- 根据灵根属性计算品质 -->
+         <div class="linggen-name {{linggen.isCurrent ? 'current' : ''}} {{linggen.qualityClass}}">
+    {{linggen.name}}
+</div>
+          <div class="attributes">
+            <div class="attribute">
+              <span>修炼加成:</span>
+              <span>{{linggen.eff}}</span>
+            </div>
+            <div class="attribute">
+              <span>额外增伤:</span>
+              <span>{{linggen.法球倍率}}</span>
+            </div>
+            <div class="attribute">
+              <span>攻击加成:</span>
+              <span>{{linggen.攻击加成}}</span>
+            </div>
+            <div class="attribute">
+              <span>防御加成:</span>
+              <span>{{linggen.防御加成}}</span>
+            </div>
+            <div class="attribute">
+              <span>血量加成:</span>
+              <span>{{linggen.生命加成}}</span>
+            </div>
+            <div class="attribute">
+              <span>生命本源:</span>
+              <span>+{{linggen.生命本源}}</span>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    {{/each}}
+    
+    <div class="footer">
+      共 {{totalLinggens}} 种灵根 - 修仙世界
+    </div>
+  </div>
+</body>
+</html>

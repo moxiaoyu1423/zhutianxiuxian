@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内景地状态 - 修仙世界</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            padding: 20px;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(66, 153, 225, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.1) 0%, transparent 25%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(15, 23, 42, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.05"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="2" fill="white"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #2b6cb0 0%, #4299e1 100%);
+            padding: 30px;
+            text-align: center;
+            border-bottom: 2px solid #63b3ed;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+            transform: rotate(30deg);
+        }
+        
+        .user-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .world-info {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .info-card {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 12px;
+            padding: 15px;
+            margin: 10px;
+            min-width: 200px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .info-title {
+            font-size: 18px;
+            color: #a3bffa;
+            margin-bottom: 10px;
+        }
+        
+        .info-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFD700;
+        }
+        
+        .progress-container {
+            margin: 20px auto;
+            max-width: 500px;
+        }
+        
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #cbd5e0;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #48bb78, #81e6d9);
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(72, 187, 120, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transform: translateX(-100%);
+            animation: shimmer 2s infinite;
+        }
+        
+        .progress-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .category-section {
+            margin: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .category-header {
+            background: linear-gradient(90deg, #6b21a8, #4c1d95);
+            padding: 18px 25px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .category-icon {
+            font-size: 20px;
+        }
+        
+        .category-count {
+            font-size: 16px;
+            opacity: 0.9;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+        
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 25px;
+            background: rgba(26, 32, 44, 0.7);
+        }
+        
+        .item-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(101, 119, 155, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .item-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #7e22ce, #3b82f6);
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .item-name {
+            font-size: 20px;
+            color: #FFD700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .item-amount {
+            font-size: 18px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+            color: #68d391;
+        }
+        
+        .item-details {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #cbd5e0;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .detail-label {
+            color: #a0aec0;
+        }
+        
+        .detail-value {
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+        
+        .rarity-stars {
+            color: #fbbf24;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+        
+        .no-items {
+            text-align: center;
+            padding: 40px;
+            grid-column: 1 / -1;
+            color: #94a3b8;
+            font-size: 18px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #a0aec0;
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 动画效果 */
+        @keyframes shimmer {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 900px) {
+            .items-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 15px;
+                padding: 20px;
+            }
+            
+            .world-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .items-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .user-title {
+                font-size: 26px;
+            }
+            
+            .category-header {
+                padding: 14px 20px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部信息 -->
+        <div class="header">
+            <div class="user-title">{{nickname}}的内景地</div>
+        </div>
+
+        <!-- 内景地基本信息 -->
+        <div class="world-info">
+            <div class="info-card">
+                <div class="info-title">内景地等级</div>
+                <div class="info-value">Lv.{{innerWorld.level}}</div>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-title">灵石储备</div>
+                <div class="info-value">{{innerWorld.spiritStones}}</div>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-title">升级需求</div>
+                <div class="info-value">{{innerWorld.upgradeCost}}源石</div>
+            </div>
+        </div>
+
+        <!-- 空间使用情况 -->
+        <div class="progress-container">
+            <div class="progress-info">
+                <span>空间使用率</span>
+                <span>{{innerWorld.currentCapacity}}/{{innerWorld.maxCapacity}} ({{innerWorld.usedPercent}}%)</span>
+            </div>
+        </div>
+
+        <!-- 物品分类展示 -->
+        {{each sortedCategories category}}
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-title">
+                    <i class="fas fa-box-open"></i>
+                    <span>{{category}}</span>
+                </div>
+                <span class="category-count">{{innerWorld.categorizedItems[category].length}}件物品</span>
+            </div>
+            
+            <div class="items-grid">
+                {{if innerWorld.categorizedItems[category].length > 0}}
+                    {{each innerWorld.categorizedItems[category] item}}
+                    <div class="item-card">
+                        <div class="item-header">
+                            <div class="item-name">{{item.name}}</div>
+                            <div class="item-amount">×{{item.amount}}</div>
+                        </div>
+                        
+                        <div class="item-details">
+                            {{if item.pinji}}
+                            <div class="detail-row">
+                                <span class="detail-label">品阶:</span>
+                                <span class="detail-value">
+                                    {{if item.pinji == 1}}劣品
+                                    {{else if item.pinji == 2}}普通
+                                    {{else if item.pinji == 3}}优质
+                                    {{else if item.pinji == 4}}精品
+                                    {{else if item.pinji == 5}}极品
+                                    {{else if item.pinji == 6}}绝品
+                                    {{else if item.pinji == 7}}神品
+                                    {{/if}}
+                                </span>
+                            </div>
+                            {{/if}}
+                            
+
+                            
+                            {{if item.storageTimeAbsolute}}
+                            <div class="detail-row">
+                                <span class="detail-label">存入时间:</span>
+                                <span class="detail-value">{{item.storageTimeRelative}}</span>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                    {{/each}}
+                {{else}}
+                    <div class="no-items">
+                        <i class="fas fa-box-open fa-2x"></i>
+                        <p>该分类下暂无物品</p>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+        {{/each}}
+
+        <!-- 空状态处理 -->
+        {{if sortedCategories.length === 0}}
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-title">
+                    <i class="fas fa-box-open"></i>
+                    <span>物品存储</span>
+                </div>
+            </div>
+            
+            <div class="items-grid">
+                <div class="no-items">
+                    <i class="fas fa-inbox fa-3x"></i>
+                    <p>内景地空间空空如也</p>
+                    <p>请存入物品以充实空间</p>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+
+        <div class="footer">
+            <p>操作指令: #存入内景地 [名字]  [类型] [数量] | #取出物品 [名字]  [类型] [数量] | #升级内景地空间</p>
+        </div>
+    </div>
+</body>
+</html>

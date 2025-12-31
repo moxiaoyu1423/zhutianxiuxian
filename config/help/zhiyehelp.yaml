@@ -1,0 +1,104 @@
+- group: 职业帮助
+  list:
+    - icon: help-icon_59
+      title: '#转职+职业名'
+      desc: '炼丹师|采药师|炼器师|采矿师|侠客|猎户|源师'
+    - icon: help-icon_59
+      title: '#转换副职'
+      desc: '切换到副职业'
+    - icon: help-icon_13
+      title: '#职业等级'
+      desc: '查看所有等级'      
+- group: 炼丹师
+  list: 
+    - icon: help-icon_13
+      title: '#丹药配方'
+      desc: '查看丹方列表'       
+    - icon: help-icon_45
+      title: '#炼制+丹药名*N'
+      desc: '炼制丹药'
+    - icon: help-icon_42
+      title: '#我的药效'
+      desc: '查看剩余药效'
+- group: 炼器师
+  list:       
+    - icon: help-icon_40
+      title: '#炼器师能力评测'
+      desc: '锻造前先进行评测'
+    - icon: help-icon_40
+      title: '#熔炼+材料名*数量'
+      desc: '放入锻造材料'
+    - icon: help-icon_40
+      title: '#我的锻炉'
+      desc: '查看炉子里放了哪些物品'
+    - icon: help-icon_40
+      title: '#开始炼制'
+      desc: '开始炼制装备'
+    - icon: help-icon_40
+      title: '#开炉'
+      desc: '结束装备炼制,获得装备'
+    - icon: help-icon_40
+      title: '#清空锻炉'
+      desc: '清空材料和炼制时间'
+    - icon: help-icon_40
+      title: '##赋名+装备名*新命名'
+      desc: '给强力装备换个名字'
+    - icon: help-icon_13
+      title: '#装备图纸'
+      desc: '查看图纸列表'      
+    - icon: help-icon_40
+      title: '#打造+装备名'
+      desc: '打造装备'
+- group: 采药师
+  list: 
+    - icon: help-icon_59
+      title: '#采药N分钟 #结束采药'
+      desc: '进行N分钟的采药,获取草药'
+- group: 采矿师
+  list:      
+    - icon: help-icon_25
+      title: '#采矿N分钟 #结束采矿'
+      desc: '进行N分钟的采矿,获取矿石'
+- group: 猎户
+  list:       
+    - icon: help-icon_39
+      title: '#狩猎N分钟 #结束狩猎'
+      desc: '进行N分钟的狩猎,获取食材'
+- group: 源师/源地师/源天师（源师转职凭证在遮天位面刷本有极低概率掉落）
+  list:        
+    - icon: help-icon_8
+      title: '#寻源N分钟 #结束寻源'
+      desc: '进行N分钟的寻源,获取大量源石和神药|源师'
+    - icon: help-icon_8
+      title: '#地脉引气N分钟 #结束地脉引气'
+      desc: '进行N分钟的寻源,获取大量高品质源石和地神药|源地师'      
+    - icon: help-icon_8
+      title: '#寻脉定源N分钟 #结束寻脉定源'
+      desc: '进行N分钟的寻脉定源,获取大量高级源石和高级神药，小概率出龙脉精华|源天师'
+    - icon: help-icon_8
+      title: '#禁仙六封@xx‖#解除禁仙六封'
+      desc: '源天师独有能力，可以将人封进神源中不受天地大势限制，免受绝灵时代代价'
+- group: 侠客（转职为侠客后天道赐福可以获得侠客令）
+  list:                         
+    - icon: help-icon_69
+      title: '#查看恶人'
+      desc: '仅限侠客'
+    - icon: help-icon_69
+      title: '#消灭恶人'
+      desc: '仅限侠客，需侠客令'
+- group: 唤魔者（转职为唤魔者后天道赐福可以获得唤魔令）
+  list:       
+    - icon: help-icon_26
+      title: '#村庄列表'
+      desc: '仅限唤魔者'
+    - icon: help-icon_26
+      title: '#劫掠村庄'
+      desc: '仅限唤魔者，需唤魔令'
+- group: 符师
+  list:       
+    - icon: help-icon_26
+      title: '#符道配方'
+      desc: '查看符方列表'
+    - icon: help-icon_26
+      title: '#制作xxx*数量'
+      desc: '制符'      

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丹方列表 - 优化版</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: #e2e8f0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(26, 32, 44, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #2b6cb0 0%, #4299e1 100%);
+            padding: 25px 30px;
+            text-align: center;
+            border-bottom: 2px solid #63b3ed;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #ebf4ff;
+            margin-bottom: 5px;
+        }
+        
+        .danfang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            padding: 25px;
+            background: rgba(30, 36, 48, 0.7);
+        }
+        
+        .danfang-item {
+            background: linear-gradient(145deg, #2a3a5c, #1e293b);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(101, 119, 155, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .danfang-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3a1c71, #d76d77);
+        }
+        
+        .danfang-item:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(101, 119, 155, 0.5);
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dan-name {
+            font-size: 20px;
+            color: #FFD700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .dan-type {
+            font-size: 16px;
+            background: rgba(101, 119, 155, 0.3);
+            padding: 4px 10px;
+            border-radius: 20px;
+            color: #a3bffa;
+        }
+        
+        .dan-stats {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .stat {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .success-rate {
+            color: #68d391;
+        }
+        
+        .level-limit {
+            color: #fbb6ce;
+        }
+        
+        .craft-count {
+            background: linear-gradient(90deg, #48bb78 0%, #81e6d9 100%);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(72, 187, 120, 0.4);
+        }
+        
+        .effect-info {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            border-left: 3px solid #4299e1;
+        }
+        
+        .materials-header {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #a3bffa;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .materials-list {
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            padding: 10px;
+        }
+        
+        .material-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+        
+        .material-item:last-child {
+            border-bottom: none;
+        }
+        
+        .material-name {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .material-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(74, 85, 104, 0.5);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        .material-amount {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .required {
+            color: #e2e8f0;
+            font-weight: bold;
+        }
+        
+        .owned {
+            color: #68d391;
+        }
+        
+        .insufficient {
+            color: #fc8181;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #a0aec0;
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 900px) {
+            .danfang-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 20px;
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .danfang-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .title {
+                font-size: 24px;
+            }
+            
+            .dan-stats {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部信息 -->
+        <div class="header">
+            <div class="title">丹方列表</div>
+            <div class="subtitle">炼制指令：#炼制+丹药名</div>
+            <div class="subtitle">炼制成功率 = 丹方成功率 + 玩家职业等级成功率</div>
+        </div>
+
+        <!-- 丹方列表 -->
+        <div class="danfang-grid">
+            {{each danfang_list item}}
+            <div class="danfang-item">
+                <div class="item-header">
+                    <div class="dan-name">
+                        <span>【{{item.type}}】{{item.name}}</span>
+                    </div>
+                    {{if item.max_craftable > 0}}
+                    <div class="craft-count">可制作 {{item.max_craftable}} 份</div>
+                    {{/if}}
+                </div>
+                
+                <div class="dan-stats">
+                    <div class="stat success-rate">
+                        <span>成功率: {{~~(item.rate*100)}}%</span>
+                    </div>
+                    <div class="stat level-limit">
+                        <span>等级要求: Lv.{{item.level_limit}}</span>
+                    </div>
+                </div>
+                
+                <div class="effect-info">
+                    {{item.type}}效果: 
+                    {{if item.type=="血量"}}{{item.HP}}
+                    {{else if item.type=="修为"}}{{item.exp2}}
+                    {{else if item.type=="血气"}}{{item.exp2}}
+                    {{else}}特殊效果{{/if}}
+                </div>
+                
+                <div class="materials-header">
+                    <span>📜 配方材料</span>
+                </div>
+                
+                <div class="materials-list">
+                    {{each item.materials material}}
+                    <div class="material-item">
+                        <div class="material-name">
+                            <span class="material-icon">🌿</span>
+                            <span>{{material.name}}</span>
+                        </div>
+                        <div class="material-amount">
+                            <span class="required">×{{material.amount}}</span>
+                            <span class="{{material.enough ? 'owned' : 'insufficient'}}">
+                                (拥有: {{material.have}})
+                            </span>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="footer">
+            提示: 绿色表示材料充足，红色表示材料不足
+        </div>
+    </div>
+</body>
+</html>

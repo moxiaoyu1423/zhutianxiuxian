@@ -1,0 +1,14 @@
+[
+    {
+      "name": "末影龙",
+      "class": "仙宠",
+      "amount": 1,
+      "materials": [
+        {
+          "name": "龙蛋",
+          "class": "道具",
+          "amount": 1
+        }
+      ]
+    }
+]

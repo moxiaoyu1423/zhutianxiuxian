@@ -1,0 +1,481 @@
+@font-face {
+  font-family: 'tttgbnumber';
+  src: url('../../font/tttgbnumber.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NZBZ';
+  src: url('../../font/NZBZ.TTF');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.header {
+  display: flex;
+  top: 50px;
+}
+
+.yuanshen-progress .xueliang {
+    background: linear-gradient(90deg, #4b0082, #9370db); /* 紫色渐变 */
+}
+
+/* 元神容器样式 */
+.item-fullwidth {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border-top: 1px solid rgba(255, 204, 128, 0.8);
+    border-left: 1px solid rgba(255, 204, 128, 0.8);
+    border-right: 1px solid rgba(187, 128, 32, 0.8);
+    border-bottom: 1px solid rgba(187, 128, 32, 0.8);
+    box-shadow: 1px 2px 6px rgba(170, 31, 0, 0.2),
+                3px 8px 12px rgba(71, 35, 22, 0.3);
+}
+
+.box {
+  margin: 30px 30px 30px 30px;
+  width: 740px;
+  display: flex;
+  flex-wrap: nowrap;
+  background: rgb(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.user_top_left {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.user_top_right {
+  float: right;
+  text-align: left;
+  margin-top: 20px;
+  margin-right: 20px;
+  border-radius: 20px;
+
+}
+
+.user_top_img_bottom {
+  margin: auto;
+  background-image: url('../../img/player/user_state.png');
+  background-size: 100% auto;
+  width: 280px;
+  height: 280px;
+}
+
+.user_top_img {
+  margin-top: 52px;
+  margin-left: 2px;
+  width: 172px;
+  height: 172px;
+  border-radius: 100px;
+}
+
+/* 黑金色文字渐变效果 */
+.user_top_font_left {
+  /* 容器样式 */
+  position: inherit;
+  margin: 9px;
+  width: 260px;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: 500;
+  font-family: 'NZBZ';
+  border-radius: 20px;
+  
+  /* 黑金风格容器背景 */
+  background: linear-gradient(
+    to bottom right,
+    rgba(20, 20, 20, 0.9), /* 深黑色 */
+    rgba(40, 30, 0, 0.9)   /* 深金色底纹 */
+  );
+  
+  /* 金属质感边框 */
+  border: 2px solid;
+  border-image: linear-gradient(
+    to right,
+    #D4AF37, /* 金属金 */
+    #B8860B, /* 深金 */
+    #D4AF37
+  ) 1;
+  
+  /* 黑金风格阴影 */
+  box-shadow: 
+    0 0 15px rgba(212, 175, 55, 1), /* 金色光晕 */
+    inset 0 0 10px rgba(0, 0, 0, 0.7); /* 内部深色阴影 */
+  
+  /* 黑金渐变文字效果 */
+  background-image: linear-gradient(
+    to right,
+    #FFD700, /* 亮金色 */
+    #D4AF37, /* 金属金 */
+    #B8860B, /* 深金 */
+    #D4AF37,
+    #FFD700
+  );
+  
+  /* 关键设置 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  
+  /* 文字效果增强 */
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.4); /* 深色阴影增强轮廓 */
+  text-stroke: 1px rgba(0, 0, 0, 0.8);
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.8);
+  
+  /* 抗锯齿优化 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* 微光效果 */
+  filter: drop-shadow(0 0 2px rgba(255, 215, 0, 1));
+}
+/* 证道体系样式 */
+.zhengdao-title {
+  font-family: 'NZBZ'; /* 使用特殊字体 */
+  font-size: 15px;      /* 字体大小 */
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
+  height: 60px;            /* 固定高度 */
+
+  margin: 10px 0;       /* 上下边距 */
+  
+  background: linear-gradient(to right, 
+    #FF9AA2,      /* 樱花粉 */
+    #FFB7B2,      /* 淡珊瑚 */
+    #FFDAC1,      /* 奶油杏 */
+   #FFFF00,     /* 新增：梅红色（作为奶油杏到冰蓝的过渡） */
+    #B5EAD7,      /* 冰蓝 */
+    #C7CEEA       /* 薰衣草紫 */
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  
+  /* 文字阴影增强可读性 */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 1);
+  
+  /* 边框和背景效果 */
+  padding: 10px 20px;
+  border: 2px solid rgba(135, 31, 120, 1);
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 15px rgba(135, 31, 120, 1);
+}
+
+/* 右侧信息样式 - 增强版 */
+.user_top_font_right {
+  text-align: left;
+  margin: 9px;
+  padding: 15px; /* 增加内边距 */
+  font-size: 24px; /* 增大字体 */
+  width: 350px;
+  height: 40px; /* 增加高度 */
+  font-weight: 500; /* 加粗 */
+  font-family: 'NZBZ', 'tttgbnumber', sans-serif; /* 使用与左侧相同的字体 */
+  
+
+ 
+  
+
+  
+  /* 布局优化 */
+  display: flex;
+  align-items: center; /* 垂直居中 */
+  justify-content: flex-start; /* 左对齐 */
+  padding-left: 20px; /* 左侧留白 */
+  
+  /* 过渡动画 */
+  transition: all 0.3s ease;
+}
+
+/* 悬停效果 */
+.user_top_font_right:hover {
+  transform: scale(1.02);
+  box-shadow: 
+    0 0 20px rgba(135, 31, 120, 0.8),
+    inset 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.user_top_left_dh {
+  font-family: 'NZBZ';
+  background-color: rgba(19, 21, 22, 0.486);
+  margin: 9px;
+  border-radius: 20px;
+  color: azure;
+  margin-left: 13px;
+  width: 240px;
+  height: 40px;
+  padding: 5px;
+  font-size: 35px;
+  text-align: center;
+  box-shadow: 3px 2px 3px #ccc;
+}
+
+.use_data {
+  margin: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 740px;
+}
+
+.use_data2 {
+  margin: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  width: 800px;
+}
+
+.user_font {
+  text-align: left;
+  margin: 9px;
+  font-size: 32px;
+  padding: 15px;
+  font-weight: 600;
+  font-family: 'tttgbnumber';
+  border-radius: 20px;
+  color: #000;
+}
+
+.user_font_title {
+  text-align: center;
+  padding-left: 0px;
+  font-size: 30px;
+}
+
+.gonfa {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gonfa2 {
+  display: flex;
+  flex-grow: 2;
+  width: 33.33%;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+}
+
+.jichu {
+  display: block;
+  flex-grow: 2;
+  width: 50%;
+  height: 80%;
+  font-weight: 600;
+}
+
+
+
+.wuqi {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wuqi1 {
+  display: flex;
+  flex-grow: 2;
+  width: 100%;
+  box-shadow: 0 2px 17px 0 rgb(0 0 0 / 10%);
+}
+
+.wuqi2 {
+  display: flex;
+  flex-grow: 2;
+  width: 25%;
+  font-size: 20px;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  font-weight: 500;
+}
+
+.user_bottom1 {
+  border-radius: 20px;
+  width: 90%;
+  margin: auto;
+  background-image: radial-gradient(rgb(249, 249, 249), rgb(255, 255, 255));
+}
+
+.user_bottom2 {
+  border-radius: 20px;
+  width: 90%;
+  margin: auto;
+  height: 20px;
+}
+
+.xuetiao {
+  white-space: nowrap;
+  border-radius: 10px;
+  background-color: rgb(6, 6, 7, 0.55);
+}
+
+.xueliang {
+  border-radius: 10px;
+  background-color: #0053ffff;
+}
+
+.font_volume {
+  text-align: center;
+  font-family: 'NZBZ';
+  font-size: 16px;
+  font-weight: 400;
+  color: aliceblue;
+
+}
+
+.font_volume_max {
+  font-size: 22px;
+}
+
+.card_box {
+  margin: 10px auto 10px auto;
+  width: 740px;
+  display: flex;
+  flex-wrap: nowrap;
+  
+  /* 增加背景透明度到 20% */
+  background: radial-gradient(at top left, #ffffff99, #d7edea33);
+  
+  /* 增加边框透明度 */
+  border-top: 1px solid rgba(255, 204, 128, 0.8);
+  border-left: 1px solid rgba(255, 204, 128, 0.8);
+  border-right: 1px solid rgba(187, 128, 32, 0.8);
+  border-bottom: 1px solid rgba(187, 128, 32, 0.8);
+  
+  /* 增加阴影透明度 */
+  box-shadow: 
+    1px 2px 6px rgba(170, 31, 0, 0.8),
+    3px 8px 12px rgba(71, 35, 22, 0.8);
+  
+  z-index: 999;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  
+  /* 添加整个容器的透明度 */
+  opacity: 0.9;
+}
+
+.card_box2 {
+  margin: 20px auto 20px auto;
+  width: 800px;
+  display: flex;
+  flex-wrap: nowrap;
+  background: radial-gradient(at top left, #ffffff10, #d7edea10);
+  border-top: 1px solid #ffcc80;
+  border-left: 1px solid #ffcc80;
+  border-right: 1px solid #bb8020;
+  border-bottom: 1px solid #bb8020;
+  box-shadow: 1px 2px 6px rgba(170, 31, 0, 0.2),
+    3px 8px 12px rgba(71, 35, 22, 0.3);
+  z-index: 999;
+}
+
+.wupin {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  margin: 1px;
+  padding: 5px;
+  flex-grow:2;
+  width: 40px;
+  opacity: 0.95;
+  background: #ffcc4d80;
+  border-top: 1px solid #395b39a3;
+  border-left: 1px solid #1c6d3cb3;
+  border-right: 1px solid #1c6d3cb3;
+  border-bottom: 1px solid #1c6d3cb3;
+  box-shadow: 1px 2px 6px #1c6d3cb3, 3px 8px 17px #b7b7b7d1;
+  z-index: 999;
+  border-radius: 5px;
+  margin-top: 1px;
+}
+.item_title {
+  display: block;
+  text-align: center;
+  font-family: 'tttgbnumber';
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.item_title2 {
+  display: block;
+  text-align: center;
+  font-family: 'tttgbnumber';
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  height: 50px;
+}
+
+.item_title3 {
+  display: block;
+  text-align: center;
+  font-family: 'tttgbnumber';
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 200px;
+  color: #000000;
+}
+
+.item_title4 {
+  display: block;
+  text-align: center;
+  font-family: 'tttgbnumber';
+  font-size: 20px;  /* 比标题稍小 */
+  font-weight: 500; /* 比标题稍轻 */
+  color: #000000;     /* 使用深灰色而非纯黑 */
+  height: 30px;    /* 高度降低 */
+  margin-top: -5px; /* 上移靠近标题 */
+  margin-bottom: 5px;
+}
+.item_int {
+  display: block;
+  font-family: 'tttgbnumber';
+  font-size: 16px;
+  font-weight: 500;
+  color: #393535;
+  overflow: hidden;
+  word-wrap: break-word; 
+  white-space: normal; 
+}
+
+.item_int2 {
+  display: block;
+  font-family: 'tttgbnumber';
+  font-size: 16px;
+  font-weight: 500;
+  color: #393535;
+  margin-left: 5px;
+}
+
+.life_container {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+
+.blood_volume {
+  display: inline-block;
+  margin-left: 1px;
+  font-size: 25px;
+
+}
+
+
+.font_left {
+  text-align: left;
+}
