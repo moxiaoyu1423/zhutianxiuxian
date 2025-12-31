@@ -67,7 +67,7 @@ export class BOSS extends plugin {
     if (e.isMaster) {
       if (await BossIsAlive()) {
         await redis.del('Xiuxian:WorldBossStatus');
-        await redis.del('zhutianxiuxian1.0Record');
+        await redis.del('zhutianxiuxianRecord');
         e.reply('妖王挑战关闭！');
       } else e.reply('妖王未开启');
     } else return false;
@@ -100,7 +100,7 @@ export class BOSS extends plugin {
   async ShowDamageList(e) {
     if (!verc({ e })) return false;
     if (await BossIsAlive()) {
-      let PlayerRecord = await redis.get('zhutianxiuxian1.0Record');
+      let PlayerRecord = await redis.get('zhutianxiuxianRecord');
       let WorldBossStatusStr = await redis.get('Xiuxian:WorldBossStatus');
       WorldBossStatusStr = JSON.parse(WorldBossStatusStr);
       PlayerRecord = JSON.parse(PlayerRecord);
@@ -207,7 +207,7 @@ export class BOSS extends plugin {
         }
       }
       let WorldBossStatusStr = await redis.get('Xiuxian:WorldBossStatus');
-      let PlayerRecord = await redis.get('zhutianxiuxian1.0Record');
+      let PlayerRecord = await redis.get('zhutianxiuxianRecord');
       let WorldBossStatus = JSON.parse(WorldBossStatusStr);
       if (new Date().getTime() - WorldBossStatus.KilledTime < 86400000) {
         e.reply(`妖王正在刷新,21点开启`);
@@ -317,7 +317,7 @@ export class BOSS extends plugin {
       }
       await sleep(1000);
       PlayerRecordJSON.TotalDamage[Userid] += TotalDamage;
-      redis.set('zhutianxiuxian1.0Record', JSON.stringify(PlayerRecordJSON));
+      redis.set('zhutianxiuxianRecord', JSON.stringify(PlayerRecordJSON));
       redis.set('Xiuxian:WorldBossStatus', JSON.stringify(WorldBossStatus));
       if (WorldBossStatus.Health <= 0) {
         e.reply('妖王被击杀！玩家们可以根据贡献获得奖励！');
@@ -449,7 +449,7 @@ async function InitWorldBoss(e) {
     };
     let PlayerRecord = 0;
     await redis.set('Xiuxian:WorldBossStatus', JSON.stringify(WorldBossStatus));
-    await redis.set('zhutianxiuxian1.0Record', JSON.stringify(PlayerRecord));
+    await redis.set('zhutianxiuxianRecord', JSON.stringify(PlayerRecord));
     let msg = '【全服公告】妖王已经苏醒,击杀者额外获得100w灵石';
     const redisGlKey = 'xiuxian:AuctionofficialTask_GroupList';
     const groupList = await redis.sMembers(redisGlKey);
@@ -474,7 +474,7 @@ async function pushInfo(id, is_group, msg) {
 async function BossIsAlive() {
   return (
     (await redis.get('Xiuxian:WorldBossStatus')) &&
-      (await redis.get('zhutianxiuxian1.0Record'))
+      (await redis.get('zhutianxiuxianRecord'))
   );
 }
 

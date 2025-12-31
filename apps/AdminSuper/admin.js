@@ -26,7 +26,7 @@ export class admin extends plugin {
     let command = 'git  pull';
     if (isForce) {
       command =
-        'git fetch --all && git reset --hard zhutianxiuxian1.0 && git  pull';
+        'git fetch --all && git reset --hard zhutianxiuxian && git  pull';
       this.e.reply('正在执行强制更新操作，请稍等');
     } else {
       this.e.reply('正在执行更新操作，请稍等');
@@ -36,12 +36,12 @@ export class admin extends plugin {
       { cwd: `${process.cwd()}/plugins/${AppName}/` },
       function (error, stdout, stderr) {
         if (/(Already up[ -]to[ -]date|已经是最新的)/.test(stdout)) {
-          e.reply('目前已经是最新版zhutianxiuxian1.0了~');
+          e.reply('目前已经是最新版zhutianxiuxian了~');
           return false;
         }
         if (error) {
           e.reply(
-            'zhutianxiuxian1.0更新失败！\nError code: ' +
+            'zhutianxiuxian更新失败！\nError code: ' +
               error.code +
               '\n' +
               error.stack +

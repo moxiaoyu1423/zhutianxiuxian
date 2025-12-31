@@ -90,7 +90,7 @@ export class BOSS2 extends plugin {
     if (e.isMaster) {
       if (await BossIsAlive()) {
         await redis.del('Xiuxian:WorldBossStatus2');
-        await redis.del('zhutianxiuxian1.0Record2');
+        await redis.del('zhutianxiuxianRecord2');
        e.reply("恐怖的黑暗动乱气息惊扰到了如梦道祖，只见他睁眼望向诸天万界，眸光照耀永恒无垠的黑暗宇宙，划破了一切既定未定，截断了整片黑暗动乱的时空，将这段历史从古史的源头中直接抹去了，世间万灵都对这段过往失去了记忆！");
       } else e.reply('黑暗动乱早已结束');
     } else return false;
@@ -125,7 +125,7 @@ export class BOSS2 extends plugin {
   //黑暗动乱伤害贡献榜
     async ShowDamageList(e) {
         if (await BossIsAlive()) {
-            let PlayerRecord = await redis.get("zhutianxiuxian1.0Record2");
+            let PlayerRecord = await redis.get("zhutianxiuxianRecord2");
             let WorldBossStatusStr = await redis.get("Xiuxian:WorldBossStatus");
             let WorldBossStatus = JSON.parse(WorldBossStatusStr);
             if (WorldBossStatus == undefined) {
@@ -229,7 +229,7 @@ export class BOSS2 extends plugin {
       }
 
           let WorldBossStatusStr = await redis.get('Xiuxian:WorldBossStatus2');
-    let PlayerRecord = await redis.get('zhutianxiuxian1.0Record2');
+    let PlayerRecord = await redis.get('zhutianxiuxianRecord2');
     let WorldBossStatus = JSON.parse(WorldBossStatusStr);
     
     // ==== 新增的拦截逻辑 ====
@@ -401,7 +401,7 @@ export class BOSS2 extends plugin {
                     if (!WorldBossStatus.isWeak && BOSSCurrentDefence < WorldBossStatus.Defence) BOSSCurrentDefence = WorldBossStatus.Defence;
       await sleep(1000);
       PlayerRecordJSON.TotalDamage[Userid] += TotalDamage;
-      redis.set('zhutianxiuxian1.0Record2', JSON.stringify(PlayerRecordJSON));
+      redis.set('zhutianxiuxianRecord2', JSON.stringify(PlayerRecordJSON));
       redis.set('Xiuxian:WorldBossStatus2', JSON.stringify(WorldBossStatus));
 // 修改后的物品选择函数（使用物品池中的数量）
 function getRandomItems(items, count) {
@@ -585,7 +585,7 @@ async function InitWorldBoss(e) {
 };
   let PlayerRecord = 0;
   await redis.set('Xiuxian:WorldBossStatus2', JSON.stringify(WorldBossStatus));
-  await redis.set('zhutianxiuxian1.0Record2', JSON.stringify(PlayerRecord));
+  await redis.set('zhutianxiuxianRecord2', JSON.stringify(PlayerRecord));
   let msg = '【诸天位面公告】各大禁区至尊已经出世，发动了黑暗动乱，收割诸天万灵生命补充血气冲击成仙路，平定黑暗动乱的玩家会有天道赐予奖励';
   const redisGlKey = 'xiuxian:AuctionofficialTask_GroupList';
   const groupList = await redis.sMembers(redisGlKey);
@@ -611,7 +611,7 @@ async function pushInfo(id, is_group, msg) {
 async function BossIsAlive() {
   return (
     (await redis.get('Xiuxian:WorldBossStatus2')) &&
-      (await redis.get('zhutianxiuxian1.0Record2'))
+      (await redis.get('zhutianxiuxianRecord2'))
   );
 }
 

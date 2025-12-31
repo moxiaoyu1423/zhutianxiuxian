@@ -1,7 +1,7 @@
 <div align="center">
 <br>
 <h1>诸天万界修仙V1.0「遮天三部曲」
-<img src='https://gitee.com/mo-wuming/zhutianxiuxian1.0/badge/star.svg?theme=dark'  alt='star'></img>
+<img src='https://gitee.com/mo-wuming/zhutianxiuxian/badge/star.svg?theme=dark'  alt='star'></img>
 </h1>
 </br>
 </div> 

@@ -109,7 +109,7 @@ export class BOSS4 extends plugin {
     if (e.isMaster) {
       if (await BossIsAlive()) {
         await redis.del('Xiuxian:WorldBossStatus2');
-        await redis.del('zhutianxiuxian1.0Record2');
+        await redis.del('zhutianxiuxianRecord2');
 
         // 删除所有天骄的复活CD和贡献榜
         for (const tianjiao of data.weimiantianjiao_list) {

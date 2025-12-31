@@ -57,7 +57,7 @@ export class SecretPlaceTask extends plugin {
     //获取缓存中人物列表
     let playerList = [];
     let files = fs
-      .readdirSync('./plugins/zhutianxiuxian1.0/resources/data/xiuxian_player')
+      .readdirSync('./plugins/zhutianxiuxian/resources/data/xiuxian_player')
       .filter(file => file.endsWith('.json'));
     for (let file of files) {
       file = file.replace('.json', '');

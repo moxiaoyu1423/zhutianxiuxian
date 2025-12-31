@@ -1,6 +1,6 @@
 import path from 'path';
 /**自定义全局插件名*/
-export const AppName = 'zhutianxiuxian1.0';
+export const AppName = 'zhutianxiuxian';
 
 export const ThePath = `${path.resolve().replace(/\\/g, '/')}`;
 

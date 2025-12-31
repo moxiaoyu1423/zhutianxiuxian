@@ -1072,7 +1072,7 @@ async jianyunhaiChoice(e) {
 async checkJianyunhaiChuanren() {
     try {
         // 获取所有玩家文件
-        const playerFiles = fs.readdirSync('./plugins/zhutianxiuxian1.0/resources/data/xiuxian_player')
+        const playerFiles = fs.readdirSync('./plugins/zhutianxiuxian/resources/data/xiuxian_player')
             .filter(file => file.endsWith('.json'));
         
         for (let file of playerFiles) {
